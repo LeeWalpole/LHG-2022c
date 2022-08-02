@@ -8,10 +8,16 @@ console.log("Hello home!");
 </script>
 
 
+
+
+
 <?php get_template_part( 'hero/hero' ); ?>
 
+<!--  get_template_part below -->
 <?php get_template_part( 'blocks/blocks' ); ?>
 
+<!--  include below -->
+<?php include( 'blocks/blocks.php' ); ?>
 
 
 
