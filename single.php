@@ -2,9 +2,6 @@
 
 
 
-
-
-
 <?php if( have_rows('hero_header') ):
         while( have_rows('hero_header') ) : the_row();?>
 
@@ -47,6 +44,13 @@
 <?php // get_template_part( 'snippets/snippet-hero' ); ?>
 <?php // get_template_part( 'snippets/snippet-feature' ); ?>
 
+<style>
+@media (min-width: 821px) {
+.article-block .feature {
+        padding:0!important;
+    }
+}
+</style>
 
 
 
