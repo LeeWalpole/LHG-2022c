@@ -4,17 +4,7 @@ echo $headline = get_field('hero_headline') ?: get_the_title();
 echo $subheadline = get_field('hero_subheadline'); 
 ?>
 
-<?php // CTA Buttons For Hero
-$hero_cta_1 = get_sub_field('cta_1');
-$hero_cta_1_target = $hero_cta_1['target'] ? $hero_cta_1['target'] : '_self'; 
-$hero_cta_1_title = $hero_cta_1['title'];
-$hero_cta_1_url = $hero_cta_1['url'];
 
-$hero_cta_2 = get_sub_field('cta_2');
-$hero_cta_2_target = $hero_cta_2['target'] ? $hero_cta_2['target'] : '_self'; 
-$hero_cta_2_title = $hero_cta_2['title'];
-$hero_cta_2_url = $hero_cta_2['url'];
-?>
 
 
 <?php if (is_tax() || is_category() || is_tag() || is_post_type_archive() || is_front_page() )  { ?>
