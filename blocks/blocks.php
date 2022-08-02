@@ -11,7 +11,7 @@ console.log("block hero");
 
 
 <?php } elseif( get_row_layout() == 'showcase_block' ) { ?>
-<?php // get_template_part( 'blocks/block-showcase' ); ?>
+<?php get_template_part( 'blocks/block-showcase' ); ?>
 
 <script>
 console.log("block showcase");
