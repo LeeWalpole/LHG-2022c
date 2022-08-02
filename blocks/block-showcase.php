@@ -1,10 +1,27 @@
-<?php     
-$teaser_count = -1;
-$query_category = get_sub_field('query_category');
-// $category_link = get_category_link( $teaser_category);
+<?php
+
+// Check rows exists.
+if( have_rows('repeater_field_name') ):
+
+    // Loop through rows.
+    while( have_rows('repeater_field_name') ) : the_row();
+
+        $teaser_count = -1;
+        $query_category = get_sub_field('query_category');
+        // $category_link = get_category_link( $teaser_category);
+
+    // End loop.
+    endwhile;
+
+// No value.
+else :
+    // Do something...
+endif;
 ?>
 
-<?php echo $query_category = get_sub_field('query_category'); ?>
+
+
+
 
 
 <div class="showcase-feature row-block">
