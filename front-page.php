@@ -3,6 +3,9 @@
 
 <?php // get_template_part( 'snippets/snippet-hero' ); ?>
 
+<script>
+console.log("Hello home!");
+</script>
 
 
 <?php get_template_part( 'hero/hero' ); ?>
