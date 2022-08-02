@@ -14,7 +14,6 @@ $subheadline = get_sub_field('hero_subheadline');
         <?php if( $kicker ): ?><strong class="kicker"><?php echo $kicker; ?></strong><?php endif;?>
         <?php if( $headline ): ?><h1 class="headline"><?php echo $headline; ?></h1><?php endif;?>
         <?php if( $subheadline ) : ?><p class="subheadline"><?php echo $subheadline; ?></p><?php endif; ?>
-        <?php endif; ?>
         <?php if ($hero_cta_1) { ?>
         <?php // include( 'cta.php' ); // Call to Action Buttons if available  ?>
         <?php } else { ?>
@@ -44,7 +43,6 @@ $subheadline = get_sub_field('hero_subheadline');
     </section>
 </div>
 
-<?php } ?>
 
 
 
