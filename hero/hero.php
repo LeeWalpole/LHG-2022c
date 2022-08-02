@@ -9,6 +9,7 @@ echo $hero_subheadline = get_field('hero_subheadline');
 <div class="hero">
     <section class="hero-stack">
         <header class="header">
+            <strong class="kicker"><?php echo $hero_kicker; ?></strong>
             <h1 class="headline"><?php echo $hero_headline; ?></h1>
             <div class="subheadline"><?php echo $hero_subheadline; ?></div>
             <?php /* if ($hero_cta_1) : ?>
