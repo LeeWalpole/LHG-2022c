@@ -16,22 +16,20 @@ console.log("block hero");
 
 <?php $category_id = get_sub_field('query_category');  ?>
 
-<?php
-$lastposts = get_posts( array(
-  'posts_per_page' => 1, 
-  'offset'=> 0, 
-  'category' => $category_id
-) );
-if ( $lastposts ) {
-    foreach ( $lastposts as $post ) :
-        setup_postdata( $post ); ?>
-        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <?php the_content(); ?>
+<ul>
     <?php
-    endforeach; 
-    wp_reset_postdata();
-}
-?>
+    $args = array( 'posts_per_page' => 5, 'offset'=> 1, 'category' => $category_id );
+
+    $myposts = get_posts( $args );
+    foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+        <li>
+            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        </li>
+    <?php endforeach; 
+    wp_reset_postdata();?>
+
+
+    </ul>
 
 
 
