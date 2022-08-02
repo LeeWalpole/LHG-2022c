@@ -55,6 +55,7 @@
 
     <?php get_template_part( 'snippets/nav','top' ); ?>
 
-
-
     <main>
+
+    <?php get_template_part( 'hero/hero' ); ?>
+<?php get_template_part( 'blocks/blocks' ); ?>
