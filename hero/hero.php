@@ -9,10 +9,12 @@ echo $hero_subheadline = get_field('hero_subheadline');
 <div class="hero">
     <section class="hero-stack">
         <header class="header">
-   
+            <h1 class="headline"><?php echo $hero_headline; ?></h1>
+            <div class="subheadline"><?php echo $hero_subheadline; ?></div>
             <?php /* if ($hero_cta_1) : ?>
             <?php include( 'cta.php' ); // Call to Action Buttons if available  ?>
             <?php endif; */ ?>
         </header>
     </section>
 </div>
+
