@@ -1,7 +1,5 @@
 <script>
-    
-    console.log("hero.php");
-
+console.log("Hello world!");
 </script>
 
 
