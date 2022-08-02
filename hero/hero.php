@@ -4,11 +4,13 @@ echo $hero_headline = get_field('hero_headline') ?: get_the_title();
 echo $hero_subheadline = get_field('hero_subheadline'); 
 ?>
 
+
+
 <div class="hero">
     <section class="hero-stack">
         <header class="header">
-            <?php if ($hero_headline) : ?><h1 class="headline"><?php echo $hero_headline ?></h1><?php endif; ?>
-            <?php if ($hero_subheadline) : ?><div class="subheadline"><?php echo $hero_subheadline ?></div>
+            <?php if ($hero_headline) : ?><h1 class="headline"><?php echo $hero_headline; ?></h1><?php endif; ?>
+            <?php if ($hero_subheadline) : ?><div class="subheadline"><?php echo $hero_subheadline; ?></div><?php endif; ?>
             <?php /* if ($hero_cta_1) : ?>
             <?php include( 'cta.php' ); // Call to Action Buttons if available  ?>
             <?php endif; */ ?>
