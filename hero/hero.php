@@ -6,10 +6,9 @@ echo $subheadline = get_field('hero_subheadline');
 
 
 
-
 <?php if (is_tax() || is_category() || is_tag() || is_post_type_archive() || is_front_page() )  { ?>
 
-<div class="hero <?php if ($hero_class) : echo $hero_class; endif; ?>">
+<div class="hero">
     <section class="hero-stack">
         <header class="header">
             <?php if ($headline) : ?><h1 class="headline"><?php echo $headline ?></h1><?php endif; ?>
@@ -23,7 +22,7 @@ echo $subheadline = get_field('hero_subheadline');
 
 <?php } elseif (is_single() )  { ?>
 
-<div class="hero <?php if ($hero_class) : echo $hero_class; endif; ?>">
+<div class="hero">
     <section class="hero-stack">
         <header class="header">
             <?php if ($kicker) : ?><strong class="kicker"><?php echo $kicker ?></strong><?php endif; ?>
@@ -36,9 +35,9 @@ echo $subheadline = get_field('hero_subheadline');
     </section>
 </div>
 
-<?php } else {?>
+<?php } else { ?>
 
-    <div class="hero <?php if ($hero_class) : echo $hero_class; endif; ?>">
+    <div class="hero">
     <section class="hero-stack">
         <header class="header">
             <?php if ($headline) : ?><h1 class="headline"><?php echo $headline ?></h1><?php endif; ?>
