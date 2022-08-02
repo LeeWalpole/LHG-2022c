@@ -11,9 +11,8 @@ console.log("Hello home!");
 
 
 
-<?php get_template_part( 'hero/hero' ); ?>
-
-<!--  get_template_part below -->
+<?php get_template_part( 'snippets/hero' ); ?>
+<?php get_template_part( 'snippets/feature' ); ?>
 <?php get_template_part( 'blocks/blocks' ); ?>
 
 <!--  include below -->
