@@ -1,6 +1,4 @@
-<?php 
-$category_id = get_sub_field('query_category'); 
-?>
+<?php $category_id = get_sub_field('query_category');  ?>
 
 
 <div class="showcase-feature row-block">
