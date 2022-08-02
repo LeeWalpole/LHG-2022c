@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre.min.css">
+
+    <!--     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.pkgd.min.js"></script>
+
+    <style>
+        .img-full {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .carousel-cell {
+            width: 100%;
+            /* full width */
+            /* height of carousel, if not using adaptive height option */
+            /*   height: 300px; */
+            margin-right: 10px;
+        }
+
+        .flickity-viewport {
+            transition: height 0.4s ease-out;
+        }
+
+        @media (max-width: 600px) {
+            .main-carousel {
+                margin-bottom: 3em;
+            }
+        }
+
+        /* demo stuff */
+        .container {
+            margin-top: 1em;
+        }
+
+        .morecontent {
+            margin-top: 3em;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id='app'>
+        <div class='carousel' ref='flickity'>
+            <div class='item'>
+                <p class='label'>test 2</p>
+            </div>
+            <div class='item'>
+                <p class='label'>test 2</p>
+            </div>
+            <div class='item'>
+                <p class='label'>test 2</p>
+            </div>
+            <div class='item'>
+                <p class='label'>test 2</p>
+            </div>
+            <div class='item'>
+                <p class='label'>test 2</p>
+            </div>
+            <div class='item'>
+                <p class='label'>test 2</p>
+            </div>
+            <div class='item'>
+                <p class='label'>test 2</p>
+            </div>
+        </div>
+
+        <button label='add' @click='addItem'>Add</button>
+    </div>
+
+
+    <style>
+        .carousel {
+            margin: 5%
+        }
+
+        .item {
+            width: 400px;
+            height: 200px;
+            background: #7AA011
+        }
+
+        .label {
+            padding: 5%;
+            color: white
+        }
+    </style>
+
+    <script>
+        let flickity;
+        const initFlickity = () => {
+            flickity = new Flickity('.carousel', {
+
+            })
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                counter: 1,
+                items: [{
+                    label: 'cell: 1'
+                }]
+            },
+            mounted() {
+                initFlickity()
+            },
+            methods: {
+                addItem() {
+                    this.counter++
+                    this.items.push({
+                        label: `cell: ${this.counter}`
+                    })
+
+                    this.$nextTick(() => {
+                        flickity.destroy()
+                        initFlickity()
+                    })
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

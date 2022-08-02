@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue SPA</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="">
+
+    <link rel="preload" as="style" href="../css/temp.css" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="dist/min.css?2" onload="this.rel='stylesheet'">
+
+
+</head>
+
+<!-- Copy and pasted instructions from https://vuejs.org/examples/#modal -->
+
+
+<!-- <script type="module">
+            import { createApp } from 'vue'
+            import Modal from 'Modal.js'
+            
+            createApp({
+              components: {
+                Modal
+              },
+              data() {
+                return {
+                  showModal: false
+                }
+              }
+            }).mount('#app')
+            </script> -->
+
+<body>
+
+
+
+
+
+    <main id="app">
+
+
+
+
+        <div id="nav">
+            <div :class="[isOpenMenu ? 'show-mobile-menu' : '']" class="offcanvas-mobile-menu">
+                <div @click="toggle" class="mobile-menu-overlay"></div>
+                <div class="inner">
+                    <div class="mobile-header">
+                        <div class="logo text-white">
+                            Logo
+                        </div>
+                        <button @click="toggle" class="mobile-close-btn"></button>
+                    </div>
+                    <div class="menu-content">
+                        <div class="mobile-navigation">
+                            <nav class="offcanvas-navigation">
+                                <ul>
+                                    <li><a href="">List 1</a></li>
+                                    <li><a href="">List 2</a></li>
+                                    <li><a href="">List 3</a></li>
+                                    <li><a href="">List 4</a></li>
+                                    <li><a href="">List 5</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+        <!-- TOP FIX NAV / HEADER BAR-->
+
+
+        <nav class="header-nav-menu">
+            <ul class="w-safe m-auto">
+                <li>
+                    <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                    <router-link to="/menu">Menu</router-link>
+                </li>
+                <li>
+                    <router-link to="/profiles">Profiles</router-link>
+                </li>
+
+                <li> <button id="show-modal" @click="showModal = true">1</button>
+                </li>
+
+                <li> <button id="show-modal" @click="toggle">
+                        <p :class="[isOpenMenu ? 'hidden' : 'block', 'h-6 w-6']">MENU</p>
+                        <!-- <p :class="[isOpenMenu ? 'block' : 'hidden', 'h-6 w-6']">1</p> -->
+                    </button>
+                </li>
+
+                <li><button @click="toggle" class="bg-red-700 text-white px-4 py-2 rounded-md">
+                        <!-- 		Button icon gamburger		 -->
+                        <svg :class="[isOpenMenu ? 'hidden' : 'block', 'h-6 w-6']" stroke="currentColor" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16">
+                            </path>
+                        </svg>
+                        <!-- 		Button icon cross		 -->
+                        <svg :class="[isOpenMenu ? 'block' : 'hidden', 'h-6 w-6']" stroke="currentColor" fill="none"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12">
+                            </path>
+                        </svg>
+                    </button></li>
+
+            </ul>
+        </nav>
+
+
+
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+        <!-- LOAD APP CONTENT IN HERE BASED ON ROUTES -->
+
+        <router-view v-slot="{ Component }">
+            <transition name="fade" mode="out-in">
+                <!-- <keep-alive> -->
+                <section class="app-content w-safe m-auto">
+                    <component :is="Component" :key="$route.path" />
+                    <!-- </keep-alive> -->
+                </section>
+            </transition>
+        </router-view>
+
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+        <!-- BOTTOM FIX NAV / TAB BAR-->
+
+
+        <footer class="footer-nav-menu">
+
+            <ul class="w-safe m-auto">
+                <li style="background-color:blue !important;">
+                    <router-link to="/profiles/blackwidow#anchor">Profile: Black Widow</router-link>
+                </li>
+                <li>
+                    <router-link to="/chats/">Chat / Messages</router-link>
+                </li>
+                <li>
+                    <router-link to="/feed/">Feed</router-link>
+                </li>
+
+            </ul>
+        </footer>
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    </main>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+    <!-- HOME TEMPLATE -->
+    <template id="home">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p>
+
+
+
+
+
+    </template>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    <!-- MENU TEMPLATE -->
+    <template id="menu">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p>
+    </template>
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+    <!-- CHAT TEMPLATE -->
+    <template id="chats">
+        <!-- <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p> -->
+
+        <div class="flex-middle">
+            <section>
+
+                <header>
+                    <h1>Create your Flames profile</h1>
+                    <p>We will email you to verify your account.</p>
+                </header>
+
+
+                <div id="app_firebase_register" class="form">
+                    <form v-if="!authUser" @submit.prevent class="mt-3">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <h3 class="font-weight-light mb-3">Register/Log In</h3>
+                                            <div class="form-row">
+                                                <section class="col-sm-12 form-group">
+                                                    <input class="form-control" type="displayName"
+                                                        placeholder="Display Name" v-model="displayName">
+                                                </section>
+                                            </div>
+                                            <div class="form-row">
+                                                <section class="col-sm-12 form-group">
+                                                    <input class="form-control" type="email" placeholder="Email Address"
+                                                        v-model="email">
+                                                </section>
+                                            </div>
+                                            <div class="form-row">
+                                                <section class="col-sm-12 form-group">
+                                                    <input class="form-control" type="password" placeholder="Password"
+                                                        v-model="password">
+                                                </section>
+                                            </div>
+
+                                            <div class="form-group text-right mb-0">
+                                                <button class="btn btn-primary" type="submit" @click="register">
+                                                    Register
+                                                </button>
+                                                <button class="btn btn-info" type="submit" @click="logIn">
+                                                    Login
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div v-else>
+                        <span id="welcome">Welcome back {{ authUser.displayName }}</span>
+                        <button class="btn btn-danger" @click="logOut">Log Out</button>
+                        <hr>
+                        <tweet v-for="tweet in tweets" :tweet="tweet"></tweet>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+
+
+    </template>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+    <!-- PROFILES TEMPLATE -->
+    <template id="profiles">
+        <!-- <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p> -->
+
+        <!-- <p>New API: {{profiles}}</p> -->
+        <section class="bg-color" data-theme="light">
+            <div class="grid-3 w-safe m-auto bg-offwhite" data-theme="light">
+
+                <div v-for="profile in profiles" class="gallery-thumbnails">
+
+                    <figure v-if="profile.profile_image.url" class="gallery-thumbnail bg-offwhite">
+                        <router-link :to="'/profiles/' + profile.slug">
+                            <!-- <p>{{profile.slug}}</p> -->
+                            <picture class="ratio" data-ratio="1x1">
+                                <img :src="profile.profile_image.sizes.thumbnail">
+                            </picture>
+                        </router-link>
+                    </figure>
+
+                    <figure v-else>
+                        <router-link :to="'/profiles/' + profile.slug">
+                            <!-- <p>{{profile.slug}}</p> -->
+                            <picture>
+                                <img :src="placeholder_image_small">
+                            </picture>
+                        </router-link>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+    </template>
+
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- Feed Template :  -->
+
+
+    <template id="feed">
+        <!-- <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p> -->
+
+
+
+        <!-- <p>New API: {{profiles}}</p> -->
+        <section class="bg-color" data-theme="dark">
+            <div class=" w-safe w-mob m-auto bg-black relative" data-theme="dark">
+
+
+                <div v-for="profile in profiles" class="feed-content">
+
+                    <!-- 
+                        Delay the rendering of the Flickity component until your data is available.
+                        https://github.com/drewjbartlett/vue-flickity/issues/2
+                    -->
+
+                    <header class="profile-header post-feed-header">
+                        <section href="http://localhost:3000/author/greenseller/"
+                            class="profile-header-items js-modal-close bg-black" data-theme="dark">
+
+                            <figure v-if="profile.profile_image.url" class="profile-mugshot ">
+                                <picture class="">
+                                    <img :src="profile.profile_image.url" loading="lazy" class="squircle"
+                                        alt="Natcha Profile Pic for Flames Agency" />
+                                </picture>
+                            </figure>
+
+                            <figure v-else class="profile-mugshot">
+                                <picture>
+                                    <img :src="placeholder_image_small" loading="lazy"
+                                        alt="Natcha Profile Pic for Flames Agency" />
+                                </picture>
+                            </figure>
+                            <router-link :to="'/profiles/' + profile.slug">
+                                <div id="profile-meta" class="profile-meta bg-black" data-theme="dark">
+                                    <h2 class="profile-name" id="display_name" v-model="name">
+                                        {{ profile.display_name }}
+                                    </h2>
+                                    <small>@{{ profile.slug }}
+                                    </small>
+                                </div>
+                            </router-link>
+
+                            <!-- <a href="javascript:void(0);" data-modal="popup-1"
+                                    style="position:absolute; right:var(--padding);" class="modal-trigger">
+                                    <img src="https://www.flames.agency/wp-content/uploads/Flames-Icon-Love-Support.png"
+                                        height="40">
+                                </a> -->
+                        </section>
+                    </header>
+
+
+
+                    <div class="carousel" ref='flickity'
+                        data-flickity='{ "selectedAttraction": 0.2, "friction": 0.8, "lazyLoad": 1}'>
+
+                        <div class="carousel-cell" v-for="gallery in profile.gallery">
+                            <feature>
+                                <picture class="ratio" data-ratio="4x5">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                        :data-flickity-lazyload="gallery.url" loading="lazy">
+                                </picture>
+                                <!-- <figcaption>
+                                    Caption here: {{gallery.caption}}
+                                </figcaption> -->
+                            </feature>
+                        </div>
+                    </div>
+
+
+                    <!-- This doesn't display properly -->
+                    <!-- <div v-if="profile.profile_image.url.length > 0">
+                            <flickity :ref="'flickity' + profile.id" :options="flickityOptions"
+                                class="carousel">
+                                <div class="carousel-cell" v-for="gallery in profile.gallery" :key="gallery.ID">{{ gallery.ID }}</div>
+                            </flickity>
+                        </div> -->
+
+                    <!-- When I get the above example working in the page, I will try to use the for loop to populate the data -->
+
+                    <!-- flickityOptions or :options attribute does nothing as it is not a vue component -->
+                    <div id="flickity" class="carousel"
+                        data-flickity='{ "freeScroll": false, "contain": true, "prevNextButtons": false, "pageDots": true, "wrapAround": true, "lazyload": 1, "dragThreshold": 44, "selectedAttraction": 0.025, "friction": 0.28 }'>
+                        <div class="carousel-cell" v-for="gallery in profile.gallery">
+                            <feature>
+                                <picture class="ratio" data-ratio="4x5">
+                                    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                        :data-flickity-lazyload="gallery.url" loading="lazy">
+                                </picture>
+
+                                <figcaption>
+                                    Caption here: {{gallery.caption}}
+                                </figcaption>
+
+                            </feature>
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="grid">
+                        <feature v-for="gallery in profile.gallery">
+                            <picture class="ratio" data-ratio="4x5">
+                                <img :src="gallery.url">
+                            </picture>
+
+                            <figcaption>
+                                Caption here: {{gallery.caption}}
+                            </figcaption>
+
+                        </feature>
+                    </div>
+                    <footer class="post-feed-footer">
+                        <ul>
+                            <li>List Item</li>
+                            <li>List Item</li>
+                        </ul>
+                    </footer>
+
+                    <figure class="bg-blur">
+                        <img :src="profile.profile_image.sizes.thumbnail">
+                    </figure> -->
+
+                    </article>
+
+
+
+                </div>
+            </div>
+        </section>
+
+    </template>
+
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- Single Profile Template :  -->
+
+
+    <template id="profile">
+
+        <div v-for="user in profile" :key='profile._id' class="profile-desktop">
+
+            <!-- data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= -->
+
+            <section class="bg-black profile-feature" data-theme="dark">
+
+                <figure v-if="user.profile_image" class="ratio" data-ratio="3x2">
+
+                    <img :src="user.profile_image.sizes.medium" loading="lazy"
+                        alt="Natcha Profile Pic for Flames Agency" class="feature-image" />
+                </figure>
+
+                <figure v-else class="feature-image">
+                    <picture class="ratio" data-ratio="3x2">
+                        <img :src="placeholder_image_small" loading="lazy" alt="Natcha Profile Pic for Flames Agency" />
+                    </picture>
+                </figure>
+
+            </section>
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+            <section id="profile-header-and-tabs" class="profile-header-and-tabs">
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+                <header id="profile-header" class="profile-header colspan-12 bg-black" data-theme="dark">
+                    <section href="http://localhost:3000/author/greenseller/"
+                        class="profile-header-items js-modal-close">
+
+                        <figure v-if="user.profile_image" class="profile-mugshot ">
+                            <picture class="">
+                                <img :src="user.profile_image.sizes.medium" loading="lazy" class="squircle"
+                                    alt="Natcha Profile Pic for Flames Agency" />
+                            </picture>
+                        </figure>
+
+                        <figure v-else class="profile-mugshot">
+                            <picture>
+                                <img :src="placeholder_image_small" loading="lazy"
+                                    alt="Natcha Profile Pic for Flames Agency" />
+                            </picture>
+                        </figure>
+
+                        <div id="profile-meta" class="profile-meta">
+                            <h2 class="profile-name" id="display_name" v-model="name">{{ user.display_name }}</h2>
+                            <small>@{{ user.slug }}
+                            </small>
+                        </div>
+
+                        <!-- <a href="javascript:void(0);" data-modal="popup-1"
+                            style="position:absolute; right:var(--padding);" class="modal-trigger">
+                            <img src="https://www.flames.agency/wp-content/uploads/Flames-Icon-Love-Support.png"
+                                height="40">
+                        </a> -->
+                    </section>
+                </header>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+                <nav class="bg-offblack profile-tabs" data-theme="dark">
+                    <ul class="profile-tab-links">
+                        <li class="profile-tab-link"><a v-on:click="activetab='1'"
+                                v-bind:class="[ activetab === '1' ? 'active' : '' ]">Gallery</a></li>
+                        <li class="profile-tab-link"><a v-on:click="activetab='2'"
+                                v-bind:class="[ activetab === '2' ? 'active' : '' ]">About</a></li>
+                        <li class="profile-tab-link"><a v-on:click="activetab='3'"
+                                v-bind:class="[ activetab === '3' ? 'active' : '' ]">Links</a></li>
+                    </ul>
+                </nav>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+            </section><!-- profile-header-and-tabs -->
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+            <div class="content">
+
+                <!-- Grid Gallery Section -->
+                <div v-if="activetab ==='1'" class=" w-safe m-auto bg-color grid-3">
+
+
+                    <section v-for="image in user.gallery" :key='profile._gallery' class="gallery-thumbnails">
+                        <figure class="image ratio bg-offwhite" data-ratio="1x1">
+                            <router-link :to="'/profiles/' + profile.slug">
+                                <picture>
+                                    <img :src="image.sizes.thumbnail" :alt="user.display_name - user.slug">
+                                </picture>
+                            </router-link>
+                        </figure>
+                    </section>
+
+                </div>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+                <!-- Bio / About Section -->
+                <div v-if="activetab ==='2'" class="tabcontent">
+
+                    <section class="grid">
+
+                        <aside v-if="user.dob" class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Age</strong>
+                            <p id="select-nationality-result">{{user.dob_mm}}</p>
+                        </aside>
+
+                        <aside v-else class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Age</strong>
+                            <p id="select-nationality-result">-</p>
+                        </aside>
+
+                        <aside v-if="user.location" class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Location</strong>
+                            <p id="select-nationality-result">{{user.location}}</p>
+                        </aside>
+
+                        <aside v-else class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Location</strong>
+                            <p id="select-nationality-result">-</p>
+                        </aside>
+
+                        <aside v-if="user.bio" id="about-bio" class="profile-aside colspan-12" data-theme="dark">
+                            <strong>Bio</strong>
+                            <p id="about_bio_value">{{user.bio}}</p>
+                        </aside>
+
+                        <aside v-else class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Bio</strong>
+                            <p id="about_bio_value">-</p>
+                        </aside>
+
+                    </section>
+
+                </div>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+                <!-- Links and Socials Section -->
+
+                <div v-if="activetab ==='3'" class="tabcontent">
+                    <table>
+                        <tr>
+                            <td class="legend">Area:</td>
+                            <td class="data">357,386 km<sup>2</sup></td>
+                            <td rowspan="5"><img class="map"
+                                    src="https://drive.google.com/thumbnail?id=1JQyW1aThQxnlk3ZmogomTzhDkQGKbdC1"></td>
+                        </tr>
+                        <tr>
+                            <td class="legend">Population:</td>
+                            <td class="data">83 million</td>
+                        </tr>
+                        <tr>
+                            <td class="legend">Capital:</td>
+                            <td class="data">Berlin</td>
+                        </tr>
+                        <tr>
+                            <td class="legend">Language:</td>
+                            <td class="data">German</td>
+                        </tr>
+                        <tr>
+                            <td class="legend" valign="top">Flag:</td>
+                            <td class="data"><img class="flag"
+                                    src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1000px-Flag_of_Germany.svg.png"
+                                    width="89"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+            </div>
+
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    </template>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    <!-- 
+            <div style="display:none;">
+            <li v-for="item in profile">
+                <p>ID: {{ item.id }}</p>
+                <p>Cover Image URL: {{ item.acf.cover_image.url }}</p>
+                <p>Gallery Title: {{ item.acf.gallery.title }}</p>
+
+                <p>Gallery Title: {{ item.acf.gallery.title }}</p>
+                <h6 v-for="item in profile.acf">{{item.gallery.id}}</h6>
+
+            </li>
+            <li v-for="item in profile">{{ item }}</li> -->
+
+    <!-- custom JS -->
+
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    <script src="index.js"></script>
+
+    <style>
+        /* fade in image when loaded */
+        .carousel-cell-image {
+            transition: opacity 0.4s;
+            opacity: 0;
+        }
+
+        .carousel-cell-image.flickity-lazyloaded,
+        .carousel-cell-image.flickity-lazyerror {
+            opacity: 1;
+        }
+    </style>
+
+
+
+
+</body>
+
+</html>

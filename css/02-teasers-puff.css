@@ -1,0 +1,71 @@
+
+.puff {
+    position: relative;
+    width: 100%;
+    color: inherit
+}
+
+.puff figure {
+    width: var(--puff-width);
+    min-height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2
+}
+
+.puff figure img {
+    width: var(--puff-width);
+    height: var(--puff-height);
+}
+
+.puff header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    z-index: 1;
+    padding: 0;
+    padding-right: var(--padding-small);
+    padding-left: calc(var(--puff-width) + var(--padding-small));
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: left !important
+}
+
+.puff .kicker {
+    text-align: left
+}
+
+.puff .headline {
+    font-weight: var(--regular);
+    font-size: var(--p);
+    line-height: 1.4;
+    color: var(--color-black);
+    margin: 0;
+    text-align: left
+}
+
+.puff img,
+.puff picture {
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+
+
+
+
+
+
+
+

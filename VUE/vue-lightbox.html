@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <!-- the lightbox uses body-scroll-lock as a dependency -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@morioh/v-lightbox/dist/lightbox.min.js"></script>
+
+    <link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/npm/@morioh/v-lightbox/dist/lightbox.css" />
+    <link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/npm/morioh@1.0.9/dist/css/morioh.min.css" />
+
+    <link rel="stylesheet" media="all" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" />
+
+    <style>
+        #gallery {
+            width: 30%;
+            margin: 0 auto;
+        }
+    </style>
+
+
+
+    <div id="gallery">
+        <lightbox :items="images"></lightbox>
+    </div>
+    <div id="gallery">
+        <lightbox :items="images"></lightbox>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#gallery',
+            data() {
+                return {
+
+                    images: ["https://d365pjkgt5rd4j.cloudfront.net/images/products/hd/TRC0003_3.jpg",
+                        "https://d365pjkgt5rd4j.cloudfront.net/images/products/hd/TRC0003_4.jpg",
+                        "https://d365pjkgt5rd4j.cloudfront.net/images/products/hd/TRC0003_6.jpg",
+                        "https://d365pjkgt5rd4j.cloudfront.net/images/products/hd/TRC0003_8.jpg",
+                        "https://d365pjkgt5rd4j.cloudfront.net/images/products/hd/TRC0003_9.jpg",
+                        "https://d365pjkgt5rd4j.cloudfront.net/images/products/hd/TRC0003_10.jpg",
+                        "https://d365pjkgt5rd4j.cloudfront.net/images/products/hd/TRC0003_11.jpg"
+                    ]
+                }
+            },
+
+        })
+    </script>
+
+
+
+
+</body>
+
+</html>

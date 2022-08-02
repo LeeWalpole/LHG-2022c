@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue SPA</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <link rel="stylesheet" href="">
+
+    <link rel="preload" as="style" href="dist/min.css" onload="this.rel='stylesheet'">
+
+    <!-- <script src="dist/min.js"></script> -->
+
+</head>
+
+<body>
+
+
+    <style>
+        .w-mob {
+            max-width: 400px !important;
+        }
+    </style>
+
+
+    <main id="app">
+
+
+
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+        <!-- TOP FIX NAV / HEADER BAR-->
+
+
+        <nav class="header-nav-menu">
+            <ul class="w-safe m-auto">
+                <li>
+                    <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                    <router-link to="/menu">Menu</router-link>
+                </li>
+                <li>
+                    <router-link to="/profiles">All Profiles</router-link>
+                </li>
+
+
+                <li>
+                    <router-link to="/posts">All Posts</router-link>
+                </li>
+
+            </ul>
+        </nav>
+
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+        <!-- LOAD APP CONTENT IN HERE BASED ON ROUTES -->
+
+        <router-view v-slot="{ Component }">
+            <transition name="fade" mode="out-in">
+                <!-- <keep-alive> -->
+                <section class="app-content w-safe m-auto">
+                    <component :is="Component" :key="$route.path" />
+                    <!-- </keep-alive> -->
+                </section>
+            </transition>
+        </router-view>
+
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+        <!-- BOTTOM FIX NAV / TAB BAR-->
+
+
+        <footer class="footer-nav-menu">
+
+            <ul class="w-safe m-auto">
+                <li style="background-color:blue !important;">
+                    <router-link to="/profiles/blackwidow#anchor">Profile: Black Widow</router-link>
+                </li>
+                <li>
+                    <router-link to="/chats/">Chat / Messages</router-link>
+                </li>
+                <li>
+                    <router-link to="/feed/">Feed</router-link>
+                </li>
+
+            </ul>
+        </footer>
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    </main>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+    <!-- HOME TEMPLATE -->
+    <template id="home">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p>
+    </template>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    <!-- MENU TEMPLATE -->
+    <template id="menu">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p>
+    </template>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+    <!-- CHAT TEMPLATE -->
+    <template id="chats">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p>
+    </template>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    <!-- PROFILES TEMPLATE -->
+    <template id="profiles">
+        <!-- <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p> -->
+
+        <!-- <p>New API: {{profiles}}</p> -->
+        <section class="bg-color" data-theme="light">
+            <div class="grid-3 w-safe m-auto bg-offwhite" data-theme="light">
+
+                <div v-for="profile in profiles" class="gallery-thumbnails">
+
+                    <figure v-if="profile.profile_image.url" class="gallery-thumbnail bg-offwhite">
+                        <router-link :to="'/profiles/' + profile.slug">
+                            <!-- <p>{{profile.slug}}</p> -->
+                            <picture class="ratio" data-ratio="1x1">
+                                <img :src="profile.profile_image.sizes.thumbnail">
+                            </picture>
+                        </router-link>
+                    </figure>
+
+                    <figure v-else>
+                        <router-link :to="'/profiles/' + profile.slug">
+                            <!-- <p>{{profile.slug}}</p> -->
+                            <picture>
+                                <img :src="placeholder_image_small">
+                            </picture>
+                        </router-link>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+    </template>
+
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    <!-- POSTS TEMPLATE -->
+    <template id="posts">
+        <!-- <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p> -->
+
+        <h1>Hello Lee I am working?? </h1>
+
+        {{profiles}}
+
+        <!-- <p>New API: {{profiles}}</p> -->
+        <section class="bg-color" data-theme="light">
+            <div class="grid-3 w-safe m-auto bg-offwhite" data-theme="light">
+         
+                <div v-for="profile in profiles" class="gallery-thumbnails">
+
+
+                    <figure v-if="profile.profile_image.url" class="gallery-thumbnail bg-offwhite">
+                        <router-link :to="'/profiles/' + profile.slug">
+                            <!-- <p>{{profile.slug}}</p> -->
+                            <picture class="ratio" data-ratio="1x1">
+                                <img :src="profile.profile_image.sizes.thumbnail">
+                            </picture>
+                        </router-link>
+                    </figure>
+
+                    <figure v-else>
+                        <router-link :to="'/profiles/' + profile.slug">
+                            <!-- <p>{{profile.slug}}</p> -->
+                            <picture>
+                                <img :src="placeholder_image_small">
+                            </picture>
+                        </router-link>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+    </template>
+
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- Feed Template :  -->
+
+
+    <template id="feed">
+        <!-- <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p> -->
+
+
+        <!-- <p>New API: {{profiles}}</p> -->
+        <section class="bg-color" data-theme="dark">
+            <div class=" w-safe w-mob m-auto bg-black relative" data-theme="dark">
+
+                <div v-for="profile in profiles" class="feed-content">
+
+                    <article v-if="profile.profile_image.url" class="bg-offwhite">
+
+                        <header class="profile-header post-feed-header">
+                            <section href="http://localhost:3000/author/greenseller/"
+                                class="profile-header-items js-modal-close bg-black" data-theme="dark">
+
+                                <figure v-if="profile.profile_image.url" class="profile-mugshot ">
+                                    <picture class="">
+                                        <img :src="profile.profile_image.url" loading="lazy" class="squircle"
+                                            alt="Natcha Profile Pic for Flames Agency" />
+                                    </picture>
+                                </figure>
+
+                                <figure v-else class="profile-mugshot">
+                                    <picture>
+                                        <img :src="placeholder_image_small" loading="lazy"
+                                            alt="Natcha Profile Pic for Flames Agency" />
+                                    </picture>
+                                </figure>
+                                <router-link :to="'/profiles/' + profile.slug">
+                                    <div id="profile-meta" class="profile-meta bg-black" data-theme="dark">
+                                        <h2 class="profile-name" id="display_name" v-model="name">
+                                            {{ profile.display_name }}
+                                        </h2>
+                                        <small>@{{ profile.slug }}
+                                        </small>
+                                    </div>
+                                </router-link>
+
+                                <!-- <a href="javascript:void(0);" data-modal="popup-1"
+                                    style="position:absolute; right:var(--padding);" class="modal-trigger">
+                                    <img src="https://www.flames.agency/wp-content/uploads/Flames-Icon-Love-Support.png"
+                                        height="40">
+                                </a> -->
+                            </section>
+                        </header>
+
+                        <feature v-for="gallery in profile.gallery">
+                            <picture class="ratio" data-ratio="4x5">
+                                <img :src="gallery.url">
+                            </picture>
+
+                            <figcaption>
+                                Caption here: {{gallery.caption}}
+                            </figcaption>
+
+                        </feature>
+                        <footer class="post-feed-footer">
+                            <ul>
+                                <li>List Item</li>
+                                <li>List Item</li>
+                            </ul>
+                        </footer>
+
+                        <figure class="bg-blur">
+                            <img :src="profile.profile_image.sizes.thumbnail">
+                        </figure>
+
+                    </article>
+
+
+
+                </div>
+            </div>
+        </section>
+
+    </template>
+
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+    <!-- Single Profile Template :  -->
+
+
+    <template id="profile">
+
+        <div v-for="user in profile" :key='profile._id' class="profile-desktop">
+
+            <!-- data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs= -->
+
+            <section class="bg-black profile-feature" data-theme="dark">
+
+                <figure v-if="user.profile_image" class="ratio" data-ratio="3x2">
+
+                    <img :src="user.profile_image.sizes.medium" loading="lazy"
+                        alt="Natcha Profile Pic for Flames Agency" class="feature-image" />
+                </figure>
+
+                <figure v-else class="feature-image">
+                    <picture class="ratio" data-ratio="3x2">
+                        <img :src="placeholder_image_small" loading="lazy" alt="Natcha Profile Pic for Flames Agency" />
+                    </picture>
+                </figure>
+
+            </section>
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+            <section id="profile-header-and-tabs" class="profile-header-and-tabs">
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+                <header id="profile-header" class="profile-header colspan-12 bg-black" data-theme="dark">
+                    <section href="http://localhost:3000/author/greenseller/"
+                        class="profile-header-items js-modal-close">
+
+                        <figure v-if="user.profile_image" class="profile-mugshot ">
+                            <picture class="">
+                                <img :src="user.profile_image.sizes.medium" loading="lazy" class="squircle"
+                                    alt="Natcha Profile Pic for Flames Agency" />
+                            </picture>
+                        </figure>
+
+                        <figure v-else class="profile-mugshot">
+                            <picture>
+                                <img :src="placeholder_image_small" loading="lazy"
+                                    alt="Natcha Profile Pic for Flames Agency" />
+                            </picture>
+                        </figure>
+
+                        <div id="profile-meta" class="profile-meta">
+                            <h2 class="profile-name" id="display_name" v-model="name">{{ user.display_name }}</h2>
+                            <small>@{{ user.slug }}
+                            </small>
+                        </div>
+
+                        <!-- <a href="javascript:void(0);" data-modal="popup-1"
+                            style="position:absolute; right:var(--padding);" class="modal-trigger">
+                            <img src="https://www.flames.agency/wp-content/uploads/Flames-Icon-Love-Support.png"
+                                height="40">
+                        </a> -->
+                    </section>
+                </header>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+                <nav class="bg-offblack profile-tabs" data-theme="dark">
+                    <ul class="profile-tab-links">
+                        <li class="profile-tab-link"><a v-on:click="activetab='1'"
+                                v-bind:class="[ activetab === '1' ? 'active' : '' ]">Gallery</a></li>
+                        <li class="profile-tab-link"><a v-on:click="activetab='2'"
+                                v-bind:class="[ activetab === '2' ? 'active' : '' ]">About</a></li>
+                        <li class="profile-tab-link"><a v-on:click="activetab='3'"
+                                v-bind:class="[ activetab === '3' ? 'active' : '' ]">Links</a></li>
+                    </ul>
+                </nav>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+            </section><!-- profile-header-and-tabs -->
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+            <div class="content">
+
+                <!-- Grid Gallery Section -->
+                <div v-if="activetab ==='1'" class=" w-safe m-auto bg-color grid-3">
+
+
+                    <section v-for="image in user.gallery" :key='profile._gallery' class="gallery-thumbnails">
+                        <figure class="image ratio bg-offwhite" data-ratio="1x1">
+                            <router-link :to="'/profiles/' + profile.slug">
+                                <picture>
+                                    <img :src="image.sizes.thumbnail" :alt="user.display_name - user.slug">
+                                </picture>
+                            </router-link>
+                        </figure>
+                    </section>
+
+                </div>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+                <!-- Bio / About Section -->
+                <div v-if="activetab ==='2'" class="tabcontent">
+
+                    <section class="grid">
+
+                        <aside v-if="user.dob" class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Age</strong>
+                            <p id="select-nationality-result">{{user.dob_mm}}</p>
+                        </aside>
+
+                        <aside v-else class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Age</strong>
+                            <p id="select-nationality-result">-</p>
+                        </aside>
+
+                        <aside v-if="user.location" class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Location</strong>
+                            <p id="select-nationality-result">{{user.location}}</p>
+                        </aside>
+
+                        <aside v-else class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Location</strong>
+                            <p id="select-nationality-result">-</p>
+                        </aside>
+
+                        <aside v-if="user.bio" id="about-bio" class="profile-aside colspan-12" data-theme="dark">
+                            <strong>Bio</strong>
+                            <p id="about_bio_value">{{user.bio}}</p>
+                        </aside>
+
+                        <aside v-else class="profile-aside colspan-6  mobspan-6" data-theme="dark">
+                            <strong>Bio</strong>
+                            <p id="about_bio_value">-</p>
+                        </aside>
+
+                    </section>
+
+                </div>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+                <!-- Links and Socials Section -->
+
+                <div v-if="activetab ==='3'" class="tabcontent">
+                    <table>
+                        <tr>
+                            <td class="legend">Area:</td>
+                            <td class="data">357,386 km<sup>2</sup></td>
+                            <td rowspan="5"><img class="map"
+                                    src="https://drive.google.com/thumbnail?id=1JQyW1aThQxnlk3ZmogomTzhDkQGKbdC1"></td>
+                        </tr>
+                        <tr>
+                            <td class="legend">Population:</td>
+                            <td class="data">83 million</td>
+                        </tr>
+                        <tr>
+                            <td class="legend">Capital:</td>
+                            <td class="data">Berlin</td>
+                        </tr>
+                        <tr>
+                            <td class="legend">Language:</td>
+                            <td class="data">German</td>
+                        </tr>
+                        <tr>
+                            <td class="legend" valign="top">Flag:</td>
+                            <td class="data"><img class="flag"
+                                    src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1000px-Flag_of_Germany.svg.png"
+                                    width="89"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+            </div>
+
+
+            <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    </template>
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+    <!-- 
+            <div style="display:none;">
+            <li v-for="item in profile">
+                <p>ID: {{ item.id }}</p>
+                <p>Cover Image URL: {{ item.acf.cover_image.url }}</p>
+                <p>Gallery Title: {{ item.acf.gallery.title }}</p>
+
+                <p>Gallery Title: {{ item.acf.gallery.title }}</p>
+                <h6 v-for="item in profile.acf">{{item.gallery.id}}</h6>
+
+            </li>
+            <li v-for="item in profile">{{ item }}</li> -->
+
+    <!-- custom JS -->
+
+
+
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+
+
+    <!-- <script src="router.js"></script> -->
+
+    <script>
+        const app = Vue.createApp({
+
+            data() {
+                return {
+                    title: "Default Title Here",
+                    slug: "Home Description Here",
+                    cover_image: 'https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg',
+                }
+            }
+
+        });
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+        const Home = {
+            template: "#home",
+            data() {
+                return {
+                    title: "Home Title Here",
+                    slug: "Home Description Here",
+                    cover_image: 'https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg',
+                }
+            }
+        };
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+        const Menu = {
+            template: "#menu",
+            data() {
+                return {
+                    title: "Menu Title Here",
+                    slug: "Menu Description Here",
+                    cover_image: 'https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg',
+                }
+            }
+        };
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+        const Chats = {
+            template: "#chats",
+            data() {
+                return {
+                    title: "Chat Coming Soon",
+                    slug: "Private Messages and Chat Coming Very Soon",
+                    cover_image: 'https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg',
+                }
+            }
+        };
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+        const Profiles = {
+            template: "#profiles",
+            data() {
+                return {
+                    title: "All Profiles ",
+                    slug: "This page loops through the profiles (there's just two so far). see profiles.json",
+                    placeholder_image_small: "https://dummyimage.com/100x100/cc0000/fff",
+                    // profiles: [{
+                    //         name: "Profile Name 1"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 2"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 3"
+                    //     },
+                    // ],
+                    profiles: [],
+                    // newThing: "new thing",
+                }
+            },
+
+            // Grab 
+            mounted() {
+                fetch('http://localhost:10038/wp-json/data/v1/profiles')
+                    .then(res => res.json())
+                    .then(data => this.profiles = data)
+                    .catch(err => console.log(err.message))
+
+            },
+
+        };
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+        const Posts = {
+            template: "#posts",
+            data() {
+                return {
+                    title: "All Profiles ",
+                    slug: "This page loops through the profiles (there's just two so far). see profiles.json",
+                    placeholder_image_small: "https://dummyimage.com/100x100/cc0000/fff",
+                    // profiles: [{
+                    //         name: "Profile Name 1"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 2"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 3"
+                    //     },
+                    // ],
+                    profiles: [],
+                    // newThing: "new thing",
+                }
+            },
+
+            // Grab 
+            mounted() {
+                fetch('http://localhost:10038/wp-json/wp/v2/posts/')
+                    .then(res => res.json())
+                    .then(data => this.profiles = data)
+                    .catch(err => console.log(err.message))
+
+            },
+
+        };
+
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+        const Feed = {
+            template: "#feed",
+            data() {
+                return {
+                    title: "Feed ",
+                    slug: "This page loops through the profiles (there's just two so far). see profiles.json",
+                    placeholder_image_small: "https://dummyimage.com/100x100/cc0000/fff",
+                    // profiles: [{
+                    //         name: "Profile Name 1"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 2"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 3"
+                    //     },
+                    // ],
+                    profiles: [],
+                    // newThing: "new thing",
+                }
+            },
+
+            // Grab 
+            mounted() {
+                fetch('http://localhost:10038/wp-json/data/v1/profiles')
+                    .then(res => res.json())
+                    .then(data => this.profiles = data)
+                    .catch(err => console.log(err.message))
+
+            },
+
+        };
+
+
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+        const Profile = {
+            template: "#profile",
+            data() {
+                return {
+                    title: "Profile Single",
+                    slug: "This page loops through the profiles (there's just two so far). see profiles.json",
+                    placeholder_image_small: "https://dummyimage.com/100x100/cc0000/fff",
+                    // profiles: [{
+                    //         name: "Profile Name 1"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 2"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 3"
+                    //     },
+                    // ],
+                    profile: [],
+                    activetab: '1',
+                    // activetab: 1, // breaks ape api
+                    // apiTest: 'http://localhost:10038/wp-json/data/v1/profiles/' + this.$route.params.id
+                }
+            },
+
+            // Grab 
+            mounted() {
+                // fetch('http://localhost:10038/wp-json/wp/v2/profiles?slug={{ $route.params.id }}&acf_format=standard')
+                // fetch('http://localhost:10038/wp-json/wp/v2/profiles?slug=' + this.$route.params.id +
+                //         '&acf_format=standard')
+                // fetch('http://localhost:10038/wp-json/data/v1/profiles/' + this.$route.params.id)
+                fetch('http://localhost:10038/wp-json/data/v1/profiles/' + this.$route.params.id)
+                    .then(res => res.json())
+                    .then(data => this.profile = data)
+                    .catch(err => console.log(err.message))
+            },
+
+        };
+
+
+
+
+
+
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+        // Router Stuff Below
+
+        const routes = [{
+                path: "/",
+                component: Home
+            },
+            {
+                path: "/menu",
+                component: Menu
+            },
+
+            {
+                path: "/chats",
+                component: Chats
+            },
+
+            {
+                path: "/profiles",
+                component: Profiles
+            },
+
+            {
+                path: '/feed/',
+                component: Feed
+            },
+
+            {
+                path: '/profiles/:id',
+                component: Profile
+            },
+
+
+            {
+                path: "/posts",
+                component: Posts
+            },
+            
+
+        ];
+
+        const router = VueRouter.createRouter({
+            history: VueRouter.createWebHashHistory(),
+            // history: VueRouter.createWebHistory(),
+            routes
+        })
+
+
+        app.use(router)
+
+        // Router Stuff Above
+
+        app.mount('#app')
+    </script>
+
+    <script>
+
+    </script>
+
+
+
+    <style>
+        .gallery-thumbnails picture,
+        .gallery-thumbnails img {
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+
+    <style>
+        /* RESET */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 620px;
+            min-width: 420px;
+            margin: 40px auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Style the tabs */
+        .tabs {
+            overflow: hidden;
+            margin-left: 20px;
+            margin-bottom: -2px;
+        }
+
+        .tabs ul {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+
+        .tabs a {
+            float: left;
+            cursor: pointer;
+            padding: 12px 24px;
+            transition: background-color 0.2s;
+            border: 1px solid #ccc;
+            border-right: none;
+            background-color: #f1f1f1;
+            border-radius: 10px 10px 0 0;
+            font-weight: bold;
+        }
+
+        .tabs a:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+        /* Change background color of tabs on hover */
+        .tabs a:hover {
+            background-color: #aaa;
+            color: #fff;
+        }
+
+        /* Styling for active tab */
+        .tabs a.active {
+            background-color: #fff;
+            color: #484848;
+            border-bottom: 2px solid #fff;
+            cursor: default;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 3px 3px 6px #e1e1e1
+        }
+    </style>
+
+
+
+
+    <style>
+        .fade-enter-from,
+        .fade-enter-to {
+            opacity: 0;
+        }
+
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.5s ease-out;
+        }
+    </style>
+
+
+    <style>
+        .container {
+            max-width: 620px;
+            min-width: 420px;
+            margin: 40px auto;
+            font-family: "Nunito Sans", Arial, Helvetica, sans-serif;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Style the tabs */
+        .tabs {
+            overflow: hidden;
+            margin-bottom: -2px;
+            /* hide bottom border */
+            margin-left: 24px;
+        }
+
+        .tabs a {
+            float: left;
+            cursor: pointer;
+            padding: 12px 24px;
+            transition: background-color 0.2s;
+            border: 1px solid #ccc;
+            border-right: none;
+            background-color: #f1f1f1;
+            border-radius: 10px 10px 0 0;
+            font-weight: bold;
+        }
+
+        .tabs a:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+        /* Change background color of tabs on hover */
+        .tabs a:hover {
+            background-color: #aaa;
+            color: #fff;
+        }
+
+        /* Styling for active tab */
+        .tabs a.active {
+            background-color: #fff;
+            color: #484848;
+            border-bottom: 2px solid #fff;
+            cursor: default;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            padding: 30px 50px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 4px 4px 8px #e1e1e1
+        }
+
+        .tabcontent td {
+            padding: 0.3em 0.4em;
+            color: #484848;
+        }
+
+        .tabcontent td.legend {
+            color: #888;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .tabcontent .map {
+            height: 173px;
+            width: 220px;
+            background: #D3EAFB;
+            margin-left: 60px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .data {
+            width: 120px;
+        }
+    </style>
+
+
+
+
+
+
+
+
+</body>
+
+</html>

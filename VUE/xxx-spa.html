@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Router - How to Change this?</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+
+    <link rel="stylesheet" href="">
+
+    <link rel="preload" as="style" href="dist/min.css" onload="this.rel='stylesheet'">
+
+</head>
+
+<body>
+
+
+
+    <main id="app">
+
+
+        <!-- TOP FIX NAV / HEADER BAR-->
+        <nav class="header-nav-menu">
+            <ul class="w-safe m-auto">
+                <li>
+                    <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                    <router-link to="/menu">Menu</router-link>
+                </li>
+                <li>
+                    <router-link to="/profiles">All Profiles</router-link>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- LOAD APP CONTENT IN HERE BASED ON ROUTES -->
+        <section class="app-content w-safe m-auto">
+            <router-view :key="$route.path"></router-view>
+        </section>
+
+
+        <!-- BOTTOM FIX NAV / TAB BAR-->
+        <footer class="footer-nav-menu">
+
+            <ul class="w-safe m-auto">
+                <li  style="background-color:blue !important;">
+                    <router-link to="/profiles/blackwidow#anchor">Profile: Black Widow</router-link>
+                </li>
+                <li>
+                    <router-link to="/profiles/captainamerica">Profile: Captain America</router-link>
+                </li>
+
+            </ul>
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+    <!-- TEMPLATE CODE FOR THE PAGES BELOW -->
+
+
+    <!-- HOME TEMPLATE -->
+    <template id="home">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p>
+    </template>
+
+
+    <!-- MENU TEMPLATE -->
+    <template id="menu">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+        <p>Image URL: <slot name="cover_image">{{cover_image}}</slot>
+        </p>
+    </template>
+
+
+    <!-- PROFILES TEMPLATE -->
+    <template id="profiles">
+        <h1>
+            <slot name="title">{{title}}</slot>
+        </h1>
+        <p>
+            <slot name="slug">{{slug}}</slot>
+        </p>
+
+        <section class="grid-3 w-safe m-auto bg-offwhite" data-theme="light">
+
+            <figure v-for="profile in profiles" class="image ratio bg-offwhite" data-ratio="1x1">
+                <router-link :to="'/profiles/' + profile.slug">
+                    <picture>
+                        <img :src="profile.acf.cover_image.url">
+                    </picture>
+                </router-link>
+            </figure>
+
+        </section>
+
+        <!-- <div id="app_loops" class="experiment-block">
+            <ol>
+                <a :href="profile.name" v-for="profile in profiles">{{ profile.name }}</a>
+            </ol>
+        </div> -->
+
+
+        <!-- <div v-for="job in jobs">
+            <router-link :to={path:job.slug}>
+                <p>{{ job.slug }}</p>
+            </router-link>
+        </div> -->
+
+        <h2>Dynamically creating Router Links using v-for loop (fail)</h2>
+
+        <!-- I cannot seem to get this working... But the routes work when manually adding values see "Profile: Black Widow" and "Profile: Captain America" -->
+        <li v-for="profile in profiles">
+
+            <router-link :to="'/profiles/' + profile.slug">{{profile.slug}}</router-link>
+
+            <!-- <router-link to="/profiles/{{profile.slug}}">{{profile.slug}}</router-link> -->
+            <!-- <router-link to="/profiles/$route.params.id">{{profile.slug}}</router-link>
+            <router-link :to="/profiles/$route.params.id">{{profile.slug}}</router-link> -->
+        </li>
+
+
+        <h2>Manually Creating Router Links (success)</h2>
+
+        <li>
+            <router-link to="/profiles/blackwidow">Profile: Black Widow</router-link>
+        </li>
+        <li>
+            <router-link to="/profiles/captainamerica">Profile: Captain America</router-link>
+        </li>
+
+    </template>
+
+
+    <!-- SINGLE PROFILE TEMPLATE -->
+    <template id="profile">
+        <h3>Single Profile Fields</h3>
+        <p>Slug (from $route.params.id ): {{ $route.params.id }}</p>
+        <p>Slug (from this.$route.params.id ): {{ this.$route.params.id }}</p>
+
+        <!-- Profile Header (Cover Image / Profile Image, Username etc... )) -->
+        <section id="profile-header-and-tabs" class="profile-header-and-tabs">
+            <div id="tabs" class="container">
+                <nav class="bg-white profile-tabs tabs" data-theme="light">
+                    <ul class="profile-tab-links">
+                        <li class="profile-tab-link">
+                            <a v-on:click="activetab=1" v-bind:class="[ activetab === 1 ? 'active' : '' ]">Tab 1</a>
+                        </li>
+                        <li class="profile-tab-link">
+                            <a v-on:click="activetab=2" v-bind:class="[ activetab === 2 ? 'active' : '' ]">Tab 2</a>
+                        </li>
+                        <li class="profile-tab-link">
+                            <a v-on:click="activetab=3" v-bind:class="[ activetab === 3 ? 'active' : '' ]">Tab 3</a>
+                        </li>
+                </nav>
+            </div>
+        </section><!-- profile-header-and-tabs -->
+
+
+        <!-- <li v-for="item in profile">
+            <span v-for="childItem in item.acf.gallery">
+                <p>{{ childItem.url }}</p>
+            </span>
+        </li> -->
+
+        <!-- Profile Tabbed Content Area -->
+
+        <div class="content bg-white" data-theme="light">
+            <div v-if="activetab === 1" class="tabcontent">
+                <!-- Content for tab one {{ $route.params.id }} -->
+                <section role="tabpanel" id="gallery" class="grid-3 w-safe m-auto" v-for="item in profile">
+                    <figure class="image ratio bg-offwhite" data-ratio="4x5" v-for="image in item.acf.gallery">
+                        <div class="image-input bg-color">
+                            <picture>
+                                <img :src="image.url">
+                            </picture>
+                        </div>
+                        </router-link>
+                    </figure>
+                </section>
+            </div>
+            <div v-if="activetab === 2" class="tabcontent">
+                <h2>Tab 2 Content</h2>
+            </div>
+            <div v-if="activetab === 3" class="tabcontent">
+                <h2>Tab 3 Content</h2>
+            </div>
+        </div>
+
+        <div id="anchor" style="background:palegoldenrod!important; height:1000px;">
+            <h2>Anchor Me</h2>
+        </div>
+
+        <!-- 
+            <div style="display:none;">
+            <li v-for="item in profile">
+                <p>ID: {{ item.id }}</p>
+                <p>Cover Image URL: {{ item.acf.cover_image.url }}</p>
+                <p>Gallery Title: {{ item.acf.gallery.title }}</p>
+
+                <p>Gallery Title: {{ item.acf.gallery.title }}</p>
+                <h6 v-for="item in profile.acf">{{item.gallery.id}}</h6>
+
+            </li>
+            <li v-for="item in profile">{{ item }}</li> -->
+
+
+    </template>
+
+    <!-- custom JS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="router.js"></script> -->
+
+    <script>
+        const app = Vue.createApp({
+
+        });
+
+
+        const Home = {
+            template: "#home",
+            data() {
+                return {
+                    title: "Home Title Here",
+                    slug: "Home Description Here",
+                    cover_image: 'https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg',
+                }
+            }
+        };
+
+        const Menu = {
+            template: "#menu",
+            data() {
+                return {
+                    title: "Menu Title Here",
+                    slug: "Menu Description Here",
+                    cover_image: 'https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg',
+                }
+            }
+        };
+
+        const Profiles = {
+            template: "#profiles",
+            data() {
+                return {
+                    title: "All Profiles ",
+                    slug: "This page loops through the profiles (there's just two so far). see profiles.json",
+                    // profiles: [{
+                    //         name: "Profile Name 1"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 2"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 3"
+                    //     },
+                    // ],
+                    profiles: [],
+                    // newThing: "new thing",
+                }
+            },
+
+            // Grab 
+            mounted() {
+                fetch('http://localhost:10038/wp-json/wp/v2/profiles/?acf_format=standard')
+                    .then(res => res.json())
+                    .then(data => this.profiles = data)
+                    .catch(err => console.log(err.message))
+
+            },
+
+
+        };
+
+        const Profile = {
+            template: "#profile",
+            data() {
+                return {
+                    title: "Profile Single",
+                    // testlink: "profiles/123",
+                    slug: "This page loops through the profiles (there's just two so far). see profiles.json",
+                    // profiles: [{
+                    //         name: "Profile Name 1"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 2"
+                    //     },
+                    //     {
+                    //         name: "Profile Name 3"
+                    //     },
+                    // ],
+                    profile: [],
+                    activetab: 1,
+                }
+            },
+
+            // Grab 
+            mounted() {
+                // fetch('http://localhost:10038/wp-json/wp/v2/profiles?slug={{ $route.params.id }}&acf_format=standard')
+                fetch('http://localhost:10038/wp-json/wp/v2/profiles?slug=' + this.$route.params.id +
+                        '&acf_format=standard')
+                    .then(res => res.json())
+                    .then(data => this.profile = data)
+                    .catch(err => console.log(err.message))
+
+            },
+
+            // computed: {
+            //     flattened() {
+            //         return _.flatten(this.profile.data);
+            //     }
+            // },
+
+
+
+        };
+
+        // Router Stuff Below
+
+        const routes = [{
+                path: "/",
+                component: Home
+            },
+            {
+                path: "/menu",
+                component: Menu
+            },
+            {
+                path: "/profiles",
+                component: Profiles
+            },
+
+            {
+                path: '/profiles/:id',
+                component: Profile
+            },
+        ];
+
+        const router = VueRouter.createRouter({
+                history: VueRouter.createWebHashHistory(),
+                routes
+            },
+        )
+
+
+        app.use(router)
+
+        // Router Stuff Above
+
+        app.mount('#app')
+    </script>
+
+    <script>
+
+    </script>
+
+
+
+
+    <style>
+        /* RESET */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 620px;
+            min-width: 420px;
+            margin: 40px auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        /* Style the tabs */
+        .tabs {
+            overflow: hidden;
+            margin-left: 20px;
+            margin-bottom: -2px;
+        }
+
+        .tabs ul {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+
+        .tabs a {
+            float: left;
+            cursor: pointer;
+            padding: 12px 24px;
+            transition: background-color 0.2s;
+            border: 1px solid #ccc;
+            border-right: none;
+            background-color: #f1f1f1;
+            border-radius: 10px 10px 0 0;
+            font-weight: bold;
+        }
+
+        .tabs a:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+        /* Change background color of tabs on hover */
+        .tabs a:hover {
+            background-color: #aaa;
+            color: #fff;
+        }
+
+        /* Styling for active tab */
+        .tabs a.active {
+            background-color: #fff;
+            color: #484848;
+            border-bottom: 2px solid #fff;
+            cursor: default;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            padding: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 3px 3px 6px #e1e1e1
+        }
+    </style>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        li,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            margin: 10px 0 20px 0;
+        }
+
+        .router-link-active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        body {
+            background: #e0e0e0;
+            margin: 2%;
+            padding: 2%;
+        }
+
+        .app-content {}
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+
+
+    <style>
+        #app {
+            font-family: 'Avenir',
+                Helvetica,
+                sans-serif;
+            text-align: center;
+            color: #ece1ca;
+            margin-top: 60px;
+        }
+
+        body {
+            border-color: #69655d;
+            color: #ece1ca;
+            background-color: #676769;
+        }
+
+        #filters {
+            width: 500px;
+            margin: 30px auto;
+        }
+
+        #filters span {
+            margin: 15px;
+        }
+
+        img {
+            width: 270px;
+            height: 180px;
+            margin: 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .thumbnailfade-leave-active,
+        .thumbnailfade-enter-active {
+            transition: all 0.4s ease;
+        }
+
+        .thumbnailfade-enter-active {
+            transition-delay: 0.4s;
+        }
+
+        .thumbnailfade-enter,
+        .thumbnailfade-leave-to {
+            opacity: 0;
+        }
+    </style>
+
+
+</body>
+
+</html>

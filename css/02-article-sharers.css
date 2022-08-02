@@ -1,0 +1,35 @@
+.sharers {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    padding: 0 var(--padding-small)
+}
+
+@media only screen and (min-width:768px) {
+    .sharers {
+        display: block;
+        padding: 0
+    }
+
+    .sticky-sidebar {
+        margin-top: var(--padding)
+    }
+}
+
+.sharers li {
+    list-style: none;
+    margin-bottom: var(--padding-small);
+    padding: 0 var(--padding-xsmall);
+    width: 100%
+}
+
+.sharers li a {
+    padding: var(--padding-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-black);
+    color: var(--color-white);
+    text-align: center
+}

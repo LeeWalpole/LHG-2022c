@@ -1,0 +1,177 @@
+.video_teaser img {
+    position: relative;
+    height: 100%;
+    width: 100%
+}
+
+.video_teaser picture:after {
+    width: 33%;
+    height: 33%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url(https://www.ladsholidayguide.com/wp-content/uploads/play.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: .8;
+    content: ""
+}
+
+.showcase {
+    padding: var(--padding)
+}
+
+@media (min-width:768px) {
+    .showcase {
+        padding: 0
+    }
+}
+
+.showcase_header {
+    display: block;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--color-grey-half);
+    margin: 0;
+    padding: 0
+}
+
+.showcase_header * {
+    font-size: calc(var(--teaser-headline) * 1.5)
+}
+
+.showcase_header .headline {
+    font-family: var(--font1-heavy) !important;
+    color: var(--color-black)
+}
+
+.showcase_header * {
+    margin-right: var(--padding-small);
+    display: inline-block
+}
+
+.showcase_header a:hover {
+    color: var(--color)
+}
+
+
+.teaser-header {
+    padding: var(--side-padding) ;
+}
+
+@media (min-width:821px) {
+    .teaser-header {
+        padding: var(--side-padding);
+    }
+}
+
+
+.teaser .header>* {
+    transition: ease all .33s;
+
+}
+
+
+
+.teaser img {
+    transition: ease all .33s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.teaser:hover .kicker {
+    -webkit-filter: brightness(75%);
+    filter: brightness(75%)
+}
+
+.teaser:hover .headline {
+    color: var(--color);
+    text-decoration: underline;
+    font-family: var(--font1-bold)
+}
+
+.teaser:hover img {
+    /* scale: 1; */
+    transform: scale(1.05)
+}
+
+.split-boxes {
+    padding: 0 var(--padding) !important
+}
+
+.split-box {
+    position: relative;
+    width: 100%;
+    display: block;
+    padding: 0 0 0 !important;
+    margin: 0 0 var(--padding-big) 0 !important;
+    box-shadow: 4px 4px 14px 0 rgba(0, 0, 0, .18)
+}
+
+.split-box .article-body {
+    padding: 0
+}
+
+.split-box .article-body p {
+    font-size: var(--small)
+}
+
+.split-box .article-body p:first-of-type {
+    font-weight: 300;
+    color: var(--color-offblack)
+}
+
+.split-box>*>* {
+    direction: ltr !important
+}
+
+.split-box picture {
+    display: block
+}
+
+.split-box .feature img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover
+}
+
+.split-box .article-body>* {
+    padding: var(--padding)
+}
+
+@media only screen and (min-width :768px) {
+    .split-box .article-body {
+        direction: ltr
+    }
+
+    .split-box:nth-of-type(even) {
+        direction: rtl
+    }
+
+    .split-box:nth-of-type(even) article {
+        padding-left: 0
+    }
+
+    .split-box:nth-of-type(odd) article {
+        padding-right: 0
+    }
+
+    .split-box>aside {
+        direction: ltr
+    }
+
+    .split-box article section {
+        margin-top: 0
+    }
+}
+
+@media only screen and (min-width :768px) and (max-width :1024px) and (orientation :portrait) {
+    .split-box article {
+        direction: ltr
+    }
+}

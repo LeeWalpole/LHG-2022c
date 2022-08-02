@@ -1,0 +1,95 @@
+
+
+:root {
+    --p: 1.15rem;
+    --lead: calc(var(--p) + 25%);
+    --small: calc(var(--p) - 20%);
+    --xsmall: calc(var(--p) - 25%);
+    --line-height: 1.6;
+    --article-headline: calc(var(--p) + 20%);
+    --article-headline-line: 1.6;
+    --teaser-headline: calc(var(--p) + 20%);
+    --teaser-headline-line: 1.2;
+    --kicker: calc(var(--p) - 35%)
+}
+
+@media (min-width:821px) {
+    :root {
+        --p: 1.2rem;
+        --lead: calc(var(--p) + 20%);
+        --small: calc(var(--p) - 10%);
+        --xsmall: calc(var(--p) - 20%);
+        --line-height: 1.5;
+        --article-headline: calc(var(--p) + 20%);
+        --article-headline-line: 1.2;
+        --teaser-headline: calc(var(--p) + 20%);
+        --teaser-headline-line: 1.2;
+        --kicker: calc(var(--p) - 35%)
+    }
+}
+
+
+
+
+* {
+    font-family: var(--font1);
+    line-height: var(--line-height)
+}
+
+a {
+    color: inherit
+}
+
+body,
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font1-bold);
+    letter-spacing: -.5pt
+}
+
+
+
+.header {
+    padding: 0 var(--padding)
+}
+
+.kicker {
+    color: var(--color);
+    font-size: var(--kicker);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: var(--padding-xsmall);
+    display: block;
+    font-family: var(--font1-heavy)
+}
+
+.headline {
+    display: block;
+    font-size: var(--teaser-headline);
+    line-height: var(--teaser-headline-line);
+    margin-bottom: var(--padding-small);
+    font-family: var(--font1-bold);
+    letter-spacing: -.5pt !important
+}
+
+.paragraph,
+p {
+    font-size: var(--p);
+    line-height: var(--line-height);
+    font-family: var(--font1);
+    font-style: normal
+}
+
+.paragraph:last-of-type,
+p:last-of-type {
+    margin-bottom: 0
+}
