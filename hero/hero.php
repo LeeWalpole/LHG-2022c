@@ -6,11 +6,6 @@ $subheadline = get_sub_field('hero_subheadline');
 ?>
 
 
-
-
-
-
-
 <?php if (is_single() )  { ?>
 
 
@@ -21,7 +16,7 @@ $subheadline = get_sub_field('hero_subheadline');
         <?php if( $subheadline ) : ?><p class="subheadline"><?php echo $subheadline; ?></p><?php endif; ?>
         <?php endif; ?>
         <?php if ($hero_cta_1) { ?>
-        <?php include( 'cta.php' ); // Call to Action Buttons if available  ?>
+        <?php // include( 'cta.php' ); // Call to Action Buttons if available  ?>
         <?php } else { ?>
         <div class="buttons">
             <a href="#article" title="Read the article" target="<?php echo esc_attr( $cta_1_target ); ?>"
@@ -43,7 +38,7 @@ $subheadline = get_sub_field('hero_subheadline');
             <?php if( $subheadline ) : ?><p class="subheadline"><?php echo $subheadline; ?></p><?php endif; ?>
             <?php endif; ?>
             <?php if ($hero_cta_1) : ?>
-            <?php include( 'cta.php' ); // Call to Action Buttons if available  ?>
+            <?php // include( 'cta.php' ); // Call to Action Buttons if available  ?>
             <?php endif; ?>
         </header>
     </section>
@@ -51,7 +46,7 @@ $subheadline = get_sub_field('hero_subheadline');
 
 <?php } ?>
 
-</div>
+
 
 <?php /*
 <?php switch ($hero_feature) { case 'feature-slideshow': ?>
