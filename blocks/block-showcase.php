@@ -3,7 +3,7 @@
 <!--  Showcase Block Below -->
 <div class="showcase-feature row-block">
 
-    <!-- Main Feature Below -->
+<!-- Main Feature Below -->
     <div class="showcase-feature-main">
         <?php
     $args = array( 'posts_per_page' => 1, 'offset'=> 0, 'category' => $query_category );

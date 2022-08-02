@@ -1,95 +1,57 @@
-<script>
-console.log("Hello hero!");
-</script>
-
-
-
-<!-- *** HERO BELOW *** -->
-<?php $hero_layout = get_field('hero_layout'); ?>
-<?php if (have_rows('header', $post->ID) ) : ?>
-<?php while( have_rows('header',$post->ID) ) : the_row(); ?>
 <?php
-$acf_kicker = get_sub_field('kicker');
-$acf_headline = get_sub_field('headline');
-$acf_lead = get_sub_field('lead');
-$acf_more = get_sub_field('more');
-$acf_list = get_sub_field('list');
-$more_text = get_sub_field('more_text');
+$kicker = get_sub_field('kicker') ?: get_cat_name( $category_id = $query_category );
+$headline = get_sub_field('headline') ?: get_the_title(); 
+$subheadline = get_sub_field('subheadline') ?: "";
 ?>
-<?php endwhile; ?>
-<?php endif; //  end have_rows('hero_header' ?>
-<?php 
-$kicker = $acf_kicker ?: "<span>INSPIRED</span> PRESENTS"; 
-$headline = $acf_headline ?: the_title(); 
-$lead = $acf_lead;
-?>
-<style>
-.p-text-box p {
-    font-size: var(--p);
-    margin-top: var(--padding-xsmall);
-    color: var(--color-offwhite) !important;
-}
-
-.hero .lead {
-    color: var(--color) !important;
-}
 
 
-.hero-list li {
-    color: var(--color-offwhite) !important;
-}
 
-.no-mob {
-    display: none;
-}
+<?php if (is_single() )  { ?>
 
-@media only screen and (min-width : 416px) {
-    .no-mob {
-        display: initial;
-    }
-}
 
-.feature {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
+<section class="hero-stack">
+    <header class="header w-max m-auto">
+        <?php if( $kicker ): ?><strong class="kicker"><?php echo $kicker; ?></strong><?php endif;?>
+        <?php if( $headline ): ?><h1 class="headline"><?php echo $headline; ?></h1><?php endif;?>
+        <?php if( $subheadline ) : ?><p class="subheadline"><?php echo $subheadline; ?></p><?php endif; ?>
+        <?php endif; ?>
+        <?php if ($hero_cta_1) { ?>
+        <?php include( 'cta.php' ); // Call to Action Buttons if available  ?>
+        <?php } else { ?>
+        <div class="buttons">
+            <a href="#article" title="Read the article" target="<?php echo esc_attr( $cta_1_target ); ?>"
+                class="button">READ</a>
+            <a href="javascript:void(0);" data-target="pop-share" data-toggle="modal" title="Read the article"
+                target="<?php echo esc_attr( $cta_1_target ); ?>" class="button">SHARE</a>
+        </div>
+        <?php } ?>
+    </header>
+</section>
 
-.w-full { max-width:100%!important;}
+<?php } else { ?>
 
-</style>
-
-<div class="bg-black relative z-index-3 <?php echo $hero_layout; ?>">
-    <div class="hero hero-grid hero-video">
-        <header class="w-full margin-auto">
-            <section class="hero-header w-full text-center">
-                <img class="prefade" src="https://www.leewalpole.co.uk/sites/inbodyzone/img/inbody-zone-bali-logo.png">
-                <h2 class="headline hero-prefade"><?php echo $headline; ?></h2>
-                <em class="lead w-max hero-prefade color"><?php echo $lead; ?></em>
-                <?php if( $more_text ): ?><div class="p-text-box no-mob"><?php echo $more_text; ?></div><?php endif;?>
-                <?php if(have_rows('highlights')): ?>
-                <ul class="hero-list w-safe  hero-prefade">
-                    <?php while (have_rows('highlights')) : the_row();  ?>
-                    <li><i class="fas fa-check"></i><?php echo get_sub_field('highlight'); ?></li>
-                    <?php endwhile; ?>
-                </ul>
-                <?php endif; ?>
-                <div class="buttons z-index-3">
-                    <a class="button" href="#intro">FIND OUT MORE</a>
-                </div>
-            </section>
-            <!-- <a class="button" href="#main">EXPLORE</a> -->
+<div class="hero hero-overlap">
+    <section class="hero-stack">
+        <header class="header w-max m-auto">
+            <?php if( $kicker ): ?><strong class="kicker"><?php echo $kicker; ?></strong><?php endif;?>
+            <?php if( $headline ): ?><h1 class="headline"><?php echo $headline; ?></h1><?php endif;?>
+            <?php if( $subheadline ) : ?><p class="subheadline"><?php echo $subheadline; ?></p><?php endif; ?>
+            <?php endif; ?>
+            <?php if ($hero_cta_1) : ?>
+            <?php include( 'cta.php' ); // Call to Action Buttons if available  ?>
+            <?php endif; ?>
         </header>
-    </div>
-    <?php switch ($hero_feature) { case 'feature-slideshow': ?>
-    <?php get_template_part( 'hero/feature', 'slideshow' ); ?>
-    <?php break; case 'feature-video': ?>
-    <?php get_template_part( 'hero/feature', 'video' ); ?>
-    <?php break; default: ?>
-    <!-- Default -->
-    <?php } ?>
+    </section>
 </div>
-<!-- *** HERO ABOVE *** -->
+
+<?php } ?>
+
+</div>
+
+<?php /*
+<?php switch ($hero_feature) { case 'feature-slideshow': ?>
+<?php get_template_part( 'hero/feature', 'slideshow' ); ?>
+<?php break; case 'feature-video': ?>
+<?php get_template_part( 'hero/feature', 'video' ); ?>
+<?php break; default: ?>
+*/?>
