@@ -5,7 +5,7 @@
 
 
 
-<?php get_template_part( 'hero/hero.php' ); ?>
+<?php get_template_part( 'hero/hero' ); ?>
 
 
 
