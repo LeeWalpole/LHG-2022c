@@ -43,7 +43,7 @@ $subheadline = get_sub_field('hero_subheadline');
     </section>
 </div>
 
-
+<?php }  ?>
 
 
 <?php /*
