@@ -1,6 +1,8 @@
 <?php get_header(); // includes nav and hero ?>
 
-
+<!-- Ezoic - top_banner - top_of_page -->
+<div id="ezoic-pub-ad-placeholder-166"> </div>
+<!-- End Ezoic - top_banner - top_of_page -->
 
 <?php if( have_rows('hero_header') ):
         while( have_rows('hero_header') ) : the_row();?>
@@ -90,30 +92,13 @@
 
         <aside class="colspan-3 bg-white sidebar">
             <figure class="advert sidebar-ad">
-                <picture class="ratio" data-ratio="1x1" style="display:block">
-                    <img src="https://i.stack.imgur.com/y9DpT.jpg" loading="lazy" />
-                </picture>
+                    <!-- Ezoic - sidebar - sidebar -->
+                    <div id="ezoic-pub-ad-placeholder-165"> </div>
+                    <!-- End Ezoic - sidebar - sidebar -->
                 <figcaption>Advert</ficaption>
             </figure>
             <aside id="chapters" class="bg-offblack chapters" data-theme="dark">
                 <!-- Chapters appear Below -->
-                <aside id="chapters-box">
-                    <h5 class="accordion">Destinations</h5>
-                    <ol class="panel">
-                        <li><a href="#1">Cancun, Mexico</a></li>
-                        <li><a href="#2">Ibiza, Spain</a></li>
-                        <li><a href="#3">Magaluf, Spain</a></li>
-                        <li><a href="#4">Sunny Beach</a></li>
-                        <li><a href="#5">Zante, Greece</a></li>
-                        <li><a href="#6">Malia, Greece</a></li>
-                        <li><a href="#7">Kavos, Greece</a></li>
-                        <li><a href="#8">Ayia Napa, Cyprus</a></li>
-                        <li><a href="#9">Faliraki, Greece</a></li>
-                        <li><a href="#10">Las Vegas, USA</a></li>
-                        <li><a href="#11">Amsterdam, Holland</a></li>
-                        <li><a href="#12">Phuket, Thailand</a></li>
-                    </ol>
-                </aside>
             </aside>
             <div class="sticky-sidebar sticky-scroll">
                 <figure class="advert sidebar-ad">
