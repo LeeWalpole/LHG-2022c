@@ -9,8 +9,6 @@ console.log("Hello home!");
 
 
 
-
-
 <?php get_template_part( 'hero/hero' ); ?>
 <?php get_template_part( 'blocks/blocks' ); ?>
 

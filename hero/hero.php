@@ -4,15 +4,20 @@ $kicker = get_sub_field('hero_kicker') ?: wp_get_post_terms( get_the_ID(), 'cate
 $headline = get_sub_field('hero_headline') ?: get_the_title(); 
 $subheadline = get_sub_field('hero_subheadline'); 
 ?>
-
+<br><br><br><br><br><br><br><br>
+<p>1</p>
 <?php
 echo $kicker = get_sub_field('hero_kicker') ?: wp_get_post_terms( get_the_ID(), 'category' )[0]->name;
 echo $headline = get_sub_field('hero_headline') ?: get_the_title(); 
 echo $subheadline = get_sub_field('hero_subheadline'); 
 ?>
 
+<p>1</p>
 <?php
 echo $kicker = get_field('hero_kicker') ?: wp_get_post_terms( get_the_ID(), 'category' )[0]->name;
 echo $headline = get_field('hero_headline') ?: get_the_title(); 
 echo $subheadline = get_field('hero_subheadline'); 
 ?>
+
+
+
