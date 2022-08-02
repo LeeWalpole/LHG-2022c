@@ -5,7 +5,7 @@
 <?php if( have_rows('hero_header') ):
         while( have_rows('hero_header') ) : the_row();?>
 
-        <?php 
+<?php 
         $kicker = get_sub_field('kicker');
         $headline = get_sub_field('headline');
         $subheadline = get_sub_field('subheadline');
@@ -45,11 +45,11 @@
 <?php // get_template_part( 'snippets/snippet-feature' ); ?>
 
 <style>
-@media (min-width: 821px) {
-.article-block .feature {
-        padding:0!important;
+    @media (min-width: 821px) {
+        .article-block .feature {
+            padding: 0 !important;
+        }
     }
-}
 </style>
 
 
@@ -84,7 +84,7 @@
 
             <?php the_content(); ?>
 
-           <?php get_template_part( 'snippets/snippet', 'article-sharers' ); // col-4 ?>
+            <?php get_template_part( 'snippets/snippet', 'article-sharers' ); // col-4 ?>
         </article>
         <?php // get_template_part( 'snippets/ad', 'sidebar' ); ?>
 
@@ -117,9 +117,9 @@
             </aside>
             <div class="sticky-sidebar sticky-scroll">
                 <figure class="advert sidebar-ad">
-                    <picture class="ratio" data-ratio="1x1" style="display:block">
-                        <img src="https://i.stack.imgur.com/y9DpT.jpg" loading="lazy" />
-                    </picture>
+                    <!-- Ezoic - sidebar - sidebar -->
+                    <div id="ezoic-pub-ad-placeholder-165"> </div>
+                    <!-- End Ezoic - sidebar - sidebar -->
                     <figcaption>Advert</ficaption>
                 </figure>
             </div>
