@@ -17,7 +17,7 @@ console.log("Hello home!");
 <?php get_template_part( 'blocks/blocks' ); ?>
 
 <!--  include below -->
-<?php include( 'blocks/blocks.php' ); ?>
+<?php // include( 'blocks/blocks.php' ); ?>
 
 
 

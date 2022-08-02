@@ -15,7 +15,7 @@ $query_category = get_sub_field('query_category');
     $myposts = get_posts( $args );
     foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 
-<?php
+        <?php
         $category = get_the_category();
         $kicker = get_field('hero_kicker') ?: $category[0]->cat_name;
         $headline = get_field('hero_headline') ?: get_the_title(); 
@@ -25,7 +25,7 @@ $query_category = get_sub_field('query_category');
         $feature_youtube = get_field('feature_youtube'); 
         ?>
 
-            <article class="teaser standard_teaser bg-white colspan-">
+        <article class="teaser standard_teaser bg-white colspan-">
             <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr($headline); ?>">
                 <figure class="bg-white ratio" data-ratio="standard-teaser">
                     <picture>
@@ -37,8 +37,8 @@ $query_category = get_sub_field('query_category');
                     </picture>
                 </figure>
                 <header class="header bg-white postfade">
-                    <strong class="kicker"><?php echo $kicker; ?></strong>
-                    <h2 class="headline"><?php echo $headline; ?></h2>
+                    <?php if( $kicker ): ?><?php echo $kicker; ?><?php endif;?>
+                    <?php if( $headline ): ?><?php echo $headline; ?><?php endif;?>
                     <?php if($subdeck) : ?><p class="subdeck"><?php echo $subdeck; ?></p><?php endif; ?>
                 </header>
             </a>
@@ -55,8 +55,8 @@ $query_category = get_sub_field('query_category');
     foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
         <?php
 $category = get_the_category();
-$headline = get_field('hero_headline') ?: get_the_title();
 $kicker = get_field('hero_kicker') ?: $category[0]->cat_name;
+$headline = get_field('hero_headline') ?: get_the_title();
 ?>
         <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr($headline); ?>"
             class="showcase-feature-side-puff teaser bg-white">
@@ -68,8 +68,19 @@ $kicker = get_field('hero_kicker') ?: $category[0]->cat_name;
                 <?php endif; ?>
             </figure>
             <header class="puff-header">
+                <?php 
+/*
                 <strong class="kicker"><?php echo $kicker; ?></strong>
                 <h6 class="headline"><?php echo $headline; ?></h6>
+
+                */
+                ?>
+
+                <?php if( $kicker ): ?><?php echo $kicker; ?><?php endif;?>
+                <?php if( $headline ): ?><?php echo $headline; ?><?php endif;?>
+                <?php if($subheadline) : ?><p class="subheadline"><?php echo $subheadline; ?></p><?php endif; ?>
+
+
                 </h6>
             </header>
         </a>
@@ -78,6 +89,8 @@ $kicker = get_field('hero_kicker') ?: $category[0]->cat_name;
     wp_reset_postdata();?>
 
     </div>
+
+
 
 
 
