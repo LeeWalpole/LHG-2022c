@@ -1,9 +1,8 @@
 <?php
-$kicker = get_sub_field('kicker') ?: get_cat_name( $category_id = $query_category );
+// $kicker = get_sub_field('kicker') ?: get_cat_name( $category_id = $query_category );
 $headline = get_sub_field('headline') ?: get_the_title(); 
 $subheadline = get_sub_field('subheadline') ?: "";
 ?>
-
 
 
 <?php if (is_single() )  { ?>
