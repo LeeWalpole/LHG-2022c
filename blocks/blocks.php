@@ -11,25 +11,9 @@ console.log("block hero");
 
 
 <?php } elseif( get_row_layout() == 'showcase_block' ) { ?>
-<?php // get_template_part( 'blocks/block-showcase' ); ?>
+<?php get_template_part( 'blocks/block-showcase' ); ?>
 
 
-<?php $category_id = get_sub_field('query_category');  ?>
-
-<ul>
-    <?php
-    $args = array( 'posts_per_page' => 5, 'offset'=> 1, 'category' => $category_id );
-
-    $myposts = get_posts( $args );
-    foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-        <li>
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-        </li>
-    <?php endforeach; 
-    wp_reset_postdata();?>
-
-
-    </ul>
 
 
 
