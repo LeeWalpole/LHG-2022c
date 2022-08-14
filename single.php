@@ -55,7 +55,6 @@
 </style>
 
 
-
 <?php if ( !empty( get_the_content() ) ) : ?>
 
 <?php // get_template_part( 'snippets/ad', 'header' ); ?>
@@ -83,6 +82,13 @@
             </header>
 
             <?php get_template_part( 'snippets/byline' ); ?>
+
+            <figure class="advert article-advert">
+<!-- Ezoic - LW - Under Page Title - under_page_title -->
+<div id="ezoic-pub-ad-placeholder-169"> </div>
+<!-- End Ezoic - LW - Under Page Title - under_page_title -->
+<figcaption>Advertisement</ficaption>
+</figure>
 
             <?php the_content(); ?>
 

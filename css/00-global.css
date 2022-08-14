@@ -78,7 +78,6 @@ html {
     max-width: 100vw!important;
     width: 100vw!important;
     scroll-behavior: smooth;
-    overflow-x: hidden!important;
     position: relative;
 }
 
