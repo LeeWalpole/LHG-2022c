@@ -115,7 +115,21 @@
 <!-- Tracking Codes / non-critical stuff below -->
 <?php // get_template_part( 'snippets/footer', 'analytics' ); // ?>
 
-<?php if ( is_single() ) : ?>
+<?php wp_footer(); ?>
+
+<?php /*
+<div class="bg-color row-block">
+<?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
+</div>
+<div class="bg-color row-block">
+    <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
+</div>*/ ?>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<?php // Run code only for Single post page
+if ( is_single() ) :?>
 
 <?php $color_primary = get_field('primary_color','options'); ?>
 <style>
@@ -165,26 +179,6 @@
         blockquotes.appendChild(blockquote);
     });
 </script>
-<?php endif; // endif is_single ?>
-
-<?php wp_footer(); ?>
-
-<?php /*
-<div class="bg-color row-block">
-<?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
-</div>
-<div class="bg-color row-block">
-    <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
-</div>*/ ?>
-
-
-<script src="https://www.dwin2.com/pub.312913.min.js"></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<?php // Run code only for Single post page
-if ( is_single() ) :?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <?php endif;?>
@@ -215,6 +209,9 @@ if ( is_single() ) :?>
             }
         }, false);
     </script>
+
+
+<script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
 
 
 </body>

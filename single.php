@@ -64,8 +64,7 @@
 
     <figure class="feature colspan-12">
         <?php if ( get_the_post_thumbnail_url() ) : ?>
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            data-src="<?php echo get_the_post_thumbnail_url(); ?>" class="lazyload" loading="lazy" >
+            <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="eager" >
         <?php else : ?>
         <img src="https://i.stack.imgur.com/y9DpT.jpg" loading="lazy" class="lazyload" loading="lazy" />
         <?php endif; ?>
