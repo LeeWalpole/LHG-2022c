@@ -45,7 +45,7 @@
             position: relative;
             height: unset;
         }
-
+ 
         .loader {
             display: flex;
             justify-content: center;
@@ -154,8 +154,8 @@
 
 </head>
 
-<body id="body" class="body-loading">
 
+<body id="body" class="body-loading">
     <div class="loader">
         <div class="load">
 
