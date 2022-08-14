@@ -14,7 +14,7 @@
 	@font-face {
 		font-family: "Circular-Bold";
 		src: url("<?php echo get_stylesheet_directory_uri(); ?>/fonts/circular-bold.woff2") format("woff2");
-		font-display: swap;
+		font-display: swap; 
 	}
 
 	:root {
