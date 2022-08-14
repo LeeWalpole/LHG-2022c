@@ -7,11 +7,11 @@
     /* Used for spacing things */
     --px-xsmall: 3pt;
     --px-small: 6pt;
-    --px-medium: 24pt;
-    --px-big: 32pt;
+    --px-medium: 18pt;
+    --px-big: 36pt;
     --px-xbig: 50pt;
 
-    --side-padding: 24pt;
+    --side-padding: 18pt;
 
     --p: 1rem;
     --small: calc(var(--p) - 10%);

@@ -30,7 +30,7 @@
     <?php // include_once( 'fonts/font.php' ); /*  include_once( 'fonts.php' ); */ ?>
     <?php // include_once( 'css/variables.php' ); /*  include_once( 'fonts.php' ); */ ?>
 
-    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?2" as="style"
+    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?3" as="style"
         onload="this.rel='stylesheet'">
 
     <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>

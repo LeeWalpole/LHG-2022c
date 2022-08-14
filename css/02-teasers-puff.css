@@ -6,7 +6,7 @@
 @media (min-width:821px) {
     :root {
         --puff-headline: 16pt!important;
-        --puff-headline-line: 1.6;
+        --puff-headline-line: 1.4!important;
     }
 }
 
