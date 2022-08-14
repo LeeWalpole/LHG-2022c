@@ -30,13 +30,118 @@
     <?php // include_once( 'fonts/font.php' ); /*  include_once( 'fonts.php' ); */ ?>
     <?php // include_once( 'css/variables.php' ); /*  include_once( 'fonts.php' ); */ ?>
 
-    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?8" as="style"
-        onload="this.rel='stylesheet'">
+
+    <style>
+        .body-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background:#000;
+        }
+
+        .body-loaded {
+            position: relative;
+            height: unset;
+        }
+
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            position: fixed;
+            z-index: 22;
+            pointer-events: none;
+            transition: all 0.75s ease-in-out;
+        }
+
+        .body-loaded .loader {
+            opacity: 0;
+            z-index: -1;
+        }
+    </style>
+
+    <style>
+        .load {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background: #000;
+            position: fixed;
+            z-index: 22;
+            pointer-events: none;
+            transition: all 0.75s ease-in-out;
+        }
+
+        .splash-logo {
+            z-index: 56;
+        }
+
+        .spinners {
+            display: inline-flex;
+            background-color: #010101;
+            animation: loading 0.5s ease-in 4s forwards;
+            z-index: 55;
+            margin-top: 32px;
+        }
+
+        @keyframes square {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        .spinners .square1,
+        .spinners .square1,
+        .spinners .square3 {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            border: 2px solid white;
+            border-radius: 100px;
+            background-color: transparent !important;
+        }
+
+        .square1 {
+            animation: square 1s ease-in 0s infinite;
+        }
+
+        .square2 {
+            animation: square 1s ease-in 0.2s infinite;
+        }
+
+        .square3 {
+            animation: square 1s ease-in 0.4s infinite;
+        }
+
+        .scroll {
+            overflow: hidden;
+        }
+    </style>
 
     <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
 
 
     <?php include_once( 'fonts/font.php' ); ?>
+
+    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?8" as="style"
+        onload="this.rel='stylesheet'">
 
     <?php /*
       <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css" as="style"
@@ -49,9 +154,20 @@
 
 </head>
 
-<body id="body">
+<body id="body" class="body-loading">
 
+    <div class="loader">
+        <div class="load">
 
+            <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" loading="eager">
+
+            <div class="spinners">
+                <div class="square1"></div>
+                <div class="square2"></div>
+                <div class="square3"></div>
+            </div>
+        </div>
+    </div>
 
     <?php // get_template_part( 'snippets/snippet', 'nav' ); ?>
 
@@ -60,5 +176,5 @@
 
     <main>
 
-    <?php get_template_part( 'hero/hero' ); ?>
-<?php get_template_part( 'blocks/blocks' ); ?>
+        <?php get_template_part( 'hero/hero' ); ?>
+        <?php get_template_part( 'blocks/blocks' ); ?>
