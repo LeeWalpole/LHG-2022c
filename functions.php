@@ -80,6 +80,18 @@ function disable_emojis() {
 	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    // Remove junk from head
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'feed_links', 2 );
+remove_action( 'wp_head', 'index_rel_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 	
 	// Remove from TinyMCE
 	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
@@ -109,12 +121,6 @@ add_action('init', function () {
     add_action('wp_footer', 'wp_print_head_scripts', 5);
 });
 
-/*  DISABLE GUTENBERG STYLE IN HEADER| WordPress 5.9 */
-function wps_deregister_styles() {
-    wp_dequeue_style( 'global-styles' );
-}
-add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
-
 //REMOVE GUTENBERG BLOCK LIBRARY CSS FROM LOADING ON FRONTEND
 function remove_wp_block_library_css(){
     wp_dequeue_style( 'wp-block-library' );
@@ -130,20 +136,6 @@ function remove_global_styles_and_svg_filters() {
 	remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 }
 add_action('init', 'remove_global_styles_and_svg_filters');
-
 // This snippet removes the Global Styles and SVG Filters that are mostly if not only used in Full Site Editing in WordPress 5.9.1+
 // Detailed discussion at: https://github.com/WordPress/gutenberg/issues/36834
 // WP default filters: https://github.com/WordPress/WordPress/blob/7d139785ea0cc4b1e9aef21a5632351d0d2ae053/wp-includes/default-filters.php
-
-// Remove junk from head
-remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'feed_links', 2 );
-remove_action( 'wp_head', 'index_rel_link' );
-remove_action( 'wp_head', 'wlwmanifest_link' );
-remove_action( 'wp_head', 'feed_links_extra', 3 );
-remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
-remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
