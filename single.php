@@ -92,20 +92,25 @@
 
         <aside class="colspan-3 bg-white sidebar">
             <figure class="advert sidebar-ad">
-                <!-- Ezoic - sidebar - sidebar -->
-                <div id="ezoic-pub-ad-placeholder-165"> </div>
-                <!-- End Ezoic - sidebar - sidebar -->
-                <figcaption>Advert</ficaption>
+
+
+                <!-- Ezoic - LW Sidebar Top - sidebar -->
+                <div id="ezoic-pub-ad-placeholder-168"> </div>
+                <!-- End Ezoic - LW Sidebar Top - sidebar -->
+
+                <figcaption>Advertisement</ficaption>
             </figure>
             <aside id="chapters" class="bg-offblack chapters" data-theme="dark">
                 <!-- Chapters appear Below -->
             </aside>
             <div class="sticky-sidebar sticky-scroll">
                 <figure class="advert sidebar-ad">
-                    <!-- Ezoic - sidebar - sidebar -->
-                    <div id="ezoic-pub-ad-placeholder-165"> </div>
-                    <!-- End Ezoic - sidebar - sidebar -->
-                    <figcaption>Advert</ficaption>
+
+                    <!-- Ezoic - LW Sidebar Top - sidebar -->
+                    <div id="ezoic-pub-ad-placeholder-168"> </div>
+                    <!-- End Ezoic - LW Sidebar Top - sidebar -->
+
+                    <figcaption>Advertisement</ficaption>
                 </figure>
             </div>
         </aside>
