@@ -26,14 +26,14 @@ module.exports = function (grunt) {
         cssmin: {
             min_css: {
                 src: ['css/*.css'],
-                dest: 'LW-2022/dist/min.css',
+                dest: 'dist/min.css',
             },
         },
 
         uglify: {
             min_js: {
                 files: {
-                    'LW-2022/dist/min.js': ['js/*.js'],
+                    'dist/min.js': ['js/*.js'],
                 }
             }
         },

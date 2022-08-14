@@ -1,0 +1,142 @@
+
+
+/* freeze scrolling of main content when nav is on */
+.nav-on main {
+    overflow: hidden!important;
+    height: 100vh!important;
+    max-height: 100vh!important;
+    margin:0!important
+}
+
+.nav-on footer { position: fixed;}
+
+/***/
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    min-height: 100vh;
+    height: 100%;
+    transform: translateY(-100%);
+    transition: all .66s;
+    z-index: 3;
+    background:var(--color-black);
+}
+
+.nav-on .nav-menu {
+    display: block;
+    transform: translateY(0);
+}
+
+
+/* need this for scrolling */
+.nav-menu-inner {
+    position: relative;
+    padding: calc(var(--nav-height) + var(--padding-xsmall)) 0;
+    width: 100vw;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+.nav-menu-elements { 
+width: 100vw;
+box-sizing: border-box;
+}
+
+
+/* nav-menu-elements animate when burger clicked */
+#nav .nav-menu-elements > * { 
+opacity: 0;
+transition: all 0.33s ease-in-out;
+/* transform: translateY(var(--padding));  */
+}
+
+.nav-on #nav .nav-menu-elements > *  {  
+/* transform: translateY(0);  */
+transition-delay: 0.44s;
+}
+
+
+.nav-menu-elements hr { 
+margin-left:auto; margin-right:auto;
+border-color:var(--color-lightgrey);
+}
+
+.nav-on #nav .nav-menu-elements > hr { 
+opacity: .25!important;
+grid-column: span 12;
+}
+    
+.nav-menu aside {
+    height: auto;
+    padding:var(--padding) var(--padding-big);
+}
+
+.nav-on #nav .nav-menu aside {
+    opacity: 1;
+}
+
+.nav-menu-element .button { margin-top:var(--padding-small); 
+padding:0 var(--padding-small);
+height:40px; line-height:40px;
+color:var(--color-lightgrey);
+}
+
+.nav-menu-element.social-icons li { 
+display: inline; margin-right:var(--padding-small);
+
+}
+
+.nav-menu-element.social-icons li a { 
+    font-size:calc(var(--teaser-headline) + 25%);
+    }
+
+    .nav-menu-element.social-icons li a:hover { 
+color:var(--color-white);
+        }
+
+
+.nav-menu-elements aside h5 {
+    font-size: var(--p);
+    font-family: var(--font-1);
+    font-weight:700;
+    color: var(--color-white);
+    margin-bottom:var(--padding-xsmall);
+}
+
+.nav-menu-elements aside p { 
+    color:var(--color-lightgrey);
+    font-size: var(--small);
+}
+
+
+.nav-menu-elements aside ul li {
+    list-style: none;
+}
+
+.nav-menu-elements aside ul li a {
+    line-height: var(--line-height);
+    font-size: var(--small);
+    color:var(--color-lightgrey);
+}
+
+.nav-menu-elements aside ul li a:hover { 
+    color:var(--color-white);
+}
+
+
+
+#nav .footer-socials > * { 
+    opacity: 0;
+    transition: all 0.33s ease-in-out;
+    transform: translateY(var(--padding)); 
+    }
+    
+.nav-on #nav .footer-socials > *  {  
+    transform: translateY(0); 
+    transition-delay: 0.44s;
+    opacity: 1;
+    }
+    
+

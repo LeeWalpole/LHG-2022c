@@ -1,0 +1,66 @@
+:root {
+    --button-height: 52px;
+    --button-padding: 40px;
+}
+
+
+@media (min-width:821px) {
+
+:root {
+    --button-height: 60px;
+    --button-padding: 52px;
+}
+
+}
+
+
+
+
+a.button {
+    color: var(--color)
+}
+
+a.button {
+    font-weight: 700
+}
+
+.buttons {
+    height: var(--button-height);
+    line-height: var(--button-height);
+    display: block;
+}
+
+.buttons .button {
+    color: var(--color);
+    display: inline-block;
+    text-align: center;
+}
+
+.button {   cursor: pointer;}
+
+
+
+
+
+.hero .buttons {
+    margin: var(--px-big) 0!important;
+    display: block;
+}
+
+@media (min-width:821px) {
+
+    .hero .buttons {
+        margin: var(--px-xbig) 0;
+        display: block;
+    }
+}
+
+.buttons .button {
+    display: inline-block;
+    background: white;
+    color: black;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    padding: 0 var(--button-padding);
+    margin-right: var(--px-medium);
+}

@@ -67,7 +67,7 @@ h6 {
     font-size: var(--kicker);
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-bottom: var(--px-xsmall);
+    margin-bottom: var(--padding-xsmall);
     display: block;
     font-family: var(--font1-heavy)
 }
@@ -76,7 +76,7 @@ h6 {
     display: block;
     font-size: var(--teaser-headline);
     line-height: var(--teaser-headline-line);
-    margin-bottom: var(--px-small);
+    margin-bottom: var(--padding-small);
     font-family: var(--font1-bold);
     letter-spacing: -.5pt !important
 }

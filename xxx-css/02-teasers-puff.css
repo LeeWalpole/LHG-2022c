@@ -1,17 +1,3 @@
-:root {
-    --puff-headline: 14pt!important;
-    --puff-headline-line: 1!important;
-}
-
-@media (min-width:821px) {
-    :root {
-        --puff-headline: 16pt!important;
-        --puff-headline-line: 1.6;
-    }
-}
-
-
-
 
 .puff {
     position: relative;
@@ -43,7 +29,7 @@
     padding: 0;
     z-index: 1;
     padding: 0;
-    padding-right: var(--padding-small);
+    padding-right: var(--px-small);
     padding-left: calc(var(--puff-width) + var(--padding-small));
     display: flex;
     justify-content: center;
@@ -52,15 +38,15 @@
     text-align: left !important
 }
 
-.puff-header .kicker {
+.puff .kicker {
     text-align: left
 }
 
-.puff-header .headline {
+.puff .headline {
     font-weight: var(--regular);
-    font-size: var(--puff-headline)!important;
-    line-height: var(--puff-headline-line);
-    color: var(--color-black)!important;
+    font-size: var(--p);
+    line-height: 1.4;
+    color: var(--color-black);
     margin: 0;
     text-align: left
 }

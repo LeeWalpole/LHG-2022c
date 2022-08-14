@@ -5,17 +5,17 @@
     --hero-subheadline-line: 1.5;
 
     /* Used for spacing things */
-    --px-xsmall: 3pt;
-    --px-small: 6pt;
-    --px-medium: 24pt;
-    --px-big: 32pt;
-    --px-xbig: 50pt;
+    --px-xsmall: 2px;
+    --px-small: 4px;
+    --px-medium: 12px;
+    --px-big: 16px;
+    --px-xbig: 40px;
 
-    --side-padding: 24pt;
+    --side-padding: 18px;
 
     --p: 1rem;
-    --small: calc(var(--p) - 10%);
-    --xsmall: calc(var(--p) - 20%);
+    --small: calc(var(--p) - 10%); 
+    --xsmall: calc(var(--p) - 20%); 
 
 }
 
@@ -29,10 +29,10 @@
         --hero-subheadline: 1.2rem;
         --hero-subheadline-line: 1.5;
 
-        --w-safe: 640px;
-        --w-max: 1240px;
+        --w-safe:640px;
+        --w-max:1240px;
 
-
+        
         --side-padding: 20px;
 
         --px-xsmall: 6.25px;
@@ -42,18 +42,13 @@
         --px-xbig: 100px;
 
         --p: 1.2rem;
-        --small: calc(var(--p) - 10%);
-        --xsmall: calc(var(--p) - 20%);
+        --small: calc(var(--p) - 10%); 
+        --xsmall: calc(var(--p) - 20%); 
 
     }
 
-    .w-safe {
-        max-width: var(--w-safe);
-    }
-
-    .w-max {
-        max-width: var(--w-max);
-    }
+    .w-safe { max-width:var(--w-safe);}
+    .w-max { max-width:var(--w-max);}
 
 
 }
@@ -93,13 +88,13 @@ html {
     outline: 0
 }
 
-body {
+body { 
     min-height: 100%;
 }
 
 .row-block {
-    padding: var(--px-big) var(--side-padding) !important;
-    margin: 0 auto var(--px-big) !important;
+    padding:var(--px-big) var(--side-padding)!important;
+    margin:0 auto var(--px-big)!important;
 }
 
 
@@ -107,8 +102,8 @@ body {
 
 @media (min-width:821px) {
     .row-block {
-        padding: var(--px-big) !important;
-        margin: 0 auto;
+        padding:var(--px-big)!important;
+        margin:0 auto;
     }
 }
 
@@ -209,9 +204,9 @@ s {
 
 
 
-.m-auto {
-    margin-left: auto;
-    margin-right: auto;
+.m-auto { 
+    margin-left:auto;
+    margin-right:auto;
 }
 
 
@@ -232,3 +227,9 @@ s {
     right: 50%;
     width: 100vw;
 }
+
+
+
+
+
+
