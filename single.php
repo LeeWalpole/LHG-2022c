@@ -1,5 +1,18 @@
 <?php get_header(); // includes nav and hero ?>
 
+<style>
+
+.article-body .wp-caption {
+width:100%!important;
+margin-bottom:20px!important;
+}
+
+.article-body .wp-caption .wp-caption-text { 
+    font-size:0.9rem!important;
+}
+
+</style>
+
 <!-- Ezoic - top_banner - top_of_page -->
 <div id="ezoic-pub-ad-placeholder-166"> </div>
 <!-- End Ezoic - top_banner - top_of_page -->
