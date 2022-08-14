@@ -181,12 +181,40 @@
 <script src="https://www.dwin2.com/pub.312913.min.js"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reframe.js/4.0.0/reframe.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<?php // Run code only for Single post page
+if ( is_single() ) :?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<?php endif;?>
 
 <script>
-reframe('iframe', '');
-</script>
+        document.addEventListener('click', function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            let body_class = document.querySelector('body');
 
+            if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+                if (target.hasAttribute('data-target')) {
+                    var m_ID = target.getAttribute('data-target');
+                    document.getElementById(m_ID).classList.add('open');
+                    body_class.classList.add('modal-on');
+                    e.preventDefault();
+                }
+            }
+
+            // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+            if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') ||
+                target
+                .classList.contains('modal')) {
+                var modal = document.querySelector('[class="modal open"]');
+                modal.classList.remove('open');
+                body_class.classList.remove('modal-on');
+                e.preventDefault();
+            }
+        }, false);
+    </script>
 
 
 </body>

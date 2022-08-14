@@ -831,3 +831,49 @@ blockquote a {
     font-family: var(--font1-bold);
     color: var(--grey);
 }
+
+
+.article-body .wp-caption {
+    width:100%!important;
+    margin-bottom:20px!important;
+    }
+    
+    .article-body .wp-caption .wp-caption-text { 
+        font-size:0.9rem!important;
+    }
+    
+
+
+
+
+
+
+
+
+
+#chapters-box {
+    padding: var(--padding) !important;
+}
+
+h5.accordion {
+    font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .sticky-scroll {
+        max-height: 80vh !important;
+        max-height: 80dvh;
+        /* iOS dynamic viewport height */
+        overflow-y: auto;
+    }
+}
+
+.pop-share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-share p {
+    margin-left: var(--px-medium);
+}
