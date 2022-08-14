@@ -16,12 +16,17 @@ $headline = get_sub_field('headline') ?: get_the_title();
 $subheadline = get_sub_field('subheadline') ?: "";
 ?>
 
+
+
+
+
         <article class="teaser standard_teaser bg-white colspan-">
             <a href="<?php the_permalink(); ?>" title="<?php echo $headline; ?>">
                 <figure class="bg-white ratio" data-ratio="standard-teaser">
                     <picture>
                         <?php if ( get_the_post_thumbnail_url() ) : ?>
-                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="lazy" />
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="<?php echo get_the_post_thumbnail_url(); ?>" class="lazyload" loading="lazy" >
                         <?php else : ?>
                         <img src="https://loremflickr.com/640/360" loading="lazy" />
                         <?php endif; ?>
@@ -58,7 +63,8 @@ $subheadline = get_sub_field('subheadline') ?: "";
             class="showcase-feature-side-puff teaser bg-white">
             <figure>
                 <?php if ( get_the_post_thumbnail_url() ) : ?>
-                <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="lazy" />
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="<?php echo get_the_post_thumbnail_url(); ?>" class="lazyload" loading="lazy" >
                 <?php else : ?>
                 <img src="https://loremflickr.com/640/360" loading="lazy" />
                 <?php endif; ?>
