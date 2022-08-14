@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="robots" content="follow, index" />
-    <?php // wp_head(); ?>
+    <?php wp_head(); ?>
     <?php if ( has_post_thumbnail() ) : ?>
     <link rel="preload" as="image"
         href="<?php echo esc_attr($hero_image_smartphone = get_the_post_thumbnail_url(get_the_ID(),'thumbnail')); ?>">
