@@ -52,14 +52,3 @@ update_option( '2x1_smartphone', 400, 200, true );
     // include_once( 'functions/header-junk.php' );
     // include_once( 'functions/lazyload-images.php' );
     
-    // Add Figure to Post images
-function fb_unautop_4_img( $content )
-{ 
-    $content = preg_replace( 
-        '/<p>\\s*?(<a rel=\"attachment.*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', 
-        '<figure>$1</figure>', 
-        $content 
-    ); 
-    return $content; 
-} 
-add_filter( 'the_content', 'fb_unautop_4_img', 99 );
