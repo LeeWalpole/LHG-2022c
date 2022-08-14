@@ -93,14 +93,14 @@
 <?php // include_once( 'snippets/snippet-chapters.php' ); /*  include_once( 'fonts.php' ); */ ?>
 <?php // get_template_part( 'snippets/snippet', 'footer' ); // col-1 ?>
 
-<script defer src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/dist/min.js?v=005"></script>
+<!-- <script defer src="<?php // echo esc_url(get_stylesheet_directory_uri()); ?>/dist/min.js?v=005"></script> -->
 <!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-
+<!-- 
 <script>
     window.lazySizesConfig = {
         addClasses: true
     };
-</script>
+</script> -->
 
 
 <!-- Tracking Codes / non-critical stuff below -->
