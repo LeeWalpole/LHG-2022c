@@ -108,3 +108,9 @@ add_action('init', function () {
     add_action('wp_footer', 'wp_print_scripts', 5);
     add_action('wp_footer', 'wp_print_head_scripts', 5);
 });
+
+/*  DISABLE GUTENBERG STYLE IN HEADER| WordPress 5.9 */
+function wps_deregister_styles() {
+    wp_dequeue_style( 'global-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'wps_deregister_styles', 100 );
