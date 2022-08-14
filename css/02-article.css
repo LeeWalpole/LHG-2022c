@@ -332,7 +332,7 @@ ol.panel {
 }
 
 .article-body>* {
-    padding: 0 var(--px-medium)
+    padding: 0;
 }
 
 .article-body>p>a {
