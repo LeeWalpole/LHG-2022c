@@ -45,8 +45,8 @@
 <style>
 
 	*, html, body, p, ul, li, a {
-		font-family: 'DM Sans', sans-serif;
-		font-weight:400;
+		font-family: 'DM Sans', sans-serif!important;
+		font-weight:400!important;
 	}
 
 	h1,
@@ -54,7 +54,7 @@
 	h3,
 	h4,
 	h5 {
-		font-family: 'DM Sans', sans-serif;
-		font-weight:700;
+		font-family: 'DM Sans', sans-serif!important;
+		font-weight:700!important;
 	}
 </style>
