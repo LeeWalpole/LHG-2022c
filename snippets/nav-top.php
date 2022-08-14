@@ -5,11 +5,11 @@
       <span></span>
     </button>
     <a href="<?php $url = home_url( '/' ); echo $url; ?>" class="nav-top-brand">
-      <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80">
-    </a>
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload" loading="lazy">
+    </a> 
     <a href="<?php echo get_permalink(7301); ?>" class="nav-top-button button">Party Holidays</a>
-
   </nav>
+
 
 
   

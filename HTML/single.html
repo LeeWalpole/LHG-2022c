@@ -2,49 +2,4651 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>CSS: Using media queries and grid CSS to reflow columns</title>
+  <meta charset="UTF-8" />
+  <script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>
+    var __ez = __ez || {};
+    __ez.stms = Date.now();
+    __ez.evt = {};
+    __ez.script = {};
+    __ez.ck = __ez.ck || {};
+    __ez.template = {};
+    __ez.template.isOrig = true;
+    __ez.queue = function () {
+      var e = 0,
+        i = 0,
+        n = [],
+        t = !1,
+        r = [],
+        s = [],
+        o = !0,
+        a = function (e, i, t, r, s, o, a) {
+          var l = this;
+          this.name = e, this.funcName = i, this.parameters = null === t ? null : t instanceof Array ? t : [t], this
+            .isBlock = r, this.blockedBy = s, this.deleteWhenComplete = o, this.isError = !1, this.isComplete = !1,
+            this.isInitialized = !1, this.proceedIfError = a, this.isTimeDelay = !1, this.process = function () {
+              f("... func = " + e), l.isInitialized = !0, l.isComplete = !0, f("... func.apply: " + e);
+              var i = l.funcName.split("."),
+                t = null;
+              i.length > 3 || (t = 3 === i.length ? window[i[0]][i[1]][i[2]] : 2 === i.length ? window[i[0]][i[1]] :
+                  window[l.funcName]), null != t && t.apply(null, this.parameters), !0 === l.deleteWhenComplete &&
+                delete n[e], !0 === l.isBlock && (f("----- F'D: " + l.name), m())
+            }
+        },
+        l = function (e, i, n, t, r, s, o) {
+          var a = this;
+          this.name = e, this.path = i, this.async = r, this.defer = s, this.isBlock = n, this.blockedBy = t, this
+            .isInitialized = !1, this.isError = !1, this.isComplete = !1, this.proceedIfError = o, this
+            .isTimeDelay = !1, this.process = function () {
+              a.isInitialized = !0, f("... file = " + e);
+              var n = document.createElement("script");
+              n.src = i, !0 === r ? n.async = !0 : !0 === s && (n.defer = !0), n.onerror = function () {
+                f("----- ERR'D: " + a.name), a.isError = !0, !0 === a.isBlock && m()
+              }, n.onreadystatechange = n.onload = function () {
+                var e = n.readyState;
+                f("----- F'D: " + a.name), e && !/loaded|complete/.test(e) || (a.isComplete = !0, !0 === a
+                  .isBlock && m())
+              }, document.getElementsByTagName("head")[0].appendChild(n)
+            }
+        },
+        c = function (e, i) {
+          this.name = e, this.path = "", this.async = !1, this.defer = !1, this.isBlock = !1, this.blockedBy = [],
+            this.isInitialized = !0, this.isError = !1, this.isComplete = i, this.proceedIfError = !1, this
+            .isTimeDelay = !1, this.process = function () {}
+        };
+
+      function d(e) {
+        !0 !== h(e) && 0 != o && e.process()
+      }
+
+      function h(e) {
+        if (!0 === e.isTimeDelay && !1 === t) return f(e.name + " blocked = TIME DELAY!"), !0;
+        if (e.blockedBy instanceof Array)
+          for (var i = 0; i < e.blockedBy.length; i++) {
+            var r = e.blockedBy[i];
+            if (!1 === n.hasOwnProperty(r)) return f(e.name + " blocked = " + r), !0;
+            if (!0 === e.proceedIfError && !0 === n[r].isError) return !1;
+            if (!1 === n[r].isComplete) return f(e.name + " blocked = " + r), !0
+          }
+        return !1
+      }
+
+      function f(e) {
+        var i = window.location.href,
+          n = new RegExp("[?&]ezq=([^&#]*)", "i").exec(i);
+        "1" === (n ? n[1] : null) && console.debug(e)
+      }
+
+      function m() {
+        ++e > 200 || (f("let's go"), u(r), u(s))
+      }
+
+      function u(e) {
+        for (var i in e)
+          if (!1 !== e.hasOwnProperty(i)) {
+            var n = e[i];
+            !0 === n.isComplete || h(n) || !0 === n.isInitialized || !0 === n.isError ? !0 === n.isError ? f(n.name +
+              ": error") : !0 === n.isComplete ? f(n.name + ": complete already") : !0 === n.isInitialized && f(n
+              .name + ": initialized already") : n.process()
+          }
+      }
+      return window.addEventListener("load", (function () {
+        setTimeout((function () {
+          t = !0, f("TDELAY -----"), m()
+        }), 5e3)
+      }), !1), {
+        addFile: function (e, i, t, o, a, c, h, f) {
+          var m = new l(e, i, t, o, a, c, h);
+          !0 === f ? r[e] = m : s[e] = m, n[e] = m, d(m)
+        },
+        addDelayFile: function (e, i) {
+          var t = new l(e, i, !1, [], !1, !1, !0);
+          t.isTimeDelay = !0, f(e + " ...  FILE! TDELAY"), s[e] = t, n[e] = t, d(t)
+        },
+        addFunc: function (e, t, o, l, c, h, f, m, u) {
+          !0 === h && (e = e + "_" + i++);
+          var p = new a(e, t, o, l, c, f, m);
+          !0 === u ? r[e] = p : s[e] = p, n[e] = p, d(p)
+        },
+        addDelayFunc: function (e, i, t) {
+          var r = new a(e, i, t, !1, [], !0, !0);
+          r.isTimeDelay = !0, f(e + " ...  FUNCTION! TDELAY"), s[e] = r, n[e] = r, d(r)
+        },
+        items: n,
+        processAll: m,
+        setallowLoad: function (e) {
+          o = e
+        },
+        markLoaded: function (e) {
+          if (e && 0 !== e.length) {
+            if (e in n) {
+              var i = n[e];
+              !0 === i.isComplete ? f(i.name + " " + e + ": error loaded duplicate") : (i.isComplete = !0, i
+                .isInitialized = !0)
+            } else n[e] = new c(e, !0);
+            f("markLoaded dummyfile: " + n[e].name)
+          }
+        },
+        logWhatsBlocked: function () {
+          for (var e in n) !1 !== n.hasOwnProperty(e) && h(n[e])
+        }
+      }
+    }();
+    __ez.evt.add = function (e, t, n) {
+      e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent ? e.attachEvent("on" + t, n) : e["on" + t] =
+        n()
+    }, __ez.evt.remove = function (e, t, n) {
+      e.removeEventListener ? e.removeEventListener(t, n, !1) : e.detachEvent ? e.detachEvent("on" + t, n) : delete e[
+        "on" + t]
+    };
+    __ez.script.add = function (e) {
+      var t = document.createElement("script");
+      t.src = e, t.async = !0, t.type = "text/javascript", document.getElementsByTagName("head")[0].appendChild(t)
+    };
+    __ez.dot = {};
+    ! function () {
+      var e;
+      __ez.vep = (e = [], {
+        Add: function (i, t) {
+          __ez.dot.isDefined(i) && __ez.dot.isValid(t) && e.push({
+            type: "video",
+            video_impression_id: i,
+            domain_id: __ez.dot.getDID(),
+            t_epoch: __ez.dot.getEpoch(0),
+            data: __ez.dot.dataToStr(t)
+          })
+        },
+        Fire: function () {
+          if (void 0 === document.visibilityState || "prerender" !== document.visibilityState) {
+            if (__ez.dot.isDefined(e) && e.length > 0)
+              for (; e.length > 0;) {
+                var i = 5;
+                i > e.length && (i = e.length);
+                var t = e.splice(0, i),
+                  o = __ez.dot.getURL("/detroitchicago/grapefruit.gif") + "?orig=" + (!0 === __ez.template
+                    .isOrig ? 1 : 0) + "&v=" + btoa(JSON.stringify(t));
+                __ez.dot.Fire(o)
+              }
+            e = []
+          }
+        }
+      })
+    }();
+  </script>
+  <script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="robots" content="follow, index" />
+
+  <!-- Search Engine Optimisation by Rank Math - https://s.rankmath.com/home -->
+  <title>Mind blowing Ayahuasca ceremony in Phuket, Thailand</title>
+  <meta name="description"
+    content="After stumbling across a secret Ayahuasca shaman at a retreat in Phuket - I decided to give the powerful psychedelic a try." />
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+  <link rel="canonical"
+    href="https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Mind blowing Ayahuasca ceremony in Phuket, Thailand" />
+  <meta property="og:description"
+    content="After stumbling across a secret Ayahuasca shaman at a retreat in Phuket - I decided to give the powerful psychedelic a try." />
+  <meta property="og:url"
+    content="https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/" />
+  <meta property="og:site_name" content="Lads Holiday Guide" />
+  <meta property="article:publisher" content="https://www.facebook.com/LadsGuide/" />
+  <meta property="article:author" content="https://www.facebook.com/LeeWalpole" />
+  <meta property="article:tag" content="Phuket" />
+  <meta property="article:tag" content="popular" />
+  <meta property="article:tag" content="THAILAND" />
+  <meta property="article:section" content="Travel Blog" />
+  <meta property="og:updated_time" content="2020-07-07T05:14:31+01:00" />
+  <meta property="fb:app_id" content="195608551508166" />
+  <meta property="og:image" content="https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg" />
+  <meta property="og:image:secure_url" content="https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="847" />
+  <meta property="og:image:alt" content="Ayahuasca (DMT)" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="article:published_time" content="2018-02-04T18:24:09+00:00" />
+  <meta property="article:modified_time" content="2020-07-07T05:14:31+01:00" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mind blowing Ayahuasca ceremony in Phuket, Thailand" />
+  <meta name="twitter:description"
+    content="After stumbling across a secret Ayahuasca shaman at a retreat in Phuket - I decided to give the powerful psychedelic a try." />
+  <meta name="twitter:site" content="@LadsHols" />
+  <meta name="twitter:creator" content="@lee_walpole" />
+  <meta name="twitter:image" content="https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg" />
+  <meta name="twitter:label1" content="Written by" />
+  <meta name="twitter:data1" content="Lee Walpole" />
+  <meta name="twitter:label2" content="Time to read" />
+  <meta name="twitter:data2" content="5 minutes" />
+  <script type="application/ld+json" class="rank-math-schema">
+    {
+      "@context": "https://schema.org",
+      "@graph": [{
+        "@type": ["Person", "Organization"],
+        "@id": "https://www.ladsholidayguide.com/#person",
+        "name": "Lee Walpole",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://www.ladsholidayguide.com/#logo",
+          "url": "https://www.ladsholidayguide.com/wp-content/uploads/g-logo.png",
+          "contentUrl": "https://www.ladsholidayguide.com/wp-content/uploads/g-logo.png",
+          "caption": "Lee Walpole",
+          "inLanguage": "en-GB",
+          "width": "1000",
+          "height": "1000"
+        },
+        "image": {
+          "@type": "ImageObject",
+          "@id": "https://www.ladsholidayguide.com/#logo",
+          "url": "https://www.ladsholidayguide.com/wp-content/uploads/g-logo.png",
+          "contentUrl": "https://www.ladsholidayguide.com/wp-content/uploads/g-logo.png",
+          "caption": "Lee Walpole",
+          "inLanguage": "en-GB",
+          "width": "1000",
+          "height": "1000"
+        }
+      }, {
+        "@type": "WebSite",
+        "@id": "https://www.ladsholidayguide.com/#website",
+        "url": "https://www.ladsholidayguide.com",
+        "name": "Lee Walpole",
+        "publisher": {
+          "@id": "https://www.ladsholidayguide.com/#person"
+        },
+        "inLanguage": "en-GB"
+      }, {
+        "@type": "ImageObject",
+        "@id": "https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg",
+        "url": "https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg",
+        "width": "1280",
+        "height": "847",
+        "caption": "Ayahuasca (DMT)",
+        "inLanguage": "en-GB"
+      }, {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/#breadcrumb",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": "1",
+          "item": {
+            "@id": "https://www.ladsholidayguide.com/travel-blog/",
+            "name": "Travel Blog"
+          }
+        }, {
+          "@type": "ListItem",
+          "position": "2",
+          "item": {
+            "@id": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/",
+            "name": "Mind blowing Ayahuasca ceremony in Phuket, Thailand"
+          }
+        }]
+      }, {
+        "@type": "WebPage",
+        "@id": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/#webpage",
+        "url": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/",
+        "name": "Mind blowing Ayahuasca ceremony in Phuket, Thailand",
+        "datePublished": "2018-02-04T18:24:09+00:00",
+        "dateModified": "2020-07-07T05:14:31+01:00",
+        "isPartOf": {
+          "@id": "https://www.ladsholidayguide.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg"
+        },
+        "inLanguage": "en-GB",
+        "breadcrumb": {
+          "@id": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/#breadcrumb"
+        }
+      }, {
+        "@type": "BlogPosting",
+        "headline": "Mind blowing Ayahuasca ceremony in Phuket, Thailand",
+        "datePublished": "2018-02-04T18:24:09+00:00",
+        "dateModified": "2020-07-07T05:14:31+01:00",
+        "author": {
+          "@type": "Person",
+          "name": "Lee Walpole"
+        },
+        "name": "Mind blowing Ayahuasca ceremony in Phuket, Thailand",
+        "@id": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/#schema-455807",
+        "isPartOf": {
+          "@id": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/#webpage"
+        },
+        "publisher": {
+          "@id": "https://www.ladsholidayguide.com/#person"
+        },
+        "image": {
+          "@id": "https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg"
+        },
+        "inLanguage": "en-GB",
+        "mainEntityOfPage": {
+          "@id": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/#webpage"
+        }
+      }]
+    }
+  </script>
+  <!-- /Rank Math WordPress SEO plugin -->
+
+  <link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" id="wp-block-library-css"
+    href="https://www.ladsholidayguide.com/wp-includes/css/dist/block-library/style.min.css" media="all" />
+  <style id="global-styles-inline-css">
+    body {
+      --wp--preset--color--black: #000000;
+      --wp--preset--color--cyan-bluish-gray: #abb8c3;
+      --wp--preset--color--white: #ffffff;
+      --wp--preset--color--pale-pink: #f78da7;
+      --wp--preset--color--vivid-red: #cf2e2e;
+      --wp--preset--color--luminous-vivid-orange: #ff6900;
+      --wp--preset--color--luminous-vivid-amber: #fcb900;
+      --wp--preset--color--light-green-cyan: #7bdcb5;
+      --wp--preset--color--vivid-green-cyan: #00d084;
+      --wp--preset--color--pale-cyan-blue: #8ed1fc;
+      --wp--preset--color--vivid-cyan-blue: #0693e3;
+      --wp--preset--color--vivid-purple: #9b51e0;
+      --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+      --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+      --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+      --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+      --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+      --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+      --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+      --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+      --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+      --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+      --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+      --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+      --wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
+      --wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');
+      --wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');
+      --wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');
+      --wp--preset--duotone--midnight: url('#wp-duotone-midnight');
+      --wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
+      --wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');
+      --wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');
+      --wp--preset--font-size--small: 13px;
+      --wp--preset--font-size--medium: 20px;
+      --wp--preset--font-size--large: 36px;
+      --wp--preset--font-size--x-large: 42px;
+    }
+
+    .has-black-color {
+      color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-color {
+      color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-color {
+      color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-color {
+      color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-color {
+      color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-color {
+      color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-color {
+      color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-color {
+      color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-color {
+      color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-color {
+      color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-color {
+      color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-color {
+      color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-background-color {
+      background-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-background-color {
+      background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-background-color {
+      background-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-background-color {
+      background-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-background-color {
+      background-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-background-color {
+      background-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-background-color {
+      background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-background-color {
+      background-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-border-color {
+      border-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-border-color {
+      border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-border-color {
+      border-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-border-color {
+      border-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-border-color {
+      border-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-border-color {
+      border-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-border-color {
+      border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-border-color {
+      border-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+      background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+    }
+
+    .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+      background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+    }
+
+    .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+    }
+
+    .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+      background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+    }
+
+    .has-cool-to-warm-spectrum-gradient-background {
+      background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+    }
+
+    .has-blush-light-purple-gradient-background {
+      background: var(--wp--preset--gradient--blush-light-purple) !important;
+    }
+
+    .has-blush-bordeaux-gradient-background {
+      background: var(--wp--preset--gradient--blush-bordeaux) !important;
+    }
+
+    .has-luminous-dusk-gradient-background {
+      background: var(--wp--preset--gradient--luminous-dusk) !important;
+    }
+
+    .has-pale-ocean-gradient-background {
+      background: var(--wp--preset--gradient--pale-ocean) !important;
+    }
+
+    .has-electric-grass-gradient-background {
+      background: var(--wp--preset--gradient--electric-grass) !important;
+    }
+
+    .has-midnight-gradient-background {
+      background: var(--wp--preset--gradient--midnight) !important;
+    }
+
+    .has-small-font-size {
+      font-size: var(--wp--preset--font-size--small) !important;
+    }
+
+    .has-medium-font-size {
+      font-size: var(--wp--preset--font-size--medium) !important;
+    }
+
+    .has-large-font-size {
+      font-size: var(--wp--preset--font-size--large) !important;
+    }
+
+    .has-x-large-font-size {
+      font-size: var(--wp--preset--font-size--x-large) !important;
+    }
+  </style>
+  <link rel="stylesheet" id="wphb-1-css"
+    href="https://www.ladsholidayguide.com/wp-content/uploads/hummingbird-assets/86a38b15acfcb5bbbff1abbd0c5aa55a.css"
+    media="all" />
+  <script
+    src="https://www.ladsholidayguide.com/wp-content/uploads/hummingbird-assets/955b572addd1bb5f1a6bd8397c707472.js"
+    id="wphb-2-js"></script>
+  <link rel="https://api.w.org/" href="https://www.ladsholidayguide.com/wp-json/" />
+  <link rel="alternate" type="application/json" href="https://www.ladsholidayguide.com/wp-json/wp/v2/posts/9090" />
+  <link rel="alternate" type="application/json+oembed"
+    href="https://www.ladsholidayguide.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ladsholidayguide.com%2Ftravel-blog%2Fmind-blowing-ayahuasca-ceremony-in-phuket-thailand%2F" />
+  <link rel="alternate" type="text/xml+oembed"
+    href="https://www.ladsholidayguide.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ladsholidayguide.com%2Ftravel-blog%2Fmind-blowing-ayahuasca-ceremony-in-phuket-thailand%2F&amp;format=xml" />
+  <noscript>
     <style>
-.container {
-  display: grid;
-  grid-template-columns: auto auto; /* make each item sit side by side */
-}
-
-#a {
-  background-color:green;
-}
-
-#b {
-  background-color: orange;
-}
-  
-@media only screen and (max-width: 600px) {
-  .container {
-    display: grid;
-    grid-template-columns: 100%; /* make each item span full width */
-  }
-
-  #a {
-    order: 2; /* set this to appear second */
-  }
-
-  #b {
-    order: 1; /* set this to appear first */
-  }
-}
+      .lazyload {
+        display: none !important;
+      }
     </style>
+  </noscript>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-163812999-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163812999-1');
+  </script>
+  <script src="https://www.dwin2.com/pub.312913.min.js"></script>
+
+  <link rel="preload" as="image" href="https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca-360x238.jpg" />
+  <!-- <link rel="preload" href="img/inbody.mp4" as="video" type="video/mp4"> -->
+  <!--
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+      -->
+  <!-- Load Fonts below -->
+  <style>
+    :root {
+      --black1: #0a0a0a;
+      --black2: #1a1a1a;
+      --black3: #2a2a2a;
+      --white1: #fff;
+      --white2: #f1f1f1;
+      --white3: #e1e1e1;
+      --color: #c20091;
+      --color1: #c20091;
+      --color1a: #dc1fac;
+      --color2: #0A84FF !important;
+      --grey: #887f88
+    }
+
+    html[data-theme=dark] [data-theme=dark] * {
+      --color-0a: var(--black1);
+      --color-0b: var(--black2);
+      --color-0c: var(--black3);
+      --color-1a: var(--white1);
+      --color-1b: var(--white2);
+      --color-1c: var(--white3)
+    }
+
+    [data-theme=light] *,
+    [data-theme=light] *>*,
+    html[data-theme=light] {
+      --color-0a: var(--white1);
+      --color-0b: var(--white2);
+      --color-0c: var(--white3);
+      --color-1a: var(--black1);
+      --color-1b: var(--black2);
+      --color-1c: var(--black3)
+    }
+
+    :root {
+      --black: var(--black1);
+      --white: #fff;
+      --offblack: var(--black2);
+      --offwhite: var(--white2);
+      --color-light: #dadbdc;
+      --color-lightgrey: #babbbc;
+      --color-darkgrey: #2a2b2c;
+      --color-lightgrey-half: #babbbc50;
+      --color-grey: var(--color-1c);
+      --color-grey-half: #9a9b9c50;
+      --color-warning: #ee0099
+    }
+
+    .bg-color {
+      background-color: var(--color) !important
+    }
+
+    .bg-white {
+      background-color: var(--white) !important
+    }
+
+    .bg-offwhite {
+      background-color: var(--offwhite) !important
+    }
+
+    .bg-black {
+      background-color: var(--black1) !important
+    }
+
+    .bg-black2 {
+      background-color: var(--black2) !important
+    }
+
+    .bg-black3 {
+      background-color: var(--black3) !important
+    }
+
+    .bg-offblack {
+      background-color: var(--offblack) !important
+    }
+
+    .color {
+      color: var(--color) !important
+    }
+
+    .filter-black {
+      filter: brightness(0)
+    }
+
+    .filter-white {
+      filter: brightness(100)
+    }
+
+    .headline {
+      color: var(--color-1a)
+    }
+
+    .subheadline {
+      color: var(--color-1b)
+    }
+
+    .bg-color {
+      background-color: var(--color) !important
+    }
+
+    .bg-white {
+      background-color: #fff !important
+    }
+
+    .bg-offwhite {
+      background-color: var(--color-offwhite) !important
+    }
+
+    .bg-black {
+      background-color: var(--color-black) !important
+    }
+
+    .bg-offblack {
+      background-color: var(--color-offblack)
+    }
+
+    .bg-white>.headline {
+      color: var(--color-black)
+    }
+
+    .bg-white>* {
+      color: var(--color-grey)
+    }
+
+    .bg-black>.headline {
+      color: var(--color-white)
+    }
+
+    .bg-black>* {
+      color: var(--color-lightgrey)
+    }
+
+    .color {
+      color: var(--color) !important
+    }
+
+    :root {
+      --hero-headline: 1.6rem;
+      --hero-headline-line: 1.2;
+      --hero-subheadline: 1.2rem;
+      --hero-subheadline-line: 1.5;
+      --px-xsmall: 2px;
+      --px-small: 4px;
+      --px-medium: 12px;
+      --px-big: 16px;
+      --px-xbig: 40px;
+      --side-padding: 18px;
+      --p: 1rem;
+      --small: calc(var(--p) - 10%);
+      --xsmall: calc(var(--p) - 20%)
+    }
+
+    @media (min-width:821px) {
+      :root {
+        --hero-kicker: var(--xsmall);
+        --hero-headline: 1.6rem;
+        --hero-headline-line: 1.2;
+        --hero-subheadline: 1.2rem;
+        --hero-subheadline-line: 1.5;
+        --w-safe: 640px;
+        --w-max: 1240px;
+        --side-padding: 20px;
+        --px-xsmall: 6.25px;
+        --px-small: 12.50px;
+        --px-medium: 25px;
+        --px-big: 50px;
+        --px-xbig: 100px;
+        --p: 1.2rem;
+        --small: calc(var(--p) - 10%);
+        --xsmall: calc(var(--p) - 20%)
+      }
+
+      .w-safe {
+        max-width: var(--w-safe)
+      }
+
+      .w-max {
+        max-width: var(--w-max)
+      }
+    }
+
+    :root {
+      --hero-kicker: var(--xsmall);
+      --hero-headline: 1.6rem;
+      --hero-headline-line: 1.2;
+      --hero-subheadline: 1.2rem;
+      --hero-subheadline-line: 1.5
+    }
+
+    body {
+      overflow-x: hidden
+    }
+
+    body,
+    html {
+      box-sizing: border-box;
+      max-width: 100vw;
+      width: 100vw;
+      scroll-behavior: smooth
+    }
+
+    ::-webkit-scrollbar {
+      display: none
+    }
+
+    ::selection {
+      background-color: rgba(26, 26, 26, .99);
+      color: #fff
+    }
+
+    :focus {
+      outline: 0
+    }
+
+    body {
+      min-height: 100%
+    }
+
+    .row-block {
+      padding: var(--px-big) var(--side-padding) !important;
+      margin: 0 auto var(--px-big) !important
+    }
+
+    @media (min-width:821px) {
+      .row-block {
+        padding: var(--px-big) !important;
+        margin: 0 auto
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      padding: 0;
+      grid-gap: 0;
+      grid-gap: 0
+    }
+
+    .grid-gap {
+      grid-gap: var(--px-medium)
+    }
+
+    [class*=colspan-] {
+      grid-column: span 12
+    }
+
+    @media (min-width:821px) {
+      .grid-gap {
+        grid-gap: var(--px-big)
+      }
+
+      .colspan-1 {
+        grid-column: span 1
+      }
+
+      .colspan-2 {
+        grid-column: span 2
+      }
+
+      .colspan-3 {
+        grid-column: span 3
+      }
+
+      .colspan-4 {
+        grid-column: span 4
+      }
+
+      .colspan-5 {
+        grid-column: span 5
+      }
+
+      .colspan-6 {
+        grid-column: span 6
+      }
+
+      .colspan-7 {
+        grid-column: span 7
+      }
+
+      .colspan-8 {
+        grid-column: span 8
+      }
+
+      .colspan-9 {
+        grid-column: span 9
+      }
+
+      .colspan-10 {
+        grid-column: span 10
+      }
+
+      .colspan-11 {
+        grid-column: span 11
+      }
+
+      .colspan-12 {
+        grid-column: span 12
+      }
+    }
+
+    .relative {
+      position: relative
+    }
+
+    .valign {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%)
+    }
+
+    s {
+      text-decoration: line-through
+    }
+
+    .m-auto {
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .valign {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%)
+    }
+
+    .full-width {
+      left: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      max-width: 100vw;
+      position: relative;
+      right: 50%;
+      width: 100vw
+    }
+
+    .lazyload,
+    .lazyloading {
+      opacity: 0
+    }
+
+    .lazyloaded {
+      opacity: 1;
+      transition: opacity 1s;
+      animation: fadein 2s
+    }
+
+    .prefade {
+      opacity: 0
+    }
+
+    .postfade {
+      opacity: 1;
+      transition: all 1s
+    }
+
+    .ratio>* {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .ratio {
+      position: relative;
+      height: 0;
+      width: 100%;
+      overflow: hidden
+    }
+
+    .ratio[data-ratio=standard-teaser] {
+      padding-top: 66%
+    }
+
+    @media (min-width:821px) {
+      .ratio[data-ratio=standard-teaser] {
+        padding-top: 50%
+      }
+    }
+
+    .ratio[data-ratio="2x1"] {
+      padding-top: 50%
+    }
+
+    .ratio[data-ratio="16x9"] {
+      padding-top: 56.25%
+    }
+
+    .ratio[data-ratio="1x1"] {
+      padding-top: 100%
+    }
+
+    .ratio[data-ratio="2x3"] {
+      padding-top: 133.33%
+    }
+
+    .ratio[data-ratio="3x2"] {
+      padding-top: 66.66%
+    }
+
+    .ratio[data-ratio="3x1"] {
+      padding-top: 33.33%
+    }
+
+    .ratio[data-ratio="4x3"] {
+      padding-top: 75%
+    }
+
+    [type=button],
+    [type=reset],
+    [type=submit],
+    button {
+      -webkit-appearance: button
+    }
+
+    a,
+    abbr,
+    acronym,
+    address,
+    applet,
+    article,
+    aside,
+    audio,
+    b,
+    big,
+    blockquote,
+    body,
+    canvas,
+    caption,
+    center,
+    cite,
+    code,
+    dd,
+    del,
+    details,
+    dfn,
+    div,
+    dl,
+    dt,
+    em,
+    embed,
+    fieldset,
+    figcaption,
+    figure,
+    footer,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    hgroup,
+    html,
+    i,
+    iframe,
+    img,
+    ins,
+    kbd,
+    label,
+    legend,
+    li,
+    mark,
+    menu,
+    nav,
+    object,
+    ol,
+    output,
+    p,
+    pre,
+    q,
+    ruby,
+    s,
+    samp,
+    section,
+    small,
+    span,
+    strike,
+    strong,
+    sub,
+    summary,
+    sup,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    time,
+    tr,
+    tt,
+    u,
+    ul,
+    var,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline
+    }
+
+    [type=search]::-webkit-search-decoration {
+      -webkit-appearance: none
+    }
+
+    :where(:not(iframe, canvas, img, svg, video):not(svg*)) {
+      all: unset;
+      display: revert
+    }
+
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box
+    }
+
+    ol,
+    ul {
+      list-style: none
+    }
+
+    img {
+      max-width: 100%
+    }
+
+    table {
+      border-collapse: collapse
+    }
+
+    textarea {
+      white-space: revert
+    }
+
+    :root {
+      --button-height: 52px;
+      --button-padding: 40px
+    }
+
+    @media (min-width:821px) {
+      :root {
+        --button-height: 60px;
+        --button-padding: 52px
+      }
+    }
+
+    a.button {
+      color: var(--color)
+    }
+
+    a.button {
+      font-weight: 700
+    }
+
+    .buttons {
+      height: var(--button-height);
+      line-height: var(--button-height);
+      display: block
+    }
+
+    .buttons .button {
+      color: var(--color);
+      display: inline-block;
+      text-align: center
+    }
+
+    .button {
+      cursor: pointer
+    }
+
+    .hero .buttons {
+      margin: var(--px-big) 0 !important;
+      display: block
+    }
+
+    @media (min-width:821px) {
+      .hero .buttons {
+        margin: var(--px-xbig) 0;
+        display: block
+      }
+    }
+
+    .buttons .button {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      height: var(--button-height);
+      line-height: var(--button-height);
+      padding: 0 var(--button-padding);
+      margin-right: var(--px-medium)
+    }
+
+    :root {
+      --hero-kicker: 0.75rem;
+      --hero-headline: 1.6rem;
+      --hero-headline-line: 1.2;
+      --hero-subheadline: 1.2rem;
+      --hero-subheadline-line: 1.5
+    }
+
+    @media (min-width:821px) {
+      :root {
+        --hero-kicker: 0.9rem;
+        --hero-headline: 4.8rem;
+        --hero-headline-line: 1.2;
+        --hero-subheadline: 1.6em;
+        --hero-subheadline-line: 1.5
+      }
+    }
+
+    .hero-stack {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #000;
+      color: #fff;
+      padding: 0;
+      margin: 0
+    }
+
+    .hero-stack .header {
+      z-index: 2;
+      display: block;
+      padding: 0 var(--px-big)
+    }
+
+    @media (min-width:821px) {
+      .hero-stack {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .hero-stack .header {
+        z-index: 2;
+        width: 100%;
+        display: block
+      }
+
+      .feature {
+        padding: var(--px-big) var(--px-xbig) var(--px-xbig)
+      }
+    }
+
+    .hero .feature img {
+      width: 100%;
+      height: 100%
+    }
+
+    .hero .header .kicker {
+      font-size: var(--hero-kicker);
+      display: block;
+      margin-top: var(--px-medium);
+      display: block;
+      margin-top: var(--px-medium)
+    }
+
+    .hero-stack .header .headline {
+      font-size: var(--hero-headline);
+      font-weight: 900;
+      font-family: var(--font-1b) !important;
+      margin-top: var(--px-small)
+    }
+
+    .hero_subheadline {
+      font-size: var(--hero-subheadline);
+      display: block;
+      margin-top: var(--px-medium);
+      font-family: var(--font-1) !important;
+      line-height: 1.4
+    }
+
+    @media (max-width:820px) {
+
+      .block-related .feature,
+      .main-category .feature {
+        padding: 0 var(--side-padding)
+      }
+
+      .block-related .hero-stack,
+      .main-category .hero-stack {
+        padding-bottom: 35px !important
+      }
+
+      .block-related .hero,
+      .main-category .hero {
+        text-align: center
+      }
+
+      .block-related .showcase-feature,
+      .main-category .showcase-feature {
+        transform: translateY(-35px) !important;
+        padding-top: 0 !important
+      }
+    }
+
+    :root {
+      --nav-top-height: 77px
+    }
+
+    @media (min-width:768px) {
+      :root {
+        --nav-top-height: 88px
+      }
+    }
+
+    main {
+      padding-top: var(--nav-top-height)
+    }
+
+    .nav-on .nav-top-bar {
+      z-index: 9 !important
+    }
+
+    .nav-top-bar ul li {
+      width: 33%
+    }
+
+    .nav-top-bar ul li .nav-top-bar-left * {
+      width: 33%;
+      text-align: left
+    }
+
+    .nav-top-bar ul li.nav-top-bar-center {
+      width: 33%;
+      text-align: center
+    }
+
+    .nav-top-bar ul li.nav-top-bar-right {
+      width: 33%;
+      text-align: right
+    }
+
+    .nav-top-bar {
+      z-index: 4;
+      transition: all .5s ease-in-out;
+      background: #000;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-top-height);
+      z-index: 9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--px-medium)
+    }
+
+    .nav-top-brand {
+      height: 40px
+    }
+
+    @media (min-width:768px) {
+      .nav-top-brand {
+        height: 50px
+      }
+    }
+
+    .nav-top-brand img {
+      height: 100%
+    }
+
+    .nav-top-right {
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .nav-top-overlay {
+      background-color: rgba(0, 0, 0, .95);
+      height: 100%;
+      left: 0;
+      opacity: 0;
+      overflow: hidden;
+      position: fixed;
+      text-align: center;
+      top: 0;
+      transition: all .5s ease-in-out;
+      visibility: hidden;
+      width: 100%;
+      z-index: 8;
+      display: flex;
+      justify-content: center;
+      align-items: center
+    }
+
+    .nav-top-overlay.open {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .nav-top-overlay li {
+      transition: .5s all;
+      opacity: 0
+    }
+
+    .nav-on .nav-top-overlay li {
+      opacity: 1;
+      transform: translateY(25px)
+    }
+
+    .nav-top-overlay li:nth-child(1) {
+      transition-delay: .1s
+    }
+
+    .nav-top-overlay li:nth-child(2) {
+      transition-delay: .2s
+    }
+
+    .nav-top-overlay li:nth-child(3) {
+      transition-delay: .3s
+    }
+
+    .nav-top-overlay li:nth-child(4) {
+      transition-delay: .4s
+    }
+
+    .nav-top-overlay li:nth-child(5) {
+      transition-delay: .5s
+    }
+
+    .nav-top-overlay li:nth-child(6) {
+      transition-delay: .6s
+    }
+
+    .nav-top-menu {
+      margin: 0 auto;
+      width: 100%
+    }
+
+    .nav-top-menu li {
+      display: block;
+      font-size: var(--hero-subheadline);
+      margin-bottom: var(--px-medium)
+    }
+
+    .nav-top-menu li a {
+      display: block;
+      color: #fff;
+      padding: var(--px-small) 0;
+      text-decoration: none
+    }
+
+    .nav-top-menu li a:hover {
+      text-decoration: underline
+    }
+
+    .nav-top-right ul li {
+      display: block;
+      padding-left: var(--px-medium) !important
+    }
+
+    .nav-top-right ul li a {
+      display: inline-block;
+      padding-left: var(--px-big) !important
+    }
+
+    .nav-top-burger {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      height: 50px;
+      outline: 0;
+      padding: 0;
+      pointer-events: initial;
+      position: relative;
+      vertical-align: middle;
+      width: 50px;
+      z-index: 1110
+    }
+
+    .nav-top-burger span {
+      background-color: #fff;
+      content: "";
+      display: block;
+      height: 2px;
+      left: calc(50% - 13px);
+      position: absolute;
+      top: calc(50% - 1px);
+      transform-origin: 50% 50%;
+      transition: background-color .2s ease-in-out, top .2s .2s ease-out, transform .2s linear;
+      width: 26px
+    }
+
+    .nav-top-burger span:after,
+    .nav-top-burger span:before {
+      background-color: #fff;
+      content: "";
+      display: block;
+      height: 2px;
+      position: absolute;
+      transform-origin: 50% 50%;
+      transition: background-color .2s ease-in-out, top .2s .2s ease-out, transform .2s linear;
+      width: 26px
+    }
+
+    .nav-top-burger span:before {
+      top: 7px
+    }
+
+    .nav-top-burger span:after {
+      top: -7px
+    }
+
+    .nav-top-burger.burger-active span {
+      background-color: transparent;
+      transition: all .2s ease-out
+    }
+
+    .nav-top-burger.burger-active span:after,
+    .nav-top-burger.burger-active span:before {
+      transition: top .2s ease-out, transform .2s .2s ease-out
+    }
+
+    .nav-top-burger.burger-active span:before {
+      top: 0;
+      transform: rotate3d(0, 0, 1, -45deg)
+    }
+
+    .nav-top-burger.burger-active span:after {
+      top: 0;
+      transform: rotate3d(0, 0, 1, 45deg)
+    }
+
+    :root {
+      --p: 1.15rem;
+      --lead: calc(var(--p) + 25%);
+      --small: calc(var(--p) - 20%);
+      --xsmall: calc(var(--p) - 25%);
+      --line-height: 1.6;
+      --article-headline: calc(var(--p) + 20%);
+      --article-headline-line: 1.6;
+      --teaser-headline: calc(var(--p) + 20%);
+      --teaser-headline-line: 1.2;
+      --kicker: calc(var(--p) - 35%)
+    }
+
+    @media (min-width:821px) {
+      :root {
+        --p: 1.2rem;
+        --lead: calc(var(--p) + 20%);
+        --small: calc(var(--p) - 10%);
+        --xsmall: calc(var(--p) - 20%);
+        --line-height: 1.5;
+        --article-headline: calc(var(--p) + 20%);
+        --article-headline-line: 1.2;
+        --teaser-headline: calc(var(--p) + 20%);
+        --teaser-headline-line: 1.2;
+        --kicker: calc(var(--p) - 35%)
+      }
+    }
+
+    * {
+      font-family: var(--font1);
+      line-height: var(--line-height)
+    }
+
+    a {
+      color: inherit
+    }
+
+    body,
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font1-bold);
+      letter-spacing: -.5pt
+    }
+
+    .header {
+      padding: 0 var(--padding)
+    }
+
+    .kicker {
+      color: var(--color);
+      font-size: var(--kicker);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: var(--padding-xsmall);
+      display: block;
+      font-family: var(--font1-heavy)
+    }
+
+    .headline {
+      display: block;
+      font-size: var(--teaser-headline);
+      line-height: var(--teaser-headline-line);
+      margin-bottom: var(--padding-small);
+      font-family: var(--font1-bold);
+      letter-spacing: -.5pt !important
+    }
+
+    .paragraph,
+    p {
+      font-size: var(--p);
+      line-height: var(--line-height);
+      font-family: var(--font1);
+      font-style: normal
+    }
+
+    .paragraph:last-of-type,
+    p:last-of-type {
+      margin-bottom: 0
+    }
+
+    .sharers {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-content: center;
+      padding: 0 var(--padding-small)
+    }
+
+    @media only screen and (min-width:768px) {
+      .sharers {
+        display: block;
+        padding: 0
+      }
+
+      .sticky-sidebar {
+        margin-top: var(--padding)
+      }
+    }
+
+    .sharers li {
+      list-style: none;
+      margin-bottom: var(--padding-small);
+      padding: 0 var(--padding-xsmall);
+      width: 100%
+    }
+
+    .sharers li a {
+      padding: var(--padding-small);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-black);
+      color: var(--color-white);
+      text-align: center
+    }
+
+    :root {
+      --article-text: 1rem;
+      --article-text-line: 1.6;
+      --article-title: 1.6rem;
+      --article-title-line: 1.2;
+      --article-description: 1.2rem;
+      --article-description-line: 1.5;
+      --article-subheadline: calc(var(--article-text) + 30%);
+      --article-h4: calc(var(--article-text) + 10%)
+    }
+
+    @media (min-width:821px) {
+      :root {
+        --article-text: 1.2rem;
+        --article-text-line: 1.6;
+        --article-title: 2rem;
+        --article-title-line: 1.4;
+        --article-description: 1.5rem;
+        --article-description-line: 1.5
+      }
+    }
+
+    .section-article {
+      margin: 0 auto;
+      padding-top: var(--px-big)
+    }
+
+    .section-article .article-body>aside,
+    .section-article .article-body>figure {
+      width: 100%
+    }
+
+    @media (max-width:767px) {
+      .section-article .article-body>figure {
+        left: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        max-width: 100vw;
+        position: relative;
+        right: 50%;
+        width: 100vw
+      }
+    }
+
+    .wp-block-embed,
+    .wp-block-embed * {
+      max-width: 100%
+    }
+
+    :root {
+      --blockquote: calc(var(--p) * 1.5)
+    }
+
+    @media (min-width:768px) {
+      :root {
+        --blockquote: calc(var(--p) * 1.5)
+      }
+    }
+
+    .article-body blockquote {
+      border-top: 1px solid var(--color-grey-half);
+      border-bottom: 1px solid var(--color-grey-half);
+      padding: var(--px-big) !important;
+      margin: var(--px-big) 0;
+      display: block;
+      text-align: center;
+      position: relative
+    }
+
+    .article-body blockquote p:before {
+      content: '“';
+      margin-right: var(--px-xsmall)
+    }
+
+    .article-body blockquote p:after {
+      content: '”';
+      margin-left: var(--px-xsmall)
+    }
+
+    .article-body blockquote .icon,
+    .quotemark {
+      height: 50px;
+      width: 50px;
+      margin-bottom: var(--px-xsmall)
+    }
+
+    .article-body blockquote p {
+      font-size: var(--blockquote) !important;
+      font-weight: var(--regular) !important;
+      letter-spacing: .125rem;
+      font-style: italic;
+      line-height: 1.2;
+      position: relative;
+      margin: 0
+    }
+
+    .article-body blockquote cite {
+      font-size: var(--xsmall);
+      color: var(--color);
+      margin-top: var(--px-small);
+      display: block
+    }
+
+    .byline {
+      display: flex;
+      align-items: center;
+      font-size: var(--small);
+      color: var(--color-grey);
+      text-align: left;
+      justify-content: space-between;
+      width: 100%;
+      flex-wrap: wrap;
+      margin: var(--px-medium) 0;
+      padding: var(--px-medium) !important;
+      color: var(--color-grey);
+      border-top: 1px solid var(--color-grey-half);
+      border-bottom: 1px solid var(--color-grey-half)
+    }
+
+    .byline>* {
+      display: block;
+      width: 100%;
+      color: var(--color-grey)
+    }
+
+    .byline address,
+    .byline time {
+      display: inline-block
+    }
+
+    .byline p {
+      font-size: var(--small) !important;
+      color: var(--color-grey)
+    }
+
+    .byline figcaption {
+      font-size: var(--small);
+      color: var(--color-grey)
+    }
+
+    .byline figcaption p {
+      font-size: var(--small) !important
+    }
+
+    .byline a {
+      color: var(--color)
+    }
+
+    .byline figcaption time {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      display: block
+    }
+
+    time.modified {
+      font-size: var(--xsmall)
+    }
+
+    #chapters {
+      display: none
+    }
+
+    #chapters.chapters {
+      display: block
+    }
+
+    #chapters {
+      padding: var(--px-medium)
+    }
+
+    #chapters-box {
+      margin: 0;
+      padding: 0
+    }
+
+    .chapters ol li {
+      color: var(--color-offwhite);
+      font-size: var(--small)
+    }
+
+    .chapters ol li:last-of-type {
+      margin-bottom: 0
+    }
+
+    .chapters ol li a {
+      color: var(--color-white);
+      display: block;
+      padding: var(--px-xsmall) 0
+    }
+
+    .chapters ol li a:hover {
+      color: var(--color)
+    }
+
+    .accordion {
+      cursor: pointer;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: 0;
+      transition: .33s;
+      text-transform: uppercase
+    }
+
+    .article-body h3:before {
+      content: attr(data-prefix) " #"attr(data-prefix-count);
+      display: block;
+      text-transform: uppercase;
+      font-family: var(--font1-bold);
+      font-size: var(--small);
+      color: var(--color);
+      margin-bottom: 0
+    }
+
+    .accordion:after {
+      content: "\2212";
+      font-weight: 700;
+      float: right;
+      margin-left: 5px
+    }
+
+    .active:after {
+      content: "\002B"
+    }
+
+    ol.panel {
+      padding: 0;
+      margin: var(--px-medium) 0;
+      transition: max-height .2s ease-out
+    }
+
+    .panel.hide {
+      display: none
+    }
+
+    .article-body>.header>.title {
+      font-size: var(--article-title);
+      line-height: var(--article-headline-line);
+      font-weight: var(--heavy);
+      margin-bottom: var(--px-small);
+      color: var(--color-black)
+    }
+
+    .article-body>.header>.description {
+      margin-bottom: 0;
+      color: var(--color-offblack);
+      font-style: normal;
+      font-size: var(--article-description)
+    }
+
+    .article-body {
+      padding: var(--px-small) 0;
+      width: 100%
+    }
+
+    .article-body>:not(figure) {
+      padding: 0 var(--px-medium)
+    }
+
+    .article-body img {
+      max-width: 100% !important
+    }
+
+    .article-body>h2,
+    .article-body>h3,
+    .article-body>h4,
+    .article-body>h5,
+    .article-body>h6 {
+      font-size: var(--article-headline);
+      line-height: var(--article-headline-line);
+      font-family: var(--font1-bold);
+      margin-bottom: var(--px-small);
+      color: var(--color-black)
+    }
+
+    .article-body>strong {
+      font-size: var(--p);
+      font-family: var(--font1-bold);
+      margin-bottom: var(--px-medium);
+      color: var(--color-offblack)
+    }
+
+    .article-body>* {
+      padding: 0 var(--px-medium)
+    }
+
+    .article-body>p>a {
+      color: var(--color)
+    }
+
+    .article-body>p>a:hover {
+      text-decoration: underline
+    }
+
+    .article-body>p {
+      font-size: var(--p);
+      font-family: var(--font1);
+      margin-bottom: var(--px-medium);
+      color: var(--color-offblack)
+    }
+
+    .article-body p:first-of-type {
+      font-size: var(--p)
+    }
+
+    .article-body figure {
+      margin-bottom: var(--px-big);
+      padding: 0
+    }
+
+    .article-body figcaption {
+      border-bottom: 1px solid var(--color-grey-half);
+      background: var(--color-white);
+      color: var(--color-offblack);
+      font-size: var(--xsmall);
+      text-align: center;
+      padding: var(--px-small);
+      font-family: var(--font1-bold);
+      color: var(--grey)
+    }
+
+    .article-body figcaption a,
+    blockquote a {
+      color: var(--color)
+    }
+
+    .article-body figcaption a,
+    blockquote a {
+      color: var(--color-shade);
+      text-decoration: underline
+    }
+
+    .article-body img {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      object-fit: cover
+    }
+
+    .article-body>:not(figure) {
+      padding: 0 var(--px-medium)
+    }
+
+    .article-body ol,
+    .article-body ul:not(.sharers-horizontal) {
+      list-style-position: inside;
+      margin-bottom: var(--px-big);
+      margin-left: var(--px-medium);
+      font-size: var(--p);
+      font-family: var(--font1);
+      color: var(--color-offblack)
+    }
+
+    .article-body ul li {
+      line-height: var(--line-height);
+      margin-bottom: var(--px-small);
+      list-style-position: inside;
+      list-style-type: square
+    }
+
+    .article-body ol li {
+      line-height: var(--line-height);
+      margin-bottom: var(--px-small);
+      list-style-position: inside;
+      list-style-type: decimal-leading-zero
+    }
+
+    .article-body dl {
+      margin-bottom: var(--px-big);
+      margin-left: var(--px-medium);
+      font-family: var(--font1);
+      color: var(--color-offblack)
+    }
+
+    .article-body dt {
+      font-size: var(--p);
+      font-family: var(--font1-bold)
+    }
+
+    .article-body dd {
+      font-size: var(--small);
+      margin-bottom: var(--px-medium)
+    }
+
+    .article-body a {
+      color: var(--color)
+    }
+
+    .article-body>aside {
+      background: var(--color-black);
+      padding: var(--px-medium);
+      margin-bottom: var(--px-big)
+    }
+
+    .article-body>aside ol {
+      margin-bottom: 0
+    }
+
+    .article-body>aside h5 {
+      font-size: var(--article-headline);
+      line-height: var(--article-headline-line);
+      font-family: var(--font1-heavy);
+      color: var(--color-white);
+      margin-bottom: var(--px-small);
+      padding-bottom: var(--px-small);
+      border-bottom: 1px solid var(--color-grey-half)
+    }
+
+    .article-body>aside p {
+      font-size: var(--small) !important;
+      font-family: var(--font1);
+      color: var(--color-light)
+    }
+
+    .article-footer {
+      margin: var(--px-medium) 0 var(--px-medium) 0;
+      display: block
+    }
+
+    .rank-math-breadcrumb * {
+      font-size: var(--xsmall);
+      color: var(--color-offblack);
+      line-height: 1;
+      font-family: var(--font1)
+    }
+
+    .article-footer ul.sharers-horizontal {
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 var(--px-medium) 0;
+      padding: var(--px-medium) var(--px-small);
+      border-top: 1px solid var(--color-grey-half);
+      border-bottom: 1px solid var(--color-grey-half)
+    }
+
+    .article-footer ul.sharers-horizontal li {
+      list-style: none;
+      padding: 0 var(--px-xsmall);
+      width: 100%;
+      margin: 0;
+      list-style: none !important
+    }
+
+    .article-footer .sharers-horizontal li a {
+      padding: var(--px-small);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-black);
+      color: var(--color-white);
+      text-align: center;
+      font-size: var(--small)
+    }
+
+    .section-article {
+      padding-top: var(--px-big);
+      padding-bottom: var(--px-big)
+    }
+
+    .article-body {
+      padding: var(--px-small) 0;
+      width: 100%
+    }
+
+    .article-body .article-title {
+      padding: var(--px-small) 0;
+      width: 100%;
+      font-size: var(--article-title);
+      line-height: var(--article-title-line)
+    }
+
+    .article-body .article-description {
+      padding: var(--px-small) 0;
+      width: 100%;
+      font-size: var(--article-description);
+      line-height: var(--article-description-line)
+    }
+
+    .article-body {
+      font-size: var(--article-text)
+    }
+
+    .paragraph,
+    p {
+      font-size: var(--p);
+      line-height: var(--line-height);
+      font-family: var(--font1);
+      font-style: normal
+    }
+
+    .paragraph:last-of-type,
+    p:last-of-type {
+      margin-bottom: 0
+    }
+
+    .article-body>:not(figure) {
+      padding: 0 var(--px-medium)
+    }
+
+    .article-body img {
+      max-width: 100% !important
+    }
+
+    .article-body>h2,
+    .article-body>h3,
+    .article-body>h4,
+    .article-body>h5,
+    .article-body>h6 {
+      font-size: var(--article-subheadline);
+      line-height: var(--article-headline-line);
+      font-family: var(--font1-bold);
+      margin-bottom: var(--px-medium);
+      color: var(--color-black)
+    }
+
+    .article-body>strong {
+      font-size: var(--p);
+      font-family: var(--font1-bold);
+      margin-bottom: var(--px-medium);
+      color: var(--color-offblack)
+    }
+
+    .article-body>* {
+      padding: 0 var(--px-medium)
+    }
+
+    .article-body>p>a {
+      color: var(--color)
+    }
+
+    .article-body>p>a:hover {
+      text-decoration: underline
+    }
+
+    .article-body>p {
+      font-size: var(--p);
+      font-family: var(--font1);
+      margin-bottom: var(--px-medium);
+      color: var(--color-offblack)
+    }
+
+    .article-body p:first-of-type {
+      font-size: var(--p)
+    }
+
+    .article-body figure {
+      margin-bottom: var(--px-big);
+      padding: 0
+    }
+
+    .article-body figcaption {
+      border-bottom: 1px solid var(--color-grey-half);
+      background: var(--color-white);
+      color: var(--color-offblack);
+      font-size: var(--xsmall);
+      text-align: center;
+      padding: var(--px-small);
+      font-family: var(--font1-bold)
+    }
+
+    .article-body figcaption a,
+    blockquote a {
+      color: var(--color)
+    }
+
+    .article-body figcaption a,
+    blockquote a {
+      color: var(--color-shade);
+      text-decoration: underline
+    }
+
+    .article-body img {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      object-fit: cover
+    }
+
+    .article-body>:not(figure) {
+      padding: 0 var(--px-medium)
+    }
+
+    .article-body ol,
+    .article-body ul:not(.sharers-horizontal) {
+      list-style-position: inside;
+      margin-bottom: var(--px-big);
+      margin-left: var(--px-medium);
+      font-size: var(--p);
+      font-family: var(--font1);
+      color: var(--color-offblack)
+    }
+
+    .article-body ul li {
+      line-height: var(--line-height);
+      margin-bottom: var(--px-small);
+      list-style-position: inside;
+      list-style-type: square
+    }
+
+    .article-body ol li {
+      line-height: var(--line-height);
+      margin-bottom: var(--px-small);
+      list-style-position: inside;
+      list-style-type: decimal-leading-zero
+    }
+
+    .article-body dl {
+      margin-bottom: var(--px-big);
+      margin-left: var(--px-medium);
+      font-family: var(--font1);
+      color: var(--color-offblack)
+    }
+
+    .article-body dt {
+      font-size: var(--p);
+      font-family: var(--font1-bold)
+    }
+
+    .article-body dd {
+      font-size: var(--small);
+      margin-bottom: var(--px-medium)
+    }
+
+    .article-body a {
+      color: var(--color)
+    }
+
+    .article-body>aside {
+      background: var(--color-black);
+      padding: var(--px-medium);
+      margin-bottom: var(--px-big)
+    }
+
+    .article-body>aside ol {
+      margin-bottom: 0
+    }
+
+    .article-body>aside h5 {
+      font-size: var(--article-headline);
+      line-height: var(--article-headline-line);
+      font-family: var(--font1-heavy);
+      color: var(--color-white);
+      margin-bottom: var(--px-small);
+      padding-bottom: var(--px-small);
+      border-bottom: 1px solid var(--color-grey-half)
+    }
+
+    .article-body>aside p {
+      font-size: var(--small) !important;
+      font-family: var(--font1);
+      color: var(--color-light)
+    }
+
+    .article-footer {
+      margin: var(--px-medium) 0 var(--px-medium) 0;
+      display: block
+    }
+
+    .rank-math-breadcrumb * {
+      font-size: var(--xsmall);
+      color: var(--color-offblack);
+      line-height: 1;
+      font-family: var(--font1)
+    }
+
+    .article-footer ul.sharers-horizontal {
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 var(--px-medium) 0;
+      padding: var(--px-medium) var(--px-small);
+      border-top: 1px solid var(--color-grey-half);
+      border-bottom: 1px solid var(--color-grey-half)
+    }
+
+    .article-footer ul.sharers-horizontal li {
+      list-style: none;
+      padding: 0 var(--px-xsmall);
+      width: 100%;
+      margin: 0;
+      list-style: none !important
+    }
+
+    .article-footer .sharers-horizontal li a {
+      padding: var(--px-small);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-black);
+      color: var(--color-white);
+      text-align: center;
+      font-size: var(--small)
+    }
+
+    .sticky-sidebar {
+      position: sticky;
+      position: -webkit-sticky;
+      top: calc(var(--nav-height) + var(--px-big));
+      left: 0;
+      width: 100%
+    }
+
+    .sidebar header.header {
+      padding-right: var(--px-medium) !important;
+      padding: 0 var(--px-medium) var(--px-big);
+      margin: 0 !important
+    }
+
+    .article-body img {
+      width: 100% !important;
+      object-fit: contain !important;
+      height: auto
+    }
+
+    .article-body>p>a {
+      color: #e09
+    }
+
+    .sidebar-ad {
+      padding: var(--side-padding) !important
+    }
+
+    .sidebar-ad figcaption {
+      border-bottom: 1px solid var(--color-grey-half);
+      background: var(--color-white);
+      color: var(--color-offblack);
+      font-size: var(--xsmall);
+      text-align: center;
+      padding: var(--px-small);
+      font-family: var(--font1-bold);
+      color: var(--grey)
+    }
+
+    .footer {
+      padding: var(--px-xbig) var(--side-padding)
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      margin: var(--px-big) auto
+    }
+
+    .footer-socials li {
+      padding: 0 var(--px-big);
+      font-size: 3rem
+    }
+
+    .footer-nav ul {
+      list-style: none;
+      text-align: center
+    }
+
+    .footer-nav ul li {
+      list-style: none;
+      margin: 0 10px;
+      display: inline-block
+    }
+
+    .footer-copyright {
+      text-align: center;
+      display: block;
+      margin-top: var(--px-big);
+      font-size: var(--small);
+      line-height: 2
+    }
+
+    .footer-copyright span {
+      font-size: var(--xsmall)
+    }
+
+    .footer-credit {
+      text-align: center;
+      display: block;
+      margin-top: var(--px-big);
+      font-size: var(--xsmall);
+      color: var(--grey)
+    }
+
+    .modal {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      justify-content: center;
+      align-items: center;
+      z-index: 9;
+      background-color: rgba(0, 0, 0, .95);
+      transition: all .5s ease-in-out !important;
+      visibility: hidden;
+      display: flex
+    }
+
+    .modal.open {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .modal .modal-inner {
+      background: #fff;
+      padding: 1rem;
+      width: 100%;
+      max-width: 500px;
+      max-height: 100%;
+      overflow: auto;
+      position: relative;
+      z-index: 2
+    }
+
+    .modal .modal-inner h1 {
+      margin-top: 0
+    }
+
+    .modal .modal-inner p {
+      margin-bottom: 0
+    }
+
+    .modal .modal-close {
+      background: #fff;
+      color: #000;
+      height: 50px;
+      width: 50px;
+      position: fixed;
+      top: var(--px-medium);
+      left: var(--px-medium);
+      border: 0;
+      border-radius: 50%;
+      pointer-events: none
+    }
+
+    body.modal-on,
+    body.nav-on {
+      overflow-y: hidden !important;
+      position: absolute !important
+    }
+
+    .nav-on .modal-overlay,
+    .open .modal-overlay {
+      opacity: 1;
+      visibility: visible
+    }
+
+    .standard_teaser {
+      transition: all .33s
+    }
+
+    .standard_teaser .header {
+      padding: var(--px-medium) !important
+    }
+
+    .standard_teaser.teaser:last-child {
+      margin-bottom: 0
+    }
+
+    .standard_teaser .headline {
+      font-family: var(--font1-bold)
+    }
+
+    .standard_teasers {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 0
+    }
+
+    @media only screen and (min-width :768px) {
+      .with-side .standard_teasers {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: var(--px-medium);
+        padding: var(--px-medium)
+      }
+
+      .standard_teasers {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr !important;
+        padding: 0
+      }
+
+      .standard_teaser.teaser {
+        margin-bottom: 0
+      }
+    }
+
+    .news-block {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: var(--padding);
+      grid-gap: var(--padding)
+    }
+
+    @media (min-width:768px) {
+      .news-block {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr auto;
+        padding: 0
+      }
+    }
+
+    .news-block .puff-teaser {
+      margin: 0 !important
+    }
+
+    .news-block-feature {
+      grid-row-start: 1;
+      grid-row-end: 6
+    }
+
+    .news-block-feature img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .news-block {
+      padding: var(--padding)
+    }
+
+    .news-block .more {
+      text-align: right;
+      color: var(--color);
+      float: right;
+      border-top: 1px solid var(--color-grey-half);
+      border-bottom: 1px solid var(--color-grey-half);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      flex-direction: column;
+      font-size: var(--teaser-headline);
+      font-weight: var(--heavy);
+      padding: var(--padding-small) 0
+    }
+
+    .news-block-feature>header .headline {
+      font-size: calc(var(--teaser-headline) * 1.5);
+      line-height: 1;
+      padding-bottom: var(--padding-xsmall)
+    }
+
+    .news-block-feature a {
+      color: inherit
+    }
+
+    .puff {
+      position: relative;
+      width: 100%;
+      color: inherit
+    }
+
+    .puff figure {
+      width: var(--puff-width);
+      min-height: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 2
+    }
+
+    .puff figure img {
+      width: var(--puff-width);
+      height: var(--puff-height)
+    }
+
+    .puff header {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      z-index: 1;
+      padding: 0;
+      padding-right: var(--padding-small);
+      padding-left: calc(var(--puff-width) + var(--padding-small));
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      text-align: left !important
+    }
+
+    .puff .kicker {
+      text-align: left
+    }
+
+    .puff .headline {
+      font-weight: var(--regular);
+      font-size: var(--p);
+      line-height: 1.4;
+      color: var(--color-black);
+      margin: 0;
+      text-align: left
+    }
+
+    .puff img,
+    .puff picture {
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0
+    }
+
+    .video_teaser img {
+      position: relative;
+      height: 100%;
+      width: 100%
+    }
+
+    .video_teaser picture:after {
+      width: 33%;
+      height: 33%;
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background-image: url(https://www.ladsholidayguide.com/wp-content/uploads/play.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: .8;
+      content: ""
+    }
+
+    .showcase {
+      padding: var(--padding)
+    }
+
+    @media (min-width:768px) {
+      .showcase {
+        padding: 0
+      }
+    }
+
+    .showcase_header {
+      display: block;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--color-grey-half);
+      margin: 0;
+      padding: 0
+    }
+
+    .showcase_header * {
+      font-size: calc(var(--teaser-headline) * 1.5)
+    }
+
+    .showcase_header .headline {
+      font-family: var(--font1-heavy) !important;
+      color: var(--color-black)
+    }
+
+    .showcase_header * {
+      margin-right: var(--padding-small);
+      display: inline-block
+    }
+
+    .showcase_header a:hover {
+      color: var(--color)
+    }
+
+    .teaser-header {
+      padding: var(--side-padding)
+    }
+
+    @media (min-width:821px) {
+      .teaser-header {
+        padding: var(--side-padding)
+      }
+    }
+
+    .teaser .header>* {
+      transition: ease all .33s
+    }
+
+    .teaser img {
+      transition: ease all .33s;
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .teaser:hover .kicker {
+      -webkit-filter: brightness(75%);
+      filter: brightness(75%)
+    }
+
+    .teaser:hover .headline {
+      color: var(--color);
+      text-decoration: underline;
+      font-family: var(--font1-bold)
+    }
+
+    .teaser:hover img {
+      transform: scale(1.05)
+    }
+
+    .split-boxes {
+      padding: 0 var(--padding) !important
+    }
+
+    .split-box {
+      position: relative;
+      width: 100%;
+      display: block;
+      padding: 0 0 0 !important;
+      margin: 0 0 var(--padding-big) 0 !important;
+      box-shadow: 4px 4px 14px 0 rgba(0, 0, 0, .18)
+    }
+
+    .split-box .article-body {
+      padding: 0
+    }
+
+    .split-box .article-body p {
+      font-size: var(--small)
+    }
+
+    .split-box .article-body p:first-of-type {
+      font-weight: 300;
+      color: var(--color-offblack)
+    }
+
+    .split-box>*>* {
+      direction: ltr !important
+    }
+
+    .split-box picture {
+      display: block
+    }
+
+    .split-box .feature img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover
+    }
+
+    .split-box .article-body>* {
+      padding: var(--padding)
+    }
+
+    @media only screen and (min-width :768px) {
+      .split-box .article-body {
+        direction: ltr
+      }
+
+      .split-box:nth-of-type(even) {
+        direction: rtl
+      }
+
+      .split-box:nth-of-type(even) article {
+        padding-left: 0
+      }
+
+      .split-box:nth-of-type(odd) article {
+        padding-right: 0
+      }
+
+      .split-box>aside {
+        direction: ltr
+      }
+
+      .split-box article section {
+        margin-top: 0
+      }
+    }
+
+    @media only screen and (min-width :768px) and (max-width :1024px) and (orientation :portrait) {
+      .split-box article {
+        direction: ltr
+      }
+    }
+
+    :root {
+      --nav-top-height: 77px
+    }
+
+    @media (min-width:768px) {
+      :root {
+        --nav-top-height: 88px
+      }
+    }
+
+    .sticky-sidebar {
+      position: sticky;
+      top: calc(var(--nav-top-height) + var(--px-big)) !important;
+      left: 0;
+      width: 100%;
+      position: -webkit-sticky
+    }
+
+    .sidebar header.header {
+      padding-right: var(--px-big) !important;
+      padding: 0 var(--px-big) var(--px-big);
+      margin: 0 !important
+    }
+
+    @media only screen and (min-width:768px) {
+      .row-block .sidebar {
+        border-top: none
+      }
+
+      .sidebar header.header {
+        padding: 0 var(--px-big)
+      }
+    }
+
+    .sharers {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-content: center;
+      padding: 0 var(--px-big)
+    }
+
+    @media only screen and (min-width:768px) {
+      .sharers {
+        display: block;
+        padding: 0
+      }
+
+      .sticky-sidebar {
+        margin-top: var(--px-big)
+      }
+    }
+
+    .sharers li {
+      list-style: none;
+      margin-bottom: var(--px-big);
+      padding: 0 var(--px-big);
+      width: 100%
+    }
+
+    .sharers li a {
+      padding: var(--px-big);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-black);
+      color: var(--color-white);
+      text-align: center
+    }
+
+    .nav-on main {
+      overflow: hidden !important;
+      height: 100vh !important;
+      max-height: 100vh !important;
+      margin: 0 !important
+    }
+
+    .nav-on footer {
+      position: fixed
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      min-height: 100vh;
+      height: 100%;
+      transform: translateY(-100%);
+      transition: all .66s;
+      z-index: 3;
+      background: var(--color-black)
+    }
+
+    .nav-on .nav-menu {
+      display: block;
+      transform: translateY(0)
+    }
+
+    .nav-menu-inner {
+      position: relative;
+      padding: calc(var(--nav-height) + var(--padding-xsmall)) 0;
+      width: 100vw;
+      height: 100%;
+      overflow-y: auto
+    }
+
+    .nav-menu-elements {
+      width: 100vw;
+      box-sizing: border-box
+    }
+
+    #nav .nav-menu-elements>* {
+      opacity: 0;
+      transition: all .33s ease-in-out
+    }
+
+    .nav-on #nav .nav-menu-elements>* {
+      transition-delay: .44s
+    }
+
+    .nav-menu-elements hr {
+      margin-left: auto;
+      margin-right: auto;
+      border-color: var(--color-lightgrey)
+    }
+
+    .nav-on #nav .nav-menu-elements>hr {
+      opacity: .25 !important;
+      grid-column: span 12
+    }
+
+    .nav-menu aside {
+      height: auto;
+      padding: var(--padding) var(--padding-big)
+    }
+
+    .nav-on #nav .nav-menu aside {
+      opacity: 1
+    }
+
+    .nav-menu-element .button {
+      margin-top: var(--padding-small);
+      padding: 0 var(--padding-small);
+      height: 40px;
+      line-height: 40px;
+      color: var(--color-lightgrey)
+    }
+
+    .nav-menu-element.social-icons li {
+      display: inline;
+      margin-right: var(--padding-small)
+    }
+
+    .nav-menu-element.social-icons li a {
+      font-size: calc(var(--teaser-headline) + 25%)
+    }
+
+    .nav-menu-element.social-icons li a:hover {
+      color: var(--color-white)
+    }
+
+    .nav-menu-elements aside h5 {
+      font-size: var(--p);
+      font-family: var(--font-1);
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: var(--padding-xsmall)
+    }
+
+    .nav-menu-elements aside p {
+      color: var(--color-lightgrey);
+      font-size: var(--small)
+    }
+
+    .nav-menu-elements aside ul li {
+      list-style: none
+    }
+
+    .nav-menu-elements aside ul li a {
+      line-height: var(--line-height);
+      font-size: var(--small);
+      color: var(--color-lightgrey)
+    }
+
+    .nav-menu-elements aside ul li a:hover {
+      color: var(--color-white)
+    }
+
+    #nav .footer-socials>* {
+      opacity: 0;
+      transition: all .33s ease-in-out;
+      transform: translateY(var(--padding))
+    }
+
+    .nav-on #nav .footer-socials>* {
+      transform: translateY(0);
+      transition-delay: .44s;
+      opacity: 1
+    }
+
+    :root {
+      --padding-big: 40px;
+      --padding: 20px;
+      --padding-small: 10px;
+      --padding-xsmall: 5px
+    }
+
+    @media (min-width:768px) {
+      :root {
+        --padding-big: 48px;
+        --padding: 28px;
+        --padding-small: 14px;
+        --padding-xsmall: 4px
+      }
+    }
+
+    :root {
+      --hero-kicker: var(--xsmall);
+      --hero-headline: 1.6rem;
+      --hero-headline-line: 1.2;
+      --hero-subheadline: 1.2rem;
+      --hero-subheadline-line: 1.5
+    }
+
+    @media (min-width:768px) {
+      :root {
+        --hero-kicker: var(--xsmall);
+        --hero-headline: 3.2rem;
+        --hero-headline-line: 1.2;
+        --hero-subheadline: 1.6rem;
+        --hero-subheadline-line: 1.5
+      }
+    }
+
+    .row-block {
+      padding: 0 0
+    }
+
+    .hero .header {
+      position: relative;
+      z-index: 2;
+      padding: var(--padding-big) var(--padding-big)
+    }
+
+    .hero .header .kicker {
+      font-size: var(--hero-kicker);
+      font-family: var(--font1-bold);
+      line-height: var(--hero-headline-line);
+      margin-bottom: var(--padding-small)
+    }
+
+    .hero .header .headline {
+      font-size: var(--hero-headline);
+      line-height: var(--hero-headline-line);
+      margin-bottom: var(--padding-small);
+      color: var(--color-white);
+      font-family: var(--font1-bold)
+    }
+
+    .hero .header h1.headline {
+      font-size: calc(var(--hero-headline) * 2);
+      line-height: var(--hero-headline-line);
+      margin-bottom: var(--padding-small);
+      color: var(--color-white)
+    }
+
+    .hero .header .subdeck {
+      font-size: var(--hero-subheadline);
+      line-height: var(--hero-subheadline-line);
+      display: inline-block;
+      color: var(--color-offwhite);
+      font-style: normal;
+      display: block
+    }
+
+    .feature {
+      width: 100%
+    }
+
+    .feature img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .feature figcaption {
+      text-align: center;
+      width: 100%
+    }
+
+    .feature-video>iframe {
+      width: 100%;
+      height: 100%
+    }
+
+    .fa-list {
+      list-style: none
+    }
+
+    .fa-list li {
+      line-height: 2
+    }
+
+    .fa-list li svg {
+      margin-right: var(--padding-xsmall)
+    }
+
+    .ratio>* {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%
+    }
+
+    .ratio {
+      position: relative;
+      height: 0;
+      width: 100%;
+      overflow: hidden
+    }
+
+    .ratio[data-ratio="2x1"] {
+      padding-top: 50%
+    }
+
+    .ratio[data-ratio="16x9"] {
+      padding-top: 56.25%
+    }
+
+    .ratio[data-ratio="1x1"] {
+      padding-top: 100%
+    }
+
+    .ratio[data-ratio="2x3"] {
+      padding-top: 133.33%
+    }
+
+    .ratio[data-ratio="3x2"] {
+      padding-top: 66.66%
+    }
+
+    .ratio[data-ratio="3x1"] {
+      padding-top: 33.33%
+    }
+
+    .ratio[data-ratio="4x3"] {
+      padding-top: 75%
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      min-height: 100%
+    }
+
+    a,
+    abbr,
+    acronym,
+    address,
+    applet,
+    article,
+    aside,
+    audio,
+    b,
+    big,
+    blockquote,
+    body,
+    canvas,
+    caption,
+    center,
+    cite,
+    code,
+    dd,
+    del,
+    details,
+    dfn,
+    div,
+    dl,
+    dt,
+    em,
+    embed,
+    fieldset,
+    figcaption,
+    figure,
+    footer,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    hgroup,
+    html,
+    i,
+    iframe,
+    img,
+    ins,
+    kbd,
+    label,
+    legend,
+    li,
+    mark,
+    menu,
+    nav,
+    object,
+    ol,
+    output,
+    p,
+    pre,
+    q,
+    ruby,
+    s,
+    samp,
+    section,
+    small,
+    span,
+    strike,
+    strong,
+    sub,
+    summary,
+    sup,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    time,
+    tr,
+    tt,
+    u,
+    ul,
+    var,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      vertical-align: baseline;
+      box-sizing: border-box;
+      text-decoration: none
+    }
+
+    body {
+      overflow-x: hidden
+    }
+
+    body,
+    html {
+      box-sizing: border-box;
+      max-width: 100vw;
+      width: 100vw;
+      scroll-behavior: smooth
+    }
+
+    ::-webkit-scrollbar {
+      display: none
+    }
+
+    ::selection {
+      background-color: rgba(26, 26, 26, .99);
+      color: #fff
+    }
+
+    :focus {
+      outline: 0
+    }
+
+    input[type=search] {
+      cursor: pointer;
+      font-size: var(--hero-headline);
+      padding: var(--padding) var(--padding);
+      border: none;
+      background-color: var(--color-offwhite);
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid var(--color-grey-half)
+    }
+
+    ::placeholder {
+      opacity: .5
+    }
+
+    .sidebar header.header {
+      padding-right: var(--padding) !important;
+      padding: 0 var(--padding) var(--padding-big);
+      margin: 0 !important
+    }
+
+    @media only screen and (min-width:768px) {
+      .row-block .sidebar {
+        border-top: none
+      }
+
+      .sidebar header.header {
+        padding: 0 var(--padding)
+      }
+    }
+
+    :root {
+      --color-white: #fff;
+      --color-offwhite: #f1f1f1;
+      --color-black: #101010;
+      --color-offblack: #202020;
+      --color-grey: #666;
+      --color-lightgrey: #eee
+    }
+
+    .article-body dd,
+    .article-body dd a,
+    .article-body dt {
+      color: var(--color-lightgrey) !important
+    }
+
+    .article-body dd a {
+      text-decoration: underline
+    }
+
+    .article-body dd a:hover {
+      color: var(--color) !important
+    }
+
+    .nav-bar .hamburger span,
+    .nav-on .nav-bar .hamburger span {
+      background-color: var(--color-white) !important
+    }
+
+    .article-body aside p {
+      margin-bottom: var(--padding)
+    }
+
+    .showcase-feature {
+      display: block
+    }
+
+    @media (min-width:821px) {
+      .showcase-feature {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto 1fr;
+        grid-auto-rows: min-content
+      }
+    }
+
+    .showcase-feature-main {
+      grid-column: span 2;
+      margin-bottom: var(--px-big)
+    }
+
+    @media (min-width:821px) {
+      .showcase-feature-main {
+        margin-bottom: 0
+      }
+    }
+
+    .showcase-feature-main .header {
+      padding: var(--side-padding) !important
+    }
+
+    @media (min-width:821px) {
+      .showcase-feature-main .header {
+        padding: var(--px-big) !important
+      }
+    }
+
+    .showcase-feature-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-auto-rows: min-content;
+      padding: 0;
+      grid-gap: var(--side-padding)
+    }
+
+    @media (min-width:821px) {
+      .showcase-feature-side {
+        padding: 0 var(--px-big)
+      }
+    }
+
+    .showcase-feature-side-teaser {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: var(--px-big);
+      margin: var(--px-big)
+    }
+
+    .showcase-feature-side-teaser>figure img {
+      width: 100px;
+      height: 100px
+    }
+
+    :root {
+      --puff-height: 100px
+    }
+
+    @media (orientation:portrait) and (min-width:768px) and (max-width:820px) {
+      :root {
+        --puff-height: 200px
+      }
+    }
+
+    @media (min-width:1366px) and (max-width:1536px) {
+      :root {
+        --puff-height: 150px
+      }
+    }
+
+    @media (min-width:1537px) {
+      :root {
+        --puff-height: 200px
+      }
+    }
+
+    .showcase-feature-side-puff {
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      flex-direction: row
+    }
+
+    .showcase-feature-side-puff figure {
+      flex-shrink: 0
+    }
+
+    .showcase-feature-side-puff figure img {
+      height: var(--puff-height);
+      width: var(--puff-height);
+      opacity: 1
+    }
+
+    .showcase-feature-side-puff header {
+      display: flex;
+      justify-content: center;
+      align-items: left;
+      flex-direction: column;
+      text-align: left;
+      padding: var(--px-small) var(--px-medium);
+      height: var(--puff-height)
+    }
+
+    .showcase-feature-side-puff header .headline {
+      font-size: var(--puff-headline);
+      line-height: var(--puff-headline-line-height) !important
+    }
+
+    :root {
+      --puff-headline: 1
+    }
+
+    @media (orientation:portrait) and (min-width:768px) and (max-width:820px) {
+      :root {
+        --puff-headline: 1rem
+      }
+    }
+
+    @media (min-width:1366px) and (max-width:1536px) {
+      :root {
+        --puff-headline: 1.2rem
+      }
+    }
+
+    :root {
+      --puff-headline-line-height: 1.5
+    }
+
+    @media (min-width:1537px) {
+      :root {
+        --puff-headline: 1.4rem
+      }
+    }
+  </style>
+
+
+  <link rel="preload" as="font"
+    href="https://www.ladsholidayguide.com/wp-content/themes/LHG-2022c/fonts/circular-book.woff2" type="font/woff2"
+    crossorigin="anonymous" />
+  <link rel="preload" as="font"
+    href="https://www.ladsholidayguide.com/wp-content/themes/LHG-2022c/fonts/circular-black.woff2" type="font/woff2"
+    crossorigin="anonymous" />
+
+  <style>
+    @font-face {
+      font-family: "Circular-Book";
+      src: url("https://www.ladsholidayguide.com/wp-content/themes/LHG-2022c/fonts/circular-book.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Circular-Bold";
+      src: url("https://www.ladsholidayguide.com/wp-content/themes/LHG-2022c/fonts/circular-bold.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    :root {
+      --font-1: 'Circular-Book', Helvetica, Arial, sans-serif;
+      --font-1b: 'Circular-Bold', Helvetica, Arial, sans-serif;
+    }
+
+    *,
+    html,
+    body,
+    p,
+    ul,
+    li,
+    a {
+      font-family: 'Circular-Book';
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: 'Circular-Bold';
+    }
+  </style>
+
+  <script type="text/javascript">
+    var ezouid = "1";
+  </script>
+  <base href="https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/">
+  <script type='text/javascript'>
+    var ezoTemplate = 'old_site_excl';
+    if (typeof ezouid == 'undefined') {
+      var ezouid = 'none';
+    }
+    var ezoFormfactor = '1';
+    var ezo_elements_to_check = Array();
+  </script><!-- START EZHEAD -->
+  <script data-ezscrex="false" type='text/javascript'>
+    var soc_app_id = '0';
+    var did = 361885;
+    var ezdomain = 'ladsholidayguide.com';
+    var ezoicSearchable = 1;
+  </script>
+  <!--{jquery}-->
+  <!-- END EZHEAD -->
+  <script data-ezscrex="false" type="text/javascript" data-cfasync="false">
+    var _ezaq = {
+      "ab_test_id": "mod1-c",
+      "ad_cache_level": 0,
+      "ad_lazyload_version": 0,
+      "ad_load_version": 0,
+      "city": "London",
+      "country": "GB",
+      "days_since_last_visit": 0,
+      "domain_id": 361885,
+      "engaged_time_visit": 590,
+      "ezcache_level": 0,
+      "ezcache_skip_code": 0,
+      "form_factor_id": 1,
+      "framework_id": 1,
+      "is_return_visitor": true,
+      "is_sitespeed": 0,
+      "last_page_load": "1660472921161",
+      "last_pageview_id": "77316ebb-d75e-4ea2-7859-ad02c09c27ae",
+      "lt_cache_level": 0,
+      "metro_code": 0,
+      "page_ad_positions": "",
+      "page_view_count": 12,
+      "page_view_id": "30d4c83f-03ab-4ec8-455d-a6fc92cb77c8",
+      "position_selection_id": 0,
+      "postal_code": "E14",
+      "pv_event_count": 0,
+      "referring_domain": "google.com",
+      "response_size_orig": 110094,
+      "response_time_orig": 0,
+      "serverid": "3.84.189.180:26392",
+      "state": "ENG",
+      "t_epoch": 1660472954,
+      "template_id": 131,
+      "time_on_site_visit": 4236,
+      "url": "https://www.ladsholidayguide.com/travel-blog/mind-blowing-ayahuasca-ceremony-in-phuket-thailand/",
+      "user_id": 0,
+      "visit_uuid": "1f9b973f-72b8-4672-517e-e7eaaf05fe05",
+      "word_count": 1096,
+      "worst_bad_word_level": 3
+    };
+    var _ezExtraQueries = "&ez_orig=1";
+  </script>
+  <script data-ezscrex='false' data-cfasync='false' type="text/javascript">
+    var ezWp = true;
+  </script>
+  <script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+    function create_ezolpl(pvID, rv) {
+      var d = new Date();
+      d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      __ez.ck.setByCat("ezux_lpl_361885=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+    }
+
+    function attach_ezolpl(pvID, rv) {
+      if (document.readyState === "complete") {
+        create_ezolpl(pvID, rv);
+      }
+      if (window.attachEvent) {
+        window.attachEvent("onload", create_ezolpl, pvID, rv);
+      } else {
+        if (window.onload) {
+          var curronload = window.onload;
+          var newonload = function (evt) {
+            curronload(evt);
+            create_ezolpl(pvID, rv);
+          };
+          window.onload = newonload;
+        } else {
+          window.onload = create_ezolpl.bind(null, pvID, rv);
+        }
+      }
+    }
+
+    __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["30d4c83f-03ab-4ec8-455d-a6fc92cb77c8", "true"], false, [
+      '/detroitchicago/boise.js'
+    ], true, false, false, false);
+  </script>
+  <script type="text/javascript">
+    var _audins_dom = "ladsholidayguide_com",
+      _audins_did = 361885;
+    __ez.queue.addFile('/detroitchicago/cmbv2.js',
+      '//g.ezoic.net/detroitchicago/cmbv2.js?gcb=195-0&cb=04-3y02-8y06-13y07-2y19-7y0b-6y0d-21y13-4y17-5y1c-4y21-3y2f-4y57-2&cmbcb=96&sj=x04x02x06x07x19x0bx0dx13x17x1cx21x2fx57',
+      true, [], true, false, true, false);
+  </script>
+  <script type="text/javascript" defer>
+    __ez.queue.addFile('/detroitchicago/cmbdv2.js',
+      '//g.ezoic.net/detroitchicago/cmbdv2.js?gcb=195-0&cb=03-8y0c-6y18-5&cmbcb=96&sj=x03x0cx18', true, [
+        '/detroitchicago/cmbv2.js'
+      ], true, false, true, false);
+  </script>
 </head>
 
-<body>
-    <div class="container">
-        <div id="a">Blah</div>
-        <div id="b">Blurgh</div>
-       </div>
+<body id="body">
 
 
 
 
+
+  <header class="nav-top">
+
+    <nav class="nav-top-bar">
+      <button class="nav-top-burger">
+        <span></span>
+      </button>
+      <a href="https://www.ladsholidayguide.com/" class="nav-top-brand">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload" />
+      </a>
+      <a href="https://www.ladsholidayguide.com/party-holidays/best-party-holidays/" class="nav-top-button button">Party
+        Holidays</a>
+
+    </nav>
+
+
+
+<figure id="attachment_12131" aria-describedby="caption-attachment-12131" style="width: 640px" class="wp-caption alignnone"><img data-aspectratio="640/360" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy" class="size-medium wp-image-12131 lazyloadnative" data-src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg" alt="Ayahuasca, like Magic Mushrooms, appear as some sort of kaleidoscope." width="640" height="360" data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-600x338.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-360x203.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision.jpg 1000w" sizes="(max-width: 640px) 100vw, 640px"/><noscript><img loading="lazy" class="size-medium wp-image-12131" src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg" alt="Ayahuasca, like Magic Mushrooms, appear as some sort of kaleidoscope." width="640" height="360" srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-600x338.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-360x203.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision.jpg 1000w" sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+
+
+    <!-- <nav class="nav-top-bar">
+      <ul>
+        <li class="nav-top-bar-left">
+          <a href="#" class="nav-top-burger">
+            <span></span>
+          </a>
+        </li>
+        <li class="nav-top-bar-center nav-top-brand">
+          <a href="#">
+            <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80">
+          </a>
+        </li>
+        <li class="nav-top-bar-right">
+          <a href="#" class="nav-top-button">CTA Button</a>
+        </li>
+      </ul>
+    </nav> -->
+
+    <section id="menu" class="nav-top-overlay">
+      <nav class="nav-top-menu">
+        <ul>
+          <li><a
+              href="https://www.loveholidays.com/holidays/?destinationIds=214&amp;nights=7&amp;rooms=2&amp;flexibility=0"
+              target="_blank">Cheap Party Holidays</a></li>
+          <li><a href="https://www.ladsholidayguide.com/about/">About</a></li>
+          <li><a href="https://www.ladsholidayguide.com/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+
+  </header>
+
+
+  <script>
+    (function () {
+      const nav_top_burger = document.querySelector('.nav-top-burger');
+      const nav_top_overlay = document.querySelector('.nav-top-overlay');
+      const body = document.querySelector('body');
+      const navbar = document.querySelector('.nav-top');
+      nav_top_burger.onclick = function (e) {
+        e.preventDefault();
+        this.classList.toggle('burger-active');
+        nav_top_overlay.classList.toggle('open');
+        body.classList.toggle('nav-on'); // stop page from scrolling when menu is on
+
+      }
+    }());
+  </script>
+
+  <script>
+    document.addEventListener('click', function (e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      let body_class = document.querySelector('body');
+
+      if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+        if (target.hasAttribute('data-target')) {
+          var m_ID = target.getAttribute('data-target');
+          document.getElementById(m_ID).classList.add('open');
+          body_class.classList.add('modal-on');
+          e.preventDefault();
+        }
+      }
+
+      // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+      if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target
+        .classList.contains('modal')) {
+        var modal = document.querySelector('[class="modal open"]');
+        modal.classList.remove('open');
+        body_class.classList.remove('modal-on');
+        e.preventDefault();
+      }
+    }, false);
+  </script>
+
+
+
+
+  <main>
+
+
+
+
+
+
+
+
+
+
+    <div class="hero">
+      <section class="hero-stack">
+        <header class="header">
+          <strong class="kicker">Travel Blog</strong>
+          <h3 class="headline">Ayahuasca Ceremony in Phuket</h3>
+          <div class="subheadline"></div>
+        </header>
+      </section>
+    </div>
+
+
+    <style>
+      .article-body .wp-caption {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+      }
+
+      .article-body .wp-caption .wp-caption-text {
+        font-size: 0.9rem !important;
+      }
+    </style>
+
+    <!-- Ezoic - top_banner - top_of_page -->
+    <div id="ezoic-pub-ad-placeholder-166"> </div>
+    <!-- End Ezoic - top_banner - top_of_page -->
+
+
+
+
+
+
+    <style>
+      @media (min-width: 821px) {
+        .article-block .feature {
+          padding: 0 !important;
+        }
+      }
+    </style>
+
+
+
+
+
+
+    <div class="article-block">
+
+      <figure class="feature colspan-12">
+        <img src="https://www.ladsholidayguide.com/wp-content/uploads/DMTAyahuasca.jpg" loading="lazy" />
+      </figure>
+
+      <section class="grid bg-white w-max m-auto">
+        <article class="article-body colspan-9 w-safe m-auto">
+          <header class="header w-max">
+            <!-- <strong class="kicker">Kicker Category</strong> -->
+            <h1 class="article-title">Mind blowing Ayahuasca ceremony in Phuket, Thailand</h1>
+            <em class="article-description">After stumbling across a secret Ayahuasca shaman at a retreat in Phuket - I
+              decided to give the powerful psychedelic a try.</em>
+          </header>
+
+
+          <footer class="byline">
+            <div>
+              <address>By <a href="https://www.ladsholidayguide.com/author/leewalpole/" title="http://Lee%20Walpole">Lee
+                  Walpole</a>
+              </address>
+              <time itemprop="datePublished" title="February 4, 2018" datetime="2018-02-04T18:24:09+00:00"> on
+                February 4, 2018</time>
+            </div>
+            <div>
+              <time id="modified" class="modified">Modified: July 7th, 2020</time> <!-- <small>( read)</small>-->
+            </div>
+          </footer>
+          <!--
+      <aside class="shares">
+  <a href="#" class="share"><i class="fas fa-share"></i></a>
+  <a href="#" class="share"><i class="fas fa-share"></i></a>
+  <a href="#" class="share"><i class="fas fa-share"></i></a>
+      </aside>
+  -->
+          <p>I’m pinned to the floor, blind, paralysed and soaked in my own p*ss, begging for it to stop.</p>
+          <!-- Ezoic - wp_under_page_title - under_page_title -->
+          <div id="ezoic-pub-ad-placeholder-102" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_under_page_title - under_page_title -->
+          <p>My brain is malfunctioning. I’ve forgotten how to talk, stand, think and breathe.</p>
+          <p>“Lee, stay with me… it will pass” says a distant voice from the outside world, who’s trying to reassure me.
+          </p><!-- Ezoic - wp_under_first_paragraph - under_first_paragraph -->
+          <div id="ezoic-pub-ad-placeholder-110" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_under_first_paragraph - under_first_paragraph -->
+          <p>“What the f*ck is happening?!”</p>
+          <p>I helplessly mumble “please make it stop” but it’s no use, Mother Ayahuasca hasn’t finished with me yet.
+          </p>
+          <figure id="attachment_12130" aria-describedby="caption-attachment-12130" style="width: 640px"
+            class="wp-caption alignnone"><img data-aspectratio="640/360"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              class="size-medium wp-image-12130 lazyloadnative"
+              data-src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-640x360.jpg"
+              alt="Ayahuasca, like Magic Mushrooms, appear as some sort of kaleidoscope." width="640" height="360"
+              data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-640x360.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-600x338.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-360x203.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2.jpg 1000w"
+              sizes="(max-width: 640px) 100vw, 640px" /><noscript><img class="size-medium wp-image-12130"
+                src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-640x360.jpg"
+                alt="Ayahuasca, like Magic Mushrooms, appear as some sort of kaleidoscope." width="640" height="360"
+                srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-640x360.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-600x338.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2-360x203.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-2.jpg 1000w"
+                sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+            <figcaption id="caption-attachment-12130" class="wp-caption-text">Ayahuasca, like <a
+                href="https://www.ladsholidayguide.com/travel-blog/magic-mushroom-experience-thailand-shroom-shakes-in-phuket/">Magic
+                Mushrooms</a>, appear as some sort of kaleidoscope.</figcaption>
+          </figure>
+          <p>I’m once again dragged back into a twisted and f*cked up reality – where my mind, thoughts and senses are
+            uncomfortably tossed around like a metal fork in a blender.</p>
+          <!-- Ezoic - wp_under_second_paragraph - under_second_paragraph -->
+          <div id="ezoic-pub-ad-placeholder-111" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_under_second_paragraph - under_second_paragraph -->
+          <p>My brain, cooked alive by horrific visions and flashing images – things so warped I cannot even become
+            close to describing.</p>
+          <p>This was my first experience with Ayahuasca.</p>
+          <p> </p><!-- Ezoic - wp_mid_content - mid_content -->
+          <div id="ezoic-pub-ad-placeholder-112" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_mid_content - mid_content -->
+          <hr />
+          <p> </p>
+          <p>When I arrived at the secret checkpoint at 7pm, I was greeted by the guide and another man, who was also to
+            take part in the ritual.</p>
+          <p>He looked nervous. But later explained how he’d struggled with the pre-ceremony diet and preparations.</p>
+          <!-- Ezoic - wp_long_content - long_content -->
+          <div id="ezoic-pub-ad-placeholder-113" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_long_content - long_content -->
+          <p>All participants are given a special food plan and rules, such as no sex / masturbation, drugs and alcohol
+            for at least a week before the ceremony.</p>
+          <p>Sounds easy, but it sucks when you’re staying in <a
+              href="https://www.ladsholidayguide.com/features/filth/my-experience-dating-a-thai-prostitute-in-phukets-sex-capital-patong/">Patong
+              – the sex and party capital of Phuket</a>.</p>
+          <p>We were also told to bring a bucket (for puking our guts up), a pillow, blanket and change of clothes as
+            we’d be staying the night.</p><!-- Ezoic - wp_longer_content - longer_content -->
+          <div id="ezoic-pub-ad-placeholder-114" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_longer_content - longer_content -->
+          <p>Our temporary residence was cosy. A large room, with a floor to ceiling glass wall which over-looked the
+            treetops in the mountains. Not quite The Amazon rainforest, but close enough for me.</p>
+          <p>The shaman performed a brief chant before instructing us to neck the most vulgar shot in the universe.
+            Seriously, it was absolutely, f*cking disgusting!</p>
+          <figure id="attachment_12127" aria-describedby="caption-attachment-12127" style="width: 640px"
+            class="wp-caption alignnone"><img data-aspectratio="640/335"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy"
+              class="size-medium wp-image-12127 lazyloadnative"
+              data-src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-640x335.jpg"
+              alt="Ayahuasca Ceremony in Phuket, Thailand - Psychedelic Heaven turned into Hell" width="640"
+              height="335"
+              data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-640x335.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-600x314.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-360x188.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-1536x804.jpg 1536w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup.jpg 1920w"
+              sizes="(max-width: 640px) 100vw, 640px" /><noscript><img loading="lazy" class="size-medium wp-image-12127"
+                src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-640x335.jpg"
+                alt="Ayahuasca Ceremony in Phuket, Thailand - Psychedelic Heaven turned into Hell" width="640"
+                height="335"
+                srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-640x335.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-600x314.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-360x188.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup-1536x804.jpg 1536w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-Cup.jpg 1920w"
+                sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+            <figcaption id="caption-attachment-12127" class="wp-caption-text">Forget Absinthe.. One shot of Ayahuasca
+              and you’re getting sent to a different dimension. It tastes far worse too.</figcaption>
+          </figure>
+          <p>20 minutes passed, and I’m laying down with my eyes closed, focusing on my breath.</p>
+          <!-- Ezoic - wp_longest_content - longest_content -->
+          <div id="ezoic-pub-ad-placeholder-115" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_longest_content - longest_content -->
+          <p>I could feel the dark and slimy elixir making it’s way through my body.</p>
+          <p>The guy next to me starts to violently puke (aka purge).</p>
+          <p>Another 10 minutes passed and I could start to see little patterns appear. It was happening.</p>
+          <!-- Ezoic - wp_incontent_5 - incontent_5 -->
+          <div id="ezoic-pub-ad-placeholder-116" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_5 - incontent_5 -->
+          <p>As I shuffled into a more comfy position my body started to melt into the mattress and my visions become
+            more and more intense.</p>
+          <figure id="attachment_12131" aria-describedby="caption-attachment-12131" style="width: 640px"
+            class="wp-caption alignnone"><img data-aspectratio="640/360"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy"
+              class="size-medium wp-image-12131 lazyloadnative"
+              data-src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg"
+              alt="Ayahuasca, like Magic Mushrooms, appear as some sort of kaleidoscope." width="640" height="360"
+              data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-600x338.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-360x203.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision.jpg 1000w"
+              sizes="(max-width: 640px) 100vw, 640px" /><noscript><img loading="lazy" class="size-medium wp-image-12131"
+                src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg"
+                alt="Ayahuasca, like Magic Mushrooms, appear as some sort of kaleidoscope." width="640" height="360"
+                srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-640x360.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-600x338.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision-360x203.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Warped-Vision.jpg 1000w"
+                sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+            <figcaption id="caption-attachment-12131" class="wp-caption-text">Ayahuasca, like Magic Mushrooms, appear as
+              some sort of kaleidoscope.</figcaption>
+          </figure>
+          <p>The sound of vomit spraying into a tin bucket began to fade, as I slowly drifted to a nice place.</p>
+          <p>The first stage was pure bliss. I’d never felt so relaxed or at one in my entire life.</p>
+          <!-- Ezoic - wp_incontent_6 - incontent_6 -->
+          <div id="ezoic-pub-ad-placeholder-117" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_6 - incontent_6 -->
+          <p>By the second stage, and after another shot of the sh*t tasting plant medicine – I could see and feel
+            everything.</p>
+          <p>A beaming smile was super glued across my face, I was completely paralysed by comfort.</p>
+          <p>I’d become air and could see how everything worked and was connected.</p>
+          <!-- Ezoic - wp_incontent_7 - incontent_7 -->
+          <div id="ezoic-pub-ad-placeholder-118" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_7 - incontent_7 -->
+          <p>I was a passenger, on a journey through life and death… and beyond.</p>
+          <p>Sounds weird, but it wasn’t and it made sense at the time.</p>
+          <p>It was the most natural thing I’ve ever experienced.</p><!-- Ezoic - wp_incontent_8 - incontent_8 -->
+          <div id="ezoic-pub-ad-placeholder-119" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_8 - incontent_8 -->
+          <p>It was beautiful.</p>
+          <figure id="attachment_12128" aria-describedby="caption-attachment-12128" style="width: 640px"
+            class="wp-caption alignnone"><img data-aspectratio="640/957"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy"
+              class="size-medium wp-image-12128 lazyloadnative"
+              data-src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-640x957.jpg"
+              alt="Ayahuasca Ceremony in Phuket, Thailand - Psychedelic Heaven turned into Hell" width="640"
+              height="957"
+              data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-640x957.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-600x897.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-360x538.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic.jpg 1000w"
+              sizes="(max-width: 640px) 100vw, 640px" /><noscript><img loading="lazy" class="size-medium wp-image-12128"
+                src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-640x957.jpg"
+                alt="Ayahuasca Ceremony in Phuket, Thailand - Psychedelic Heaven turned into Hell" width="640"
+                height="957"
+                srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-640x957.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-600x897.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic-360x538.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuaca-Vision-psychedelic.jpg 1000w"
+                sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+            <figcaption id="caption-attachment-12128" class="wp-caption-text">Ayahuasca had me feeling like I WAS
+              nature.</figcaption>
+          </figure>
+          <p>Well, until an hour passed and I decided to take my third and final shot.</p>
+          <p>Only this time, I was taken to a different place. Somewhere dark and unforgiving.</p>
+          <!-- Ezoic - wp_incontent_9 - incontent_9 -->
+          <div id="ezoic-pub-ad-placeholder-120" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_9 - incontent_9 -->
+          <p>Ayahuasca can warp your understanding of time. Minutes can feel like hours during a psychedelic trip.</p>
+          <figure id="attachment_12129" aria-describedby="caption-attachment-12129" style="width: 640px"
+            class="wp-caption alignnone"><img data-aspectratio="640/480"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy"
+              class="size-medium wp-image-12129 lazyloadnative"
+              data-src="https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-640x480.jpg"
+              alt="Ayahuasca Ceremony - The Portal" width="640" height="480"
+              data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-640x480.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-600x450.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-360x270.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience.jpg 1000w"
+              sizes="(max-width: 640px) 100vw, 640px" /><noscript><img loading="lazy" class="size-medium wp-image-12129"
+                src="https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-640x480.jpg"
+                alt="Ayahuasca Ceremony - The Portal" width="640" height="480"
+                srcset="https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-640x480.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-600x450.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience-360x270.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Psychadellic-Experience.jpg 1000w"
+                sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+            <figcaption id="caption-attachment-12129" class="wp-caption-text">I believe Ayahuasca opens up some kind of
+              portal.</figcaption>
+          </figure>
+          <p>I was trapped, caught up in a never-ending nightmare which reminded me of a sinister version of when Neo
+            couldn’t escape the train station in The Matrix 2.</p>
+          <p>Another stage felt as if I were caged in a box, like one of those medieval torture things… only I was
+            floating around like George Clooney in Gravity.</p><!-- Ezoic - wp_incontent_10 - incontent_10 -->
+          <div id="ezoic-pub-ad-placeholder-121" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_10 - incontent_10 -->
+          <p>It doesn’t matter if your eyes are wide open or shut tight as the visions are engraved deep within your
+            head and there’s no escape.</p>
+          <p>By the time I come round and wiped the snot from my sweating face, I was exhausted.</p>
+          <p>Grateful, too. And so happy to have my mind back and free of the powerful hallucinogen.</p>
+          <!-- Ezoic - wp_incontent_11 - incontent_11 -->
+          <div id="ezoic-pub-ad-placeholder-122" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_11 - incontent_11 -->
+          <p>After getting some rest, and waking up the next day I spent the rest of the day reflecting on the beach.
+          </p>
+          <p>One thing for sure… This whole ‘no sex’ malarky has made me horny as hell!</p>
+          <p>I’d love to say I feel enlightened, but I’ll save the cheese for a future post.</p>
+          <!-- Ezoic - wp_incontent_12 - incontent_12 -->
+          <div id="ezoic-pub-ad-placeholder-123" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_12 - incontent_12 -->
+          <p>Ayahuasca was the most profound experience of my life.</p>
+          <p> </p>
+          <figure id="attachment_12126" aria-describedby="caption-attachment-12126" style="width: 640px"
+            class="wp-caption alignnone"><img data-aspectratio="640/399"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy"
+              class="size-medium wp-image-12126 lazyloadnative"
+              data-src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg"
+              alt="Ayahuasca Brew, made from Banisteriopsis caapi vine and the Psychotria viridis plant." width="640"
+              height="399"
+              data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-600x374.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-360x225.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew.jpg 1197w"
+              sizes="(max-width: 640px) 100vw, 640px" /><noscript><img loading="lazy" class="size-medium wp-image-12126"
+                src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg"
+                alt="Ayahuasca Brew, made from Banisteriopsis caapi vine and the Psychotria viridis plant." width="640"
+                height="399"
+                srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-600x374.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-360x225.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew.jpg 1197w"
+                sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+            <figcaption id="caption-attachment-12126" class="wp-caption-text">Ayahuasca Brew, made from Banisteriopsis
+              caapi vine and the Psychotria viridis plant.</figcaption>
+          </figure>
+          <aside>
+            <h5>WHAT IS AYAHUASCA?</h5>
+            <p>Ayahuasca is an ancient Amazonian brew which has been used as a healing medicine for thousands of years.
+            </p><!-- Ezoic - wp_incontent_13 - incontent_13 -->
+            <div id="ezoic-pub-ad-placeholder-124" data-inserter-version="2"></div>
+            <!-- End Ezoic - wp_incontent_13 - incontent_13 -->
+            <p>The elixir contains DMT (Dimethyltrytamine) the most powerful psychedelic known to man, and the chemical
+              we release when we die.</p>
+            <p>Despite being produced by every living organism, (including our own brains) DMT is considered a Class-A
+              drug, and is illegal throughout most parts of the world (excluding South America).</p>
+            <figure id="attachment_12126" aria-describedby="caption-attachment-12126" style="width: 640px"
+              class="wp-caption alignnone"><img data-aspectratio="640/399"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" loading="lazy"
+                class="size-medium wp-image-12126 lazyloadnative"
+                data-src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg"
+                alt="Ayahuasca Brew, made from Banisteriopsis caapi vine and the Psychotria viridis plant." width="640"
+                height="399"
+                data-srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-600x374.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-360x225.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew.jpg 1197w"
+                sizes="(max-width: 640px) 100vw, 640px" /><noscript><img loading="lazy"
+                  class="size-medium wp-image-12126"
+                  src="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg"
+                  alt="Ayahuasca Brew, made from Banisteriopsis caapi vine and the Psychotria viridis plant."
+                  width="640" height="399"
+                  srcset="https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-640x399.jpg 640w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-600x374.jpg 600w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew-360x225.jpg 360w, https://www.ladsholidayguide.com/wp-content/uploads/Ayahuasca-Ceremony-Phuket-Thailand-The-Brew.jpg 1197w"
+                  sizes="(max-width: 640px) 100vw, 640px" /></noscript>
+              <figcaption id="caption-attachment-12126" class="wp-caption-text">Ayahuasca Brew, made from Banisteriopsis
+                caapi vine and the Psychotria viridis plant.</figcaption>
+            </figure>
+            <p>Thousands of tourists visit Brazil and Peru to experience Ayahuasca Ceremonies in the Amazon Rainforest,
+              in the hope of curing depression and achieving <a
+                href="https://www.ladsholidayguide.com/travel-blog/rebirthing-breathwork-spiritual-awakening-or-bullsht-hoax/">spiritual
+                awakening (often described as rebirth)</a>.</p><!-- Ezoic - wp_incontent_14 - incontent_14 -->
+            <div id="ezoic-pub-ad-placeholder-125" data-inserter-version="2"></div>
+            <!-- End Ezoic - wp_incontent_14 - incontent_14 -->
+            <p>Many individuals claim to have reached spiritual dimensions and made contact with various entities or
+              extra-dimensional beings who can act as guides or healers.</p>
+            <p>Ayahuasca can cause temporary emotional distress, as well as promote neurogenesis (the growth of new
+              brain cells).</p>
+          </aside>
+          <p>https://www.youtube.com/watch?v=cRsJB0taAak</p><!-- Ezoic - wp_incontent_15 - incontent_15 -->
+          <div id="ezoic-pub-ad-placeholder-126" data-inserter-version="2"></div>
+          <!-- End Ezoic - wp_incontent_15 - incontent_15 -->
+
+        </article>
+
+        <aside class="colspan-3 bg-white sidebar">
+          <figure class="advert sidebar-ad">
+            <!-- Ezoic - sidebar - sidebar -->
+            <div id="ezoic-pub-ad-placeholder-165"> </div>
+            <!-- End Ezoic - sidebar - sidebar -->
+            <figcaption>Advert
+            </figcaption>
+          </figure>
+          <aside id="chapters" class="bg-offblack chapters" data-theme="dark">
+            <!-- Chapters appear Below -->
+          </aside>
+          <div class="sticky-sidebar sticky-scroll">
+            <figure class="advert sidebar-ad">
+              <!-- Ezoic - sidebar - sidebar -->
+              <div id="ezoic-pub-ad-placeholder-165"> </div>
+              <!-- End Ezoic - sidebar - sidebar -->
+              <figcaption>Advert
+              </figcaption>
+            </figure>
+          </div>
+        </aside>
+
+      </section>
+
+
+
+      <div class="block-related">
+
+
+        <div class="hero">
+          <section class="hero-stack">
+            <header class="header">
+              <strong class="kicker">RELATED</strong>
+              <h6 class="headline">More like this...</h6>
+            </header>
+          </section>
+        </div>
+
+        <div class="showcase-feature row-block">
+          <div class="showcase-feature-main">
+
+            <article class="teaser standard_teaser bg-white colspan-">
+              <a href="http://localhost:10038/party-holidays/best-party-holidays/"
+                title="Best party holidays and clubbing destinations in 2022" value="Best lads holidays in 2022">
+                <figure class="bg-white ratio" data-ratio="standard-teaser">
+                  <picture>
+                    <img src="https://loremflickr.com/640/360" loading="lazy" />
+                  </picture>
+                </figure>
+                <header class="header bg-white postfade">
+                  <strong class="kicker">Phuket vs Koh Samui</strong>
+                  <h2 class="headline">Phuket vs Koh Samui: Which Thai Island is better?</h2>
+                  <p class="subdeck">We compare two of Thailands most loved holiday destinations. Phuket vs Koh Samui -
+                    find out which Island is better.</p>
+                </header>
+              </a>
+            </article>
+          </div>
+
+
+
+
+
+
+
+
+
+          <div class="showcase-feature-side">
+
+
+
+            <a href="https://www.ladsholidayguide.com/features/healthy-life-tips/"
+              title="5 tips to living a healthy life" class="showcase-feature-side-puff teaser bg-white">
+              <figure>
+                <img src="https://www.ladsholidayguide.com/wp-content/uploads/Multgrain-Hoops-health.jpg"
+                  loading="lazy" />
+              </figure>
+              <header class="puff-header">
+                <strong class="kicker">Features</strong>
+                <h6 class="headline">5 tips to living a healthy life</h6>
+
+              </header>
+            </a>
+
+            <!-- endwhile below -->
+
+
+            <a href="https://www.ladsholidayguide.com/features/best-holiday-experiences-for-gamers/"
+              title="Best holiday experiences for gamers" class="showcase-feature-side-puff teaser bg-white">
+              <figure>
+                <img src="https://www.ladsholidayguide.com/wp-content/uploads/paris-1.jpg" loading="lazy" />
+              </figure>
+              <header class="puff-header">
+                <strong class="kicker">Features</strong>
+                <h6 class="headline">Best holiday experiences for gamers</h6>
+
+              </header>
+            </a>
+
+            <!-- endwhile below -->
+
+
+            <a href="https://www.ladsholidayguide.com/features/fear-of-flying-asap-ways-to-help-overcome-aviophobia-flight-anxiety/"
+              title="Scared of flying? Here is 7 genius tricks to help"
+              class="showcase-feature-side-puff teaser bg-white">
+              <figure>
+                <img src="https://www.ladsholidayguide.com/wp-content/uploads/fear-of-flying.jpg" loading="lazy" />
+              </figure>
+              <header class="puff-header">
+                <strong class="kicker">Features</strong>
+                <h6 class="headline">Scared of flying? Here is 7 genius tricks to help</h6>
+
+              </header>
+            </a>
+
+            <!-- endwhile below -->
+            <!-- endwhile above -->
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+      <script src="https://unpkg.com/vue@3"></script>
+      <script src="https://unpkg.com/v-video-embed/dist/video-embed.min.js" type="text/javascript"></script>
+
+      <script>
+        Vue.use(Embed);
+      </script>
+
+      <script>
+        // Vanilla version of FitVids
+        // Still licencened under WTFPL
+        //
+        // Not as robust and fault tolerant as the jQuery version.
+        // It's BYOCSS.
+        // And also, I don't support this at all whatsoever.
+
+        ;
+        (function (window, document, undefined) {
+          'use strict';
+
+          // List of Video Vendors embeds you want to support
+          var players = [
+            'iframe[src*="youtube.com"]',
+            'iframe[src*="instagram.com"]',
+            'iframe[src*="facebook.com"]',
+            'iframe[src*="tiktok.com"]',
+            'iframe[src*="vimeo.com"]'
+          ];
+
+          // Select videos
+          var fitVids = document.querySelectorAll(players.join(','));
+
+          // If there are videos on the page...
+          if (fitVids.length) {
+
+            // Loop through videos
+            for (var i = 0; i < fitVids.length; i++) {
+
+              // Get Video Information
+              var fitVid = fitVids[i];
+              var width = fitVid.getAttribute('width');
+              var height = fitVid.getAttribute('height');
+              var aspectRatio = height / width;
+              var parentDiv = fitVid.parentNode;
+
+              // Wrap it in a DIV
+              var div = document.createElement('div');
+              div.className = 'fitVids-wrapper';
+              div.style.paddingBottom = aspectRatio * 100 + "%";
+              parentDiv.insertBefore(div, fitVid);
+              fitVid.remove();
+              div.appendChild(fitVid);
+
+              // Clear height/width from fitVid
+              fitVid.removeAttribute('height')
+              fitVid.removeAttribute('width');
+            }
+          }
+        })(window, document);
+      </script>
+
+
+    </div>
+  </main>
+
+  <style>
+.footer-logo { 
+  text-align: center; display:block; margin-bottom:var(--px-big);
+}
+  </style>
+
+
+  <footer class="footer bg-black">
+
+    <figure class="footer-logo">
+      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload">
+          </figure>
+
+    <nav class="footer-nav">
+      <ul class="footer-nav-ul">
+        <li><a href="https://www.ladsholidayguide.com/about/">About</a></li>
+        <li><a href="https://www.ladsholidayguide.com/about/privacy-policy/">Privacy</a></li>
+        <li><a href="https://www.ladsholidayguide.com/about/terms-and-conditions/">Terms</a></li>
+        <li><a href="https://www.ladsholidayguide.com/contact/">Contact</a></li>
+      </ul>
+    </nav>
+
+    <ul class="footer-socials w-max m-auto">
+      <li>
+        <a href="https://www.facebook.com/LadsGuide/" class="postfade" title="More&amp;nbspLads Holiday Guide"><svg
+            class="svg-inline--fa fa-facebook-f fa-w-10" aria-hidden="true" focusable="false" data-prefix="fab"
+            data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
+            <path fill="currentColor"
+              d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+            </path>
+          </svg><!-- <i class="fab fa-facebook-f" aria-hidden="true"></i> --></a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/ladsholidayguide/" class="postfade"
+          title="More&amp;nbspLads Holiday Guide"><svg class="svg-inline--fa fa-instagram fa-w-14" aria-hidden="true"
+            focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512" data-fa-i2svg="">
+            <path fill="currentColor"
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+            </path>
+          </svg><!-- <i class="fab fa-instagram" aria-hidden="true"></i> --></a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/LadsHolidayGuide/" class="postfade"
+          title="More&amp;nbspLads Holiday Guide"><svg class="svg-inline--fa fa-youtube fa-w-18" aria-hidden="true"
+            focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512" data-fa-i2svg="">
+            <path fill="currentColor"
+              d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
+            </path>
+          </svg><!-- <i class="fab fa-youtube" aria-hidden="true"></i> --></a>
+      </li>
+    </ul>
+
+
+    <small class="footer-copyright">Lads Holiday Guide | © 2022<br />
+      <span>Travel Tips, Deals and Banter!</span>
+    </small>
+
+    <a href="https://www.leewalpole.co.uk/" class="footer-credit" target="_blank">
+      Crafted with <svg class="svg-inline--fa fa-heart fa-w-16 color" style="padding: 0 4px;" aria-hidden="true"
+        focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512" data-fa-i2svg="">
+        <path fill="currentColor"
+          d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+        </path>
+      </svg><!-- <i class="fas fa-heart color" style="padding:0 4px;"></i> --> Coded by Lee Walpole
+    </a>
+
+  </footer>
+
+  <!-- Popup Modals Here -->
+
+
+  <div class="modal" id="pop-share">
+    <div class="modal-inner">
+      <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      <h1>Modal title 2</h1>
+      <ul class="sharers">
+        <li>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.ladsholidayguide.com/party-holidays/best-party-holidays/"
+            target="_blank" rel="noopener" class="postfade"
+            title="Share Best party holidays and clubbing destinations in 2022 on Facebook.">
+            <svg class="svg-inline--fa fa-facebook-f fa-w-10" aria-hidden="true" focusable="false" data-prefix="fab"
+              data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+              data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+              </path>
+            </svg><!-- <i class="fab fa-facebook-f" aria-hidden="true"></i> -->
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/home?status=https://www.ladsholidayguide.com/party-holidays/best-party-holidays/"
+            target="_blank" rel="noopener" class="postfade"
+            title="Tweet about the Best party holidays and clubbing destinations in 2022 article.">
+            <svg class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab"
+              data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+              </path>
+            </svg><!-- <i class="fab fa-twitter" aria-hidden="true"></i> -->
+          </a>
+        </li>
+        <li>
+          <a href="whatsapp://send" data-text="Share"
+            data-href="https://www.ladsholidayguide.com/party-holidays/best-party-holidays/" rel="noopener"
+            target="_blank" class="postfade"
+            title="Send Best party holidays and clubbing destinations in 2022 to a mate.">
+            <svg class="svg-inline--fa fa-whatsapp fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab"
+              data-icon="whatsapp" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
+              </path>
+            </svg><!-- <i class="fab fa-whatsapp" aria-hidden="true"></i> -->
+          </a>
+        </li>
+        <li>
+          <a href="mailto:http://lee.walpole@gmail.com?subject=http://Best%20party%20holidays%20and%20clubbing%20destinations%20in%202022&amp;body=https://www.ladsholidayguide.com/party-holidays/best-party-holidays/"
+            class="postfade" title="Attach link to Best party holidays and clubbing destinations in 2022 in an email.">
+            <svg class="svg-inline--fa fa-link fa-w-16" aria-hidden="true" focusable="false" data-prefix="fa"
+              data-icon="link" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z">
+              </path>
+            </svg><!-- <i class="fa fa-link"></i> -->
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- <div class="modal-overlay"></div> -->
+  </div>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-163812999-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-163812999-1');
+  </script>
+
+
+  <script src="https://www.ladsholidayguide.com/wp-content/themes/LHG-2022c/dist/min.js?v=004"></script>
+
+
+  <script>
+    window.lazySizesConfig = {
+      addClasses: true
+    };
+  </script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+    integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    window.addEventListener('load', function () {
+      document.querySelector('body').classList.remove('preload');
+      document.querySelector('body').classList.remove('notready');
+      document.querySelector('body').classList.add('ready');
+    })
+  </script>
+  <!-- Tracking Codes / non-critical stuff below -->
+
+
+  <style>
+    .quote_overlap {
+      -webkit-filter: brightness(75%) !important;
+      filter: brightness(75%) !important;
+    }
+
+    symbol.quote:nth-child(2) {
+      -webkit-filter: brightness(50%) !important;
+      filter: brightness(50%) !important;
+    }
+  </style>
+
+  <svg class="quotemark hidden" width="0" height="0">
+    <symbol viewBox="73.5 9.3 488.3 400.3" id="quote" class="quote">
+      <path fill=""
+        d="M226 152c14.2-55.5 51.9-77.2 95-90.1 4.4-1.3 3.6-5.8 3.6-5.8l-6.2-44s-.9-3.6-6.2-2.7C159.9 25.4 57.8 141.3 75.5 282c18.6 98.1 95 135.8 164.7 125.6 70.1-11.5 118.5-76.8 107.4-146.9-9.2-62.6-61.2-106.5-121.6-108.7z">
+      </path>
+      <path fill=""
+        d="M560.3 260.7C551 199 498.6 155.1 438.7 152c15.1-55.5 51.1-77.2 95-90.1 4.4-1.3 3.6-5.8 3.6-5.8l-7.1-44s-.9-3.6-6.2-2.7C372.1 26.3 269.1 142.2 288.2 282.9c17.8 97.2 93.7 135 164.3 125.2 70.1-12 118.5-77.2 107.8-147.4z">
+      </path>
+      <path class="quote_overlap" fill=""
+        d="M347.2 260.7c-5.3-35.1-24-64.4-49.7-83.9-10.7 32.4-14.7 68.4-9.3 105.7 5.8 32 17.8 57.3 33.7 76.8 21.3-27.1 31.6-62.2 25.3-98.6z">
+      </path>
+    </symbol>
+  </svg>
+
+  <script>
+    blockquote: {
+      // Get all <p> elements in the document
+      var x = document.querySelectorAll(".article-body blockquote");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        //        x[i].style.backgroundColor = "red";
+        x[i].innerHTML = `
+              <svg class="icon">
+              <use xlink:href="#quote"></use>
+              </svg>
+           ` + x[i].innerHTML;
+      }
+    }
+    let blockquotes = document.querySelectorAll('.wp-block-pullquote');
+    blockquotes.forEach(function (blockquote) {
+      blockquote.document.createElement("h5");
+      blockquote.textContent = "Hello";
+      blockquotes.appendChild(blockquote);
+    });
+  </script>
+
+  <script src="https://www.ladsholidayguide.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js"
+    id="regenerator-runtime-js"></script>
+  <script src="https://www.ladsholidayguide.com/wp-includes/js/dist/vendor/wp-polyfill.min.js" id="wp-polyfill-js">
+  </script>
+  <script id="wphb-3-js-extra">
+    var wpcf7 = {
+      "api": {
+        "root": "https:\/\/www.ladsholidayguide.com\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+      },
+      "cached": "1"
+    };
+  </script>
+  <script
+    src="https://www.ladsholidayguide.com/wp-content/uploads/hummingbird-assets/8c8f73e685d67b7880a264849686f66e.js"
+    id="wphb-3-js"></script>
+  <script src="https://www.ladsholidayguide.com/wp-includes/js/underscore.min.js" id="underscore-js"></script>
+  <script id="wphb-global-js-extra">
+    var wphbGlobal = {
+      "ajaxurl": "https:\/\/www.ladsholidayguide.com\/wp-admin\/admin-ajax.php",
+      "nonce": "7e1dbec3e2"
+    };
+  </script>
+  <script defer="defer"
+    src="https://www.ladsholidayguide.com/wp-content/plugins/hummingbird-performance/admin/assets/js/wphb-global.min.js"
+    id="wphb-global-js"></script>
+
+
+
+  <script src="https://www.dwin2.com/pub.312913.min.js"></script>
+
+
+
+
+
+
+  <script>
+    document.addEventListener('click', function (e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      let body_class = document.querySelector('body');
+
+      if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+        if (target.hasAttribute('data-target')) {
+          var m_ID = target.getAttribute('data-target');
+          document.getElementById(m_ID).classList.add('open');
+          body_class.classList.add('modal-on');
+          e.preventDefault();
+        }
+      }
+
+      // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+      if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') ||
+        target
+        .classList.contains('modal')) {
+        var modal = document.querySelector('[class="modal open"]');
+        modal.classList.remove('open');
+        body_class.classList.remove('modal-on');
+        e.preventDefault();
+      }
+    }, false);
+  </script>
+
+
+  <style>
+    #chapters-box {
+      padding: var(--padding) !important;
+    }
+
+    h5.accordion {
+      font-size: 1.2rem;
+    }
+  </style>
+
+  <style>
+    @media only screen and (min-width: 768px) {
+      .sticky-scroll {
+        max-height: 80vh !important;
+        max-height: 80dvh;
+        /* iOS dynamic viewport height */
+        overflow-y: auto;
+      }
+    }
+  </style>
+
+  <style>
+    .pop-share {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pop-share p {
+      margin-left: var(--px-medium);
+    }
+  </style>
+  <script type='text/javascript' style='display:none;' async>
+  </script>
+
+  <script type="text/javascript" data-cfasync="false"></script>
 </body>
 
 </html>

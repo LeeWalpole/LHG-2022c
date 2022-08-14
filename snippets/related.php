@@ -41,9 +41,13 @@ $feature_youtube = get_field('feature_youtube');
                 <a href="http://localhost:10038/party-holidays/best-party-holidays/"
                     title="Best party holidays and clubbing destinations in 2022" value="Best lads holidays in 2022">
                     <figure class="bg-white ratio" data-ratio="standard-teaser">
+
                         <picture>
-                            <img src="https://loremflickr.com/640/360" loading="lazy" />
+                            <?php if ( get_the_post_thumbnail_url() ) : ?>
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                data-src="<?php echo get_the_post_thumbnail_url(); ?>" class="lazyload" loading="lazy">
                         </picture>
+
                     </figure>
                     <header class="header bg-white postfade">
                         <strong class="kicker"><?php echo $kicker; ?></strong>
@@ -56,6 +60,9 @@ $feature_youtube = get_field('feature_youtube');
         </div>
 
         <?php endif; // Page Has Posts ?>
+
+
+
 
 
 
@@ -96,7 +103,8 @@ $feature_youtube = get_field('feature_youtube');
                 class="showcase-feature-side-puff teaser bg-white">
                 <figure>
                     <?php if ( get_the_post_thumbnail_url() ) : ?>
-                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="lazy" />
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                        data-src="<?php echo get_the_post_thumbnail_url(); ?>" class="lazyload" loading="lazy">
                     <?php else : ?>
                     <img src="https://loremflickr.com/640/360" loading="lazy" />
                     <?php endif; ?>

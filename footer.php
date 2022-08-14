@@ -2,6 +2,22 @@
 
 
 <footer class="footer bg-black">
+
+
+    <style>
+        .footer-logo {
+            text-align: center;
+            display: block;
+            margin-bottom: var(--px-big);
+        }
+    </style>
+
+    <figure class="footer-logo">
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+            data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload" loading="lazy">
+    </figure>
+
+
     <nav class="footer-nav">
         <ul class="footer-nav-ul">
             <li><a href="https://www.ladsholidayguide.com/about/">About</a></li>
@@ -71,10 +87,13 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr($google_analytics); ?>"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '<?php echo esc_attr($google_analytics); ?>');
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '<?php echo esc_attr($google_analytics); ?>');
 </script>
 <?php endif; ?>
 
