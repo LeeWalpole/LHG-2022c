@@ -281,12 +281,17 @@ ol.panel {
 
 
 
+
+.article-body .header { 
+    color:var(--color-black);
+}
+
 .article-body>.header>.title {
     font-size: var(--article-title);
     line-height: var(--article-headline-line);
     font-weight: var(--heavy);
     margin-bottom: var(--px-small);
-    color: var(--color-black)
+    color: var(--color-black);
 }
 
 .article-body>.header>.description {
