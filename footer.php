@@ -94,7 +94,7 @@
 <?php // get_template_part( 'snippets/snippet', 'footer' ); // col-1 ?>
 
 <script defer src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/dist/min.js?v=005"></script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
 <script>
     window.lazySizesConfig = {
@@ -167,7 +167,7 @@ if ( is_single() ) :?>
     });
 </script>
 
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script> -->
 <?php endif;?>
 
 <script>
