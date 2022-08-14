@@ -30,30 +30,6 @@ update_option( '2x1_desktop', 1366, 683, true );
 update_option( '2x1_smartphone', 400, 200, true );
 
 
-
-
-
-
-
-    add_theme_support( 'title-tag' );
-    add_theme_support( 'post-thumbnails' );    
-    add_theme_support( 'html5', [ 'script', 'style' ], array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
-    update_option( 'thumbnail_size_w', 360 );
-    update_option( 'thumbnail_size_h', 9999 );
-    update_option( 'thumbnail_crop', false );
-    update_option( 'medium_size_w', 640 );
-    update_option( 'medium_size_h', 9999 );
-    update_option( 'medium_crop', false );
-    update_option( 'medium_large_size_w', 640 );
-    update_option( 'medium_large_size_h', 9999 );
-    update_option( 'medium_large_crop', false );
-    update_option( 'large_size_w', 1920 );
-    update_option( 'large_size_h', 9999 );
-    update_option( 'large_crop', true );
-    update_option( '2x1_desktop_big', 1920, 960, true );
-    update_option( '2x1_desktop', 1366, 683, true );
-    update_option( '2x1_smartphone', 400, 200, true );
-
     /*
     add_image_size( 'teaser_standard', 360, 240, true );
     add_image_size( 'teaser_standard', 360, 240, true );
@@ -76,3 +52,14 @@ update_option( '2x1_smartphone', 400, 200, true );
     // include_once( 'functions/header-junk.php' );
     // include_once( 'functions/lazyload-images.php' );
     
+    // Add Figure to Post images
+function fb_unautop_4_img( $content )
+{ 
+    $content = preg_replace( 
+        '/<p>\\s*?(<a rel=\"attachment.*?><img.*?><\\/a>|<img.*?>)?\\s*<\\/p>/s', 
+        '<figure>$1</figure>', 
+        $content 
+    ); 
+    return $content; 
+} 
+add_filter( 'the_content', 'fb_unautop_4_img', 99 );
