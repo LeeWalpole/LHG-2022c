@@ -29,8 +29,15 @@
     <!-- Load Fonts below -->
     <?php // include_once( 'fonts/font.php' ); /*  include_once( 'fonts.php' ); */ ?>
     <?php // include_once( 'css/variables.php' ); /*  include_once( 'fonts.php' ); */ ?>
-    <?php echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
 
+    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css" as="style"
+        onload="this.rel='stylesheet'">
+
+    <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
+
+    <style>
+    .article-body figcaption { background: inherit!important; color: inherit!important;  }
+    </style>
 
 
     <?php include_once( 'fonts/font.php' ); ?>
