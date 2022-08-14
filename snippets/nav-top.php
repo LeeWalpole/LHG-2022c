@@ -61,32 +61,3 @@
     }
   }());
 </script>
-
-<script>
-    document.addEventListener('click', function (e) {
-        e = e || window.event;
-        var target = e.target || e.srcElement;
-        let body_class = document.querySelector('body');
-
-        if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
-            if (target.hasAttribute('data-target')) {
-                var m_ID = target.getAttribute('data-target');
-                document.getElementById(m_ID).classList.add('open');
-                body_class.classList.add('modal-on');
-                e.preventDefault();
-            }
-        }
-
-        // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
-        if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target
-            .classList.contains('modal')) {
-            var modal = document.querySelector('[class="modal open"]');
-            modal.classList.remove('open');
-            body_class.classList.remove('modal-on');
-            e.preventDefault();
-        }
-    }, false);
-</script>
-
-
-

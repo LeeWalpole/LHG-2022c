@@ -102,17 +102,6 @@
 </script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
-    integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script>
-    window.addEventListener('load', function () {
-        document.querySelector('body').classList.remove('preload');
-        document.querySelector('body').classList.remove('notready');
-        document.querySelector('body').classList.add('ready');
-    })
-</script>
 <!-- Tracking Codes / non-critical stuff below -->
 <?php // get_template_part( 'snippets/footer', 'analytics' ); // ?>
 
@@ -211,10 +200,50 @@ if ( is_single() ) :?>
     </script>
 
 
+<!-- <script>
+    document.addEventListener('click', function (e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        let body_class = document.querySelector('body');
+
+        if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+            if (target.hasAttribute('data-target')) {
+                var m_ID = target.getAttribute('data-target');
+                document.getElementById(m_ID).classList.add('open');
+                body_class.classList.add('modal-on');
+                e.preventDefault();
+            }
+        }
+
+        // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+        if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') || target
+            .classList.contains('modal')) {
+            var modal = document.querySelector('[class="modal open"]');
+            modal.classList.remove('open');
+            body_class.classList.remove('modal-on');
+            e.preventDefault();
+        }
+    }, false);
+</script> -->
+
+
+
+
 <script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
 
-<?php wp_footer(); ?>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+    integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script>
+    window.addEventListener('load', function () {
+        document.querySelector('body').classList.remove('preload');
+        document.querySelector('body').classList.remove('notready');
+        document.querySelector('body').classList.add('ready');
+    })
+</script>
+
+<?php wp_footer(); ?>
 
 </body>
 

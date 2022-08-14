@@ -128,16 +128,6 @@
 
     <?php get_template_part( 'snippets/related' ); // col-4 ?>
 
-
-    <!--
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://unpkg.com/v-video-embed/dist/video-embed.min.js" type="text/javascript"></script>
-    <script>
-        Vue.use(Embed);
-    </script>
-    -->
-
     <?php get_template_part( 'blocks/blocks' ); ?>
 
 
