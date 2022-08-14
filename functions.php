@@ -37,6 +37,7 @@ update_option( '2x1_smartphone', 400, 200, true );
 
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );    
+    add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script' ) );
     add_theme_support( 'html5', [ 'script', 'style' ], array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
     update_option( 'thumbnail_size_w', 360 );
     update_option( 'thumbnail_size_h', 9999 );
