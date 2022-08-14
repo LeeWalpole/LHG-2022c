@@ -134,3 +134,16 @@ add_action('init', 'remove_global_styles_and_svg_filters');
 // This snippet removes the Global Styles and SVG Filters that are mostly if not only used in Full Site Editing in WordPress 5.9.1+
 // Detailed discussion at: https://github.com/WordPress/gutenberg/issues/36834
 // WP default filters: https://github.com/WordPress/WordPress/blob/7d139785ea0cc4b1e9aef21a5632351d0d2ae053/wp-includes/default-filters.php
+
+// Remove junk from head
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'feed_links', 2 );
+remove_action( 'wp_head', 'index_rel_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
