@@ -41,3 +41,10 @@ font-size: 3rem;
     font-size:var(--xsmall);
     color:var(--grey);
 }
+
+
+.footer-logo {
+    text-align: center;
+    display: block;
+    margin-bottom: var(--px-big);
+}

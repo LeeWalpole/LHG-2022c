@@ -3,15 +3,6 @@
 
 <footer class="footer bg-black">
 
-
-    <style>
-        .footer-logo {
-            text-align: center;
-            display: block;
-            margin-bottom: var(--px-big);
-        }
-    </style>
-
     <figure class="footer-logo">
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload" loading="lazy">
@@ -188,6 +179,15 @@
 
 
 <script src="https://www.dwin2.com/pub.312913.min.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reframe.js/4.0.0/reframe.min.js"></script>
+
+<script>
+reframe('iframe', '');
+</script>
+
+
 
 </body>
 
