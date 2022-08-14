@@ -72,7 +72,7 @@
 <?php get_template_part( 'snippets/pop-share-post' ); ?>
 
 
-
+<?php /*
 <?php $google_analytics = get_field('google_analytics','options'); ?>
 <?php if($google_analytics) : ?>
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -87,12 +87,13 @@
     gtag('config', '<?php echo esc_attr($google_analytics); ?>');
 </script>
 <?php endif; ?>
+*/?>
 
 
 <?php // include_once( 'snippets/snippet-chapters.php' ); /*  include_once( 'fonts.php' ); */ ?>
 <?php // get_template_part( 'snippets/snippet', 'footer' ); // col-1 ?>
-<script src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/dist/min.js?v=004"></script>
 
+<script defer src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/dist/min.js?v=005"></script>
 
 <script>
     window.lazySizesConfig = {
@@ -115,7 +116,6 @@
 <!-- Tracking Codes / non-critical stuff below -->
 <?php // get_template_part( 'snippets/footer', 'analytics' ); // ?>
 
-<?php wp_footer(); ?>
 
 <?php /*
 <div class="bg-color row-block">
@@ -212,6 +212,8 @@ if ( is_single() ) :?>
 
 
 <script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
+
+<?php wp_footer(); ?>
 
 
 </body>
