@@ -38,23 +38,3 @@
 	*/?>
 	
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-
-	*, html, body, p, ul, li, a {
-		font-family: 'DM Sans', sans-serif!important;
-		font-weight:400!important;
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5 {
-		font-family: 'DM Sans', sans-serif!important;
-		font-weight:700!important;
-	}
-</style>
