@@ -94,6 +94,7 @@
 <?php // get_template_part( 'snippets/snippet', 'footer' ); // col-1 ?>
 
 <script defer src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/dist/min.js?v=005"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
     window.lazySizesConfig = {
@@ -113,9 +114,6 @@
 <div class="bg-color row-block">
     <?php echo get_num_queries(); ?> queries in <?php timer_stop(1); ?> seconds.
 </div>*/ ?>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <?php // Run code only for Single post page
 if ( is_single() ) :?>
@@ -169,7 +167,7 @@ if ( is_single() ) :?>
     });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <?php endif;?>
 
 <script>
@@ -229,9 +227,9 @@ if ( is_single() ) :?>
 
 
 
-<script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
+<script async src="https://www.dwin2.com/pub.312913.min.js"></script>
 
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
     integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
