@@ -247,24 +247,11 @@ if ( is_single() ) :?>
 <?php wp_footer(); ?>
 
 
-<?php $load_scripts = get_field('load_scripts'); switch ($load_scripts) : case "awin": ?>
-
-    <p>Awin</p>
-
-<?php break; case "case2": ?>
-
-    <p>case2</p>
-
-<?php break; default: // default too google adsense if it exists... ?>
-
-<!--  No Manually Added Scripts -->
-
-<p>No Manually Added Scripts</p>
-
-<?php endswitch; ?>
-
-
-<script async src="https://www.dwin2.com/pub.312913.min.js"></script>
+<?php $load_scripts = get_field('load_scripts'); ?>
+<?php if( $load_scripts && in_array('awin', $load_scripts) ) :?>
+    <p>Awin Added</p>
+<?php endif; ?>  
+<script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
 
 
 </body>
