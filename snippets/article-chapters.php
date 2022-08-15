@@ -5,13 +5,9 @@ $chapter_prefix = get_field('chapter_prefix',$post_id);
 $chapter_tag = get_field('chapter_tag',$post_id); // for some reason this didn't work
 ?>
 
-<p>
-    <?php echo $chapter_status; ?>
-</p>
-
 <?php switch ($chapter_status) : case "on" : ?>
 
-<aside id="chapters" class="bg-black chapters" data-theme="light">
+<aside id="chapters" class="bg-black chapters" data-theme="dark">
     <!-- Chapters appear Below -->
 </aside>
 
