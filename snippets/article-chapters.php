@@ -7,6 +7,12 @@ $chapter_tag = get_field('chapter_tag',$post_id); // for some reason this didn't
 
 <?php switch ($chapter_status) : case "on" : ?>
 
+    <style>
+        .article-body h3:before { 
+            font-size:0.85rem!important;
+        }
+    </style>
+
 <aside id="chapters" class="bg-black chapters" data-theme="dark">
     <!-- Chapters appear Below -->
 </aside>
