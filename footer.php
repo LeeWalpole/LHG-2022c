@@ -90,9 +90,6 @@
 <?php endif; ?>
 */?>
 
-<?php include_once( 'snippets/article-chapters.php' ); ?>
-
-
 <?php // include_once( 'snippets/snippet-chapters.php' ); /*  include_once( 'fonts.php' ); */ ?>
 <?php // get_template_part( 'snippets/snippet', 'footer' ); // col-1 ?>
 

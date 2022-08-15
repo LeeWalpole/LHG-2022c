@@ -72,9 +72,7 @@
         <aside class="colspan-3 bg-white sidebar">
 
         
-            <aside id="chapters" class="bg-black chapters" data-theme="light">
-                <!-- Chapters appear Below -->
-            </aside>
+        <?php include_once( 'snippets/article-chapters.php' ); ?>
 
 <!-- Ezoic - sidebar - sidebar -->
 <div id="ezoic-pub-ad-placeholder-165"> </div>
