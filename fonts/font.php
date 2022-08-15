@@ -23,6 +23,10 @@
 		font-family: var(--font-1); 
 	}
 
+	body *:not(h1,h2,h3,h4,h5) {
+		font-family: var(--font-1)!important; 
+}
+
 	h1,
 	h2,
 	h3,
