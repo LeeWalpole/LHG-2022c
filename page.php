@@ -77,8 +77,6 @@
     	
     <?php endwhile; endif; // loop ?>
 
-    <?php get_template_part( 'snippets/related' ); // col-4 ?>
-
     <?php get_template_part( 'blocks/blocks' ); ?>
 
 
