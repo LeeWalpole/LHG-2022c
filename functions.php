@@ -91,8 +91,7 @@ function smartwp_remove_wp_block_library_css(){
    } 
    add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
    
-   /*
-
+   
    function pm_remove_all_scripts(){
     if(in_array($GLOBALS['pagenow'], ['wp-login.php', 'wp-register.php']) || is_admin()) return; //Bail early if we're
     global $wp_scripts;
@@ -109,5 +108,3 @@ function smartwp_remove_wp_block_library_css(){
   }
   
   add_action('wp_print_styles', 'pm_remove_all_styles', 100);
-
-  */
