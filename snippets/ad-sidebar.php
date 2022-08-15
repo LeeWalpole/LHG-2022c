@@ -1,21 +1,30 @@
 <?php $ad_type_sidebar = get_field('ad_type_sidebar'); ?>
+<?php switch ($ad_type_sidebar) : case "google_adsense": ?>
 
+<?php endswitch; ?>
+
+
+<?php $ad_type_sidebar = get_field('ad_type_sidebar'); ?>
 
 <!-- Sidebar -->
 
-    <!-- Google Ad (Below) -->
-    <?php switch ($ad_type_sidebar) : case "google_adsense": ?>
-    <figure class="advert sidebar-ad  bg-white">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Google Ad (Below) -->
+<?php switch ($ad_type_sidebar) : case "google_adsense": ?>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
-        crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1175315600216420" data-ad-slot="4721990558"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <figcaption>Google Ad</figcaption>
-    </figure>
+     crossorigin="anonymous"></script>
+<figure class="advert sidebar-ad  bg-white">
+<!-- Display (Square) 2022 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1175315600216420"
+     data-ad-slot="9338877665"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <figcaption>Advertisement (Google)</figcaption>
+</figure>
 
 <!-- Google Ad (Above) -->
 <?php break; case "ezoic": ?>
@@ -59,17 +68,12 @@
 <!-- Attention: No adverts set -->
 
 <figure class="advert sidebar-ad bg-white">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
-        crossorigin="anonymous"></script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1175315600216420" data-ad-slot="4721990558"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <!-- Ezoic - LW Sidebar Top - sidebar -->
+    <div id="ezoic-pub-ad-placeholder-168"> </div>
+    <!-- End Ezoic - LW Sidebar Top - sidebar -->
     <figcaption>Advertisement</figcaption>
-    </figure>
+</figure>
 
-    <!-- Attention: No adverts set -->
+<!-- Attention: No adverts set -->
 
 <?php endswitch; ?>

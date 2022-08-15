@@ -5,29 +5,28 @@
     switch ($ad_type) : case "google_adsense": ?>
  <!-- Sidebar -->
  <figure class="advert banner-ad">
-     <!-- Google Ad (Below) -->
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
      crossorigin="anonymous"></script>
-<!-- Header Ad Banner -->
+<!-- Display (Banner) 2022 -->
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-1175315600216420"
-     data-ad-slot="3621619731"
+     data-ad-slot="7590929144"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-     <figcaption>Google Advert</figcaption>
+<figcaption>Advertisement (Google)</figcaption>
  </figure>
  <!-- Google Ad (Above) -->
 
  <?php break; case "ezoic": ?>
 <figure class="advert banner-ad">
-    <!-- Ezoic - LW Sidebar Top - sidebar -->
-    <div id="ezoic-pub-ad-placeholder-168"></div>
-    <!-- End Ezoic - LW Sidebar Top - sidebar -->
-    <figcaption>Ezoic Advert</ficaption>
+<!-- Ezoic - LW - Under Page Title - under_page_title -->
+<div id="ezoic-pub-ad-placeholder-169"> </div>
+<!-- End Ezoic - LW - Under Page Title - under_page_title -->
+    <figcaption>Advertisement (Ezoic)</figcaption>
 </figure>
 
  <?php break; case "image": ?>
@@ -61,5 +60,22 @@
  <?php break; default: // default too google adsense if it exists... ?>
 
  <!--  No Adverts -->
+
+ <figure class="advert banner-ad">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
+     crossorigin="anonymous"></script>
+<!-- Display (Banner) 2022 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1175315600216420"
+     data-ad-slot="7590929144"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<figcaption>Advertisement (Google)</figcaption>
+ </figure>
+
 
  <?php endswitch; ?>
