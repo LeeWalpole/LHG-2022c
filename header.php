@@ -36,6 +36,8 @@
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             height: 100vh;
             width: 100vw;
             background: #000;
@@ -59,7 +61,7 @@
             z-index: 22;
             pointer-events: none;
             transition: all 0.75s ease-in-out;
-            z-index: 99999;
+            z-index: 200001;
         }
 
         .body-loaded .loader {
@@ -78,7 +80,7 @@
             width: 100vw;
             background: #000;
             position: fixed;
-            z-index: 22;
+            z-index: 200002;
             pointer-events: none;
             transition: all 0.75s ease-in-out;
         }
