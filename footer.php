@@ -246,7 +246,7 @@ if ( is_single() ) :?>
 
 <?php wp_footer(); ?>
 
-<script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
+
 
 
 <?php 
@@ -257,7 +257,7 @@ echo "yes";
 }
 ?>
 
-
+<script src="https://www.dwin2.com/pub.312913.min.js" defer></script>
 
 </body>
 
