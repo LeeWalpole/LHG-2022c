@@ -88,7 +88,8 @@
     <?php endif; // !empty( get_the_content() ?>
 
     <?php 
-$load_scripts = get_field('load_scripts');
+    
+$load_scripts = get_field('load_scripts', $post_id);
 if( $load_scripts && in_array('awin', $load_scripts) ) {
 echo "yes";
 }
