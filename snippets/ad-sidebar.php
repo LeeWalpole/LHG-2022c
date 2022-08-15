@@ -13,19 +13,20 @@
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-<?php echo $adsense_data_ad_client; ?>"
         data-ad-slot="<?php echo $header_adsense_id;?>" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <figcaption>Google Ad</figcaption>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <!-- Google Ad (Above) -->
-    <figcaption>Ezoic Advert</ficaption>
 </figure>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- Google Ad (Above) -->
 <?php } else { ?>
-<!-- Attention: Google Adsense needs to be added in settings -->
+<figure class="advert sidebar-ad">
+    <!-- Attention: Google Adsense needs to be added in settings -->
+</figure>
 <?php } ?>
 <?php break; case "ezoic": ?>
 <figure class="advert sidebar-ad">
     <!-- Ezoic - LW Sidebar Top - sidebar -->
-    <div id="ezoic-pub-ad-placeholder-168"> </div>
+    <div id="ezoic-pub-ad-placeholder-168"></div>
     <!-- End Ezoic - LW Sidebar Top - sidebar -->
     <figcaption>Ezoic Advert</ficaption>
 </figure>
@@ -50,7 +51,7 @@
             <source type="image/jpg" media="(max-width: 460px)" srcset="<?php echo esc_attr($ad_image_smartphone); ?>">
             <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                 alt="<?php echo esc_attr( get_the_title() ); ?>"
-                data-src="<?php echo esc_attr($ad_image_smartphone); ?>" />
+                data-src="<?php echo esc_attr($ad_image_smartphone); ?>" class="lazyload" loading="lazy" />
         </picture>
     </a>
 </figure>
@@ -63,5 +64,3 @@
 <!-- Attention: No adverts set -->
 
 <?php endswitch; ?>
-
-
