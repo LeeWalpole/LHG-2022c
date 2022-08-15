@@ -246,12 +246,19 @@ if ( is_single() ) :?>
 
 <?php wp_footer(); ?>
 
-
 <?php $load_scripts = get_field('load_scripts'); ?>
 <?php if( $load_scripts && in_array('awin', $load_scripts) ) :?>
     <p>Awin Added</p>
 <?php endif; ?>  
 <script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
+
+
+<?php if( in_array( "awin", get_field( 'load_scripts' ) ) ) { ?>
+<p>yes</p>
+<? } else { ?>
+<p>No</p>
+<?php } ?>
+
 
 
 </body>
