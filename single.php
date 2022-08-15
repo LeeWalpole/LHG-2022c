@@ -1,11 +1,5 @@
 <?php get_header(); // includes nav and hero ?>
 
-<?php /*
-<!-- Ezoic - top_banner - top_of_page -->
-<div id="ezoic-pub-ad-placeholder-166"> </div>
-<!-- End Ezoic - top_banner - top_of_page -->
-*/?>
-
 <?php if( have_rows('hero_header') ):
         while( have_rows('hero_header') ) : the_row();?>
 
