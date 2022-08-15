@@ -127,11 +127,11 @@
     <?php include_once( 'fonts/font.php' ); ?>
 
     <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
-    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?13" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?14" as="style" onload="this.rel='stylesheet'">
 
     <style>
-        /* For sticky nav for some reason */
-html { overflow: unset!important;}
+/* For sticky nav for some reason */
+html, body { overflow: unset!important;}
 </style>
 
 
