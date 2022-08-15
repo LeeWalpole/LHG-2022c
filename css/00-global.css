@@ -68,6 +68,11 @@
     --hero-subheadline-line: 1.5
 }
 
+html {
+    overflow-x: hidden!important;
+    overflow-y: auto!important;
+}
+
 body {
     overflow-x: hidden!important;
 }
