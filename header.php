@@ -10,8 +10,7 @@
     <meta name="robots" content="follow, index" />
     <?php wp_head(); ?>
     <?php if ( has_post_thumbnail() ) : ?>
-    <link rel="preload" as="image"
-        href="<?php echo esc_attr($hero_image_smartphone = get_the_post_thumbnail_url(get_the_ID(),'thumbnail')); ?>">
+    <link rel="preload" as="image" href="<?php echo esc_attr($hero_image_smartphone = get_the_post_thumbnail_url(get_the_ID(),'thumbnail')); ?>">
     <?php endif; ?>
     <!-- <link rel="preload" href="img/inbody.mp4" as="video" type="video/mp4"> -->
     <?php /*
@@ -146,7 +145,7 @@
 
     <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
 
-    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?10" as="style"
+    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?11" as="style"
         onload="this.rel='stylesheet'">
 
 
