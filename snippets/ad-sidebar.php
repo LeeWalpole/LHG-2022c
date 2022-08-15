@@ -1,30 +1,25 @@
 <?php $ad_type_sidebar = get_field('ad_type_sidebar'); ?>
 
-<?php switch ($ad_type_sidebar) : case "google_adsense": ?>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Sidebar -->
-    <figure class="advert sidebar-ad  bg-white">
-        <!-- Google Ad (Below) -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
-     crossorigin="anonymous"></script>
+
 <!-- Sidebar -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1175315600216420"
-     data-ad-slot="4721990558"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-        <figcaption>Google Ad</figcaption>
-    </figure>
+
+    <!-- Google Ad (Below) -->
+    <?php switch ($ad_type_sidebar) : case "google_adsense": ?>
+    <figure class="advert sidebar-ad  bg-white">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
+        crossorigin="anonymous"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1175315600216420" data-ad-slot="4721990558"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    <!-- Google Ad (Above) -->
+    <figcaption>Google Ad</figcaption>
+    </figure>
+
+<!-- Google Ad (Above) -->
 <?php break; case "ezoic": ?>
-<figure class="advert sidebar-ad  bg-white">
+<figure class="advert sidebar-ad bg-white">
     <!-- Ezoic - LW Sidebar Top - sidebar -->
     <div id="ezoic-pub-ad-placeholder-168"></div>
     <!-- End Ezoic - LW Sidebar Top - sidebar -->
@@ -63,5 +58,18 @@
 
 <!-- Attention: No adverts set -->
 
+<figure class="advert sidebar-ad bg-white">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
+        crossorigin="anonymous"></script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1175315600216420" data-ad-slot="4721990558"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <figcaption>Advertisement</figcaption>
+    </figure>
+
+    <!-- Attention: No adverts set -->
 
 <?php endswitch; ?>
