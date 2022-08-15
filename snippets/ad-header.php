@@ -7,7 +7,7 @@
     $adsense_data_ad_client = get_field('adsense_data_ad_client', 'options');
     $header_adsense_id = get_field('sidebar_adsense_id', 'options');
     ?>
- <?php if( $adsense_data_ad_client && $header_adsense_id) { ?>
+ <?php if( $adsense_data_ad_client && $header_adsense_id) : ?>
  <!-- Sidebar -->
  <figure class="advert sidebar-ad">
      <!-- Google Ad (Below) -->
@@ -19,11 +19,7 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
  </script>
  <!-- Google Ad (Above) -->
- <?php } else { ?>
- <figure class="advert sidebar-ad">
-     <!-- Attention: Google Adsense needs to be added in settings -->
- </figure>
- <?php } ?>
+ <?php endif; ?>
 
 
  <?php break; case "image": ?>
@@ -52,7 +48,6 @@
             </picture>
         </a>
     </figure>
-
     <?php endif; ?>
  <!-- Custom Ad Image Above -->
  <?php break; default: // default too google adsense if it exists... ?>
