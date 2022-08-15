@@ -92,20 +92,4 @@ function smartwp_remove_wp_block_library_css(){
     wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
    } 
    add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
-
-   function pm_remove_all_scripts(){
-    if(in_array($GLOBALS['pagenow'], ['wp-login.php', 'wp-register.php']) || is_admin()) return; //Bail early if we're
-    global $wp_scripts;
-    $wp_scripts->queue = array();
-  }
-  
-  add_action('wp_print_scripts', 'pm_remove_all_scripts', 100);
-  
-  function pm_remove_all_styles(){
-    if(in_array($GLOBALS['pagenow'], ['wp-login.php', 'wp-register.php']) || is_admin()) return; //Bail early if we're
-  
-    global $wp_styles;
-    $wp_styles->queue = array();
-  }
-  
-  add_action('wp_print_styles', 'pm_remove_all_styles', 100);
+   
