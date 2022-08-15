@@ -5,7 +5,8 @@
 
     <figure class="footer-logo">
         <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload" loading="lazy">
+            data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload"
+            loading="lazy">
     </figure>
 
 
@@ -171,31 +172,31 @@ if ( is_single() ) :?>
 <?php endif;?>
 
 <script>
-        document.addEventListener('click', function (e) {
-            e = e || window.event;
-            var target = e.target || e.srcElement;
-            let body_class = document.querySelector('body');
+    document.addEventListener('click', function (e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        let body_class = document.querySelector('body');
 
-            if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
-                if (target.hasAttribute('data-target')) {
-                    var m_ID = target.getAttribute('data-target');
-                    document.getElementById(m_ID).classList.add('open');
-                    body_class.classList.add('modal-on');
-                    e.preventDefault();
-                }
-            }
-
-            // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
-            if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') ||
-                target
-                .classList.contains('modal')) {
-                var modal = document.querySelector('[class="modal open"]');
-                modal.classList.remove('open');
-                body_class.classList.remove('modal-on');
+        if (target.hasAttribute('data-toggle') && target.getAttribute('data-toggle') == 'modal') {
+            if (target.hasAttribute('data-target')) {
+                var m_ID = target.getAttribute('data-target');
+                document.getElementById(m_ID).classList.add('open');
+                body_class.classList.add('modal-on');
                 e.preventDefault();
             }
-        }, false);
-    </script>
+        }
+
+        // Close modal window with 'data-dismiss' attribute or when the backdrop is clicked
+        if ((target.hasAttribute('data-dismiss') && target.getAttribute('data-dismiss') == 'modal') ||
+            target
+            .classList.contains('modal')) {
+            var modal = document.querySelector('[class="modal open"]');
+            modal.classList.remove('open');
+            body_class.classList.remove('modal-on');
+            e.preventDefault();
+        }
+    }, false);
+</script>
 
 
 <!-- <script>
@@ -227,7 +228,7 @@ if ( is_single() ) :?>
 
 
 
-<script async src="https://www.dwin2.com/pub.312913.min.js"></script>
+
 
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
     integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
@@ -243,8 +244,29 @@ if ( is_single() ) :?>
 </script>
 
 
-
 <?php wp_footer(); ?>
+
+
+
+<?php $load_scripts = get_field('load_scripts'); switch ($load_scripts) : case "awin": ?>
+
+    <p>Awin</p>
+
+<?php break; case "case2": ?>
+
+    <p>case2</p>
+
+<?php break; default: // default too google adsense if it exists... ?>
+
+<!--  No Manually Added Scripts -->
+
+<p>No Manually Added Scripts</p>
+
+<?php endswitch; ?>
+
+
+<script async src="https://www.dwin2.com/pub.312913.min.js"></script>
+
 
 </body>
 
