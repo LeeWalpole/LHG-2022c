@@ -57,7 +57,7 @@
 
 <?php if ( !empty( get_the_content() ) ) : ?>
 
-<?php // get_template_part( 'snippets/ad', 'header' ); ?>
+<?php get_template_part( 'snippets/ad', 'header' ); ?>
 
 
 <div class="article-block">
@@ -83,6 +83,7 @@
 
             <?php get_template_part( 'snippets/byline' ); ?>
 
+            
             <figure class="advert article-advert">
 <!-- Ezoic - LW - Under Page Title - under_page_title -->
 <div id="ezoic-pub-ad-placeholder-169"> </div>
@@ -97,15 +98,10 @@
         <?php // get_template_part( 'snippets/ad', 'sidebar' ); ?>
 
         <aside class="colspan-3 bg-white sidebar">
-            <figure class="advert sidebar-ad">
 
+                    
+         <?php get_template_part( 'snippets/ad', 'sidebar' ); ?>
 
-                <!-- Ezoic - LW Sidebar Top - sidebar -->
-                <div id="ezoic-pub-ad-placeholder-168"> </div>
-                <!-- End Ezoic - LW Sidebar Top - sidebar -->
-
-                <figcaption>Advertisement</ficaption>
-            </figure>
             <aside id="chapters" class="bg-offblack chapters" data-theme="dark">
                 <!-- Chapters appear Below -->
             </aside>
