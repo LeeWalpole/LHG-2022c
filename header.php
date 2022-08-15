@@ -33,7 +33,7 @@
 
     <style>
         .body-loading {
-            position: fixed;
+            position: relative;
             top: 0;
             left: 0;
             right: 0;
@@ -42,11 +42,14 @@
             width: 100vw;
             background: #000;
             z-index: 200000;
+            overflow-x: hidden;
+            overflow-y: hidden;
         }
 
         .body-loaded {
             position: relative;
             height: unset;
+            overflow-y: auto;
         }
 
         .loader {
@@ -57,10 +60,10 @@
             height: 100vh;
             width: 100vw;
             background: #000;
-            position: fixed;
+            position: fixed; top:0; right:0; bottom:0; left:0;
             pointer-events: none;
             transition: all 0.75s ease-in-out;
-            z-index: 100001!important;
+            z-index: 9100001!important;
             
         }
 
@@ -160,11 +163,10 @@
 
 
 <body id="body" class="body-loading">
+
     <div class="loader">
         <div class="load">
-
             <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" loading="eager">
-
             <div class="spinners">
                 <div class="square1"></div>
                 <div class="square2"></div>
