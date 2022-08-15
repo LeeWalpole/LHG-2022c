@@ -90,7 +90,7 @@
 <?php endif; ?>
 */?>
 
-<?php include_once( 'snippets/snippet-chapters.php' ); ?>
+<?php include_once( 'snippets/article-chapters.php' ); ?>
 
 
 <?php // include_once( 'snippets/snippet-chapters.php' ); /*  include_once( 'fonts.php' ); */ ?>
