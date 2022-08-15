@@ -884,4 +884,5 @@ h5.accordion {
 }
 
 
-.article-advert  { max-width: 100%; overflow: hidden; }
+.article-advert  { max-width: 100%; overflow: hidden;   }
+.article-advert * { max-width: 100%!important; }
