@@ -39,6 +39,7 @@
             height: 100vh;
             width: 100vw;
             background: #000;
+            z-index: 200000;
         }
 
         .body-loaded {
@@ -58,6 +59,7 @@
             z-index: 22;
             pointer-events: none;
             transition: all 0.75s ease-in-out;
+            z-index: 99999;
         }
 
         .body-loaded .loader {
