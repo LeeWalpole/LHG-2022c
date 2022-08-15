@@ -54,19 +54,19 @@
             justify-content: center;
             align-items: center;
             flex-direction: row;
-            height: 100%;
-            width: 100%;
+            height: 100vh;
+            width: 100vw;
             background: #000;
             position: fixed;
-            z-index: 22;
             pointer-events: none;
             transition: all 0.75s ease-in-out;
-            z-index: 200001;
+            z-index: 100001!important;
+            
         }
 
         .body-loaded .loader {
             opacity: 0;
-            z-index: -1;
+            z-index: -1!important;
         }
     </style>
 
