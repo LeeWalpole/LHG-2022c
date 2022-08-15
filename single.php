@@ -53,9 +53,6 @@
 
 <?php if ( !empty( get_the_content() ) ) : ?>
 
-<?php get_template_part( 'snippets/ad', 'header' ); ?>
-
-
 <div class="article-block">
 
     <figure class="feature colspan-12">
@@ -79,6 +76,8 @@
 
             <?php get_template_part( 'snippets/byline' ); ?>
 
+            <?php // get_template_part( 'snippets/ad', 'header' ); ?>
+
 
             <?php the_content(); ?>
 
@@ -94,7 +93,7 @@
             </aside>
             <div class="sticky-sidebar sticky-scroll">
 
-                <?php get_template_part( 'snippets/ad', 'sidebar' ); ?>
+                <?php // get_template_part( 'snippets/ad', 'sidebar' ); ?>
 
             </div>
         </aside>
