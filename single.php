@@ -74,9 +74,14 @@
 
             
 
-            <aside id="chapters" class="bg-offblack chapters" data-theme="dark">
+            <aside id="chapters" class="bg-light chapters" data-theme="light">
                 <!-- Chapters appear Below -->
             </aside>
+
+<!-- Ezoic - sidebar - sidebar -->
+<div id="ezoic-pub-ad-placeholder-165"> </div>
+<!-- End Ezoic - sidebar - sidebar -->
+
             <div class="sticky-sidebar sticky-scroll">
 
             <?php get_template_part( 'snippets/ad', 'sidebar' ); ?>
