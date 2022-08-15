@@ -143,17 +143,8 @@
 
     <?php include_once( 'fonts/font.php' ); ?>
 
-    <?php echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
-
-    <?php /*
-    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?11" as="style"
-        onload="this.rel='stylesheet'">
-*/
-?>
-
-
-
-
+    <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
+    <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?12" as="style" onload="this.rel='stylesheet'">
 
 
     <?php /*
@@ -172,7 +163,7 @@
 
     <div class="loader">
         <div class="load">
-            <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" loading="eager">
+            <!-- <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" loading="eager"> -->
             <div class="spinners">
                 <div class="square1"></div>
                 <div class="square2"></div>

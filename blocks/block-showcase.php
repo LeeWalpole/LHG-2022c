@@ -17,9 +17,6 @@ $subheadline = get_sub_field('subheadline') ?: "";
 ?>
 
 
-
-
-
         <article class="teaser standard_teaser bg-white colspan-">
             <a href="<?php the_permalink(); ?>" title="<?php echo $headline; ?>">
                 <figure class="bg-white ratio" data-ratio="standard-teaser">
