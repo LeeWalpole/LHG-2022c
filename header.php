@@ -139,14 +139,15 @@
         }
     </style>
 
-    <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
-
-
     <?php include_once( 'fonts/font.php' ); ?>
 
-  
+    <?php echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
+
+
+  <?php /*
     <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?8" as="style"
         onload="this.rel='stylesheet'">
+        */?>
 
     <?php /*
       <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css" as="style"
