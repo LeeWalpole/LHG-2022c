@@ -2,7 +2,7 @@
     $ad_type = get_field('ad_type');
     switch ($ad_type) : case "google_adsense": ?>
  <!-- Sidebar -->
- <figure class="advert sidebar-ad">
+ <figure class="advert banner-advert">
      <!-- Google Ad (Below) -->
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
      crossorigin="anonymous"></script>
@@ -20,6 +20,14 @@
  </figure>
  <!-- Google Ad (Above) -->
 
+ <?php break; case "ezoic": ?>
+<figure class="advert banner-advert">
+    <!-- Ezoic - LW Sidebar Top - sidebar -->
+    <div id="ezoic-pub-ad-placeholder-168"></div>
+    <!-- End Ezoic - LW Sidebar Top - sidebar -->
+    <figcaption>Ezoic Advert</ficaption>
+</figure>
+
  <?php break; case "image": ?>
  <!-- Custom Ad Image Below -->
     <?php if ( have_rows( 'ad_header' ) ) : ?>
@@ -33,7 +41,7 @@
     <?php endwhile; ?>
     <?php endif; ?>
     <?php if ( $ad_image ) : ?>
-        <figure class="advert sidebar-ad">
+        <figure class="advert banner-advert">
         <a href="<?php echo esc_attr($ad_link); ?>" title="<?php echo esc_attr( get_the_title()); ?>" target="_blank">
             <picture>
                 <!-- Anything bigger than smartphone -->
