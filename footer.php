@@ -251,6 +251,11 @@ if ( is_single() ) :?>
 
 
 
+<?php $load_scripts = get_field('load_scripts'); ?>
+<?php if( in_array('awin', $load_scripts) ) :?>
+    <p>Awin Added</p>
+<?php endif; ?>  
+
 
 </body>
 
