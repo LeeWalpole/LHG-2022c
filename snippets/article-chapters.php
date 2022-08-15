@@ -9,7 +9,9 @@ $chapter_tag = get_field('chapter_tag',$post_id); // for some reason this didn't
 
     <style>
         .article-body h3:before { 
-            font-size:0.85rem!important;
+            font-size:0.8rem!important;
+            letter-spacing:0.5pt!important;
+            font-weight:bold;
         }
     </style>
 
