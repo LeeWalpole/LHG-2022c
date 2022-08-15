@@ -64,7 +64,7 @@
 
     <figure class="feature colspan-12">
         <?php if ( get_the_post_thumbnail_url() ) : ?>
-            <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="eager" >
+        <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="eager">
         <?php else : ?>
         <img src="https://i.stack.imgur.com/y9DpT.jpg" loading="lazy" class="lazyload" loading="lazy" />
         <?php endif; ?>
@@ -83,13 +83,6 @@
 
             <?php get_template_part( 'snippets/byline' ); ?>
 
-            
-            <figure class="advert article-advert">
-<!-- Ezoic - LW - Under Page Title - under_page_title -->
-<div id="ezoic-pub-ad-placeholder-169"> </div>
-<!-- End Ezoic - LW - Under Page Title - under_page_title -->
-<figcaption>Advertisement</ficaption>
-</figure>
 
             <?php the_content(); ?>
 
@@ -99,21 +92,14 @@
 
         <aside class="colspan-3 bg-white sidebar">
 
-                    
-         <?php get_template_part( 'snippets/ad', 'sidebar' ); ?>
 
             <aside id="chapters" class="bg-offblack chapters" data-theme="dark">
                 <!-- Chapters appear Below -->
             </aside>
             <div class="sticky-sidebar sticky-scroll">
-                <figure class="advert sidebar-ad">
 
-                    <!-- Ezoic - LW Sidebar Top - sidebar -->
-                    <div id="ezoic-pub-ad-placeholder-168"> </div>
-                    <!-- End Ezoic - LW Sidebar Top - sidebar -->
+                <?php get_template_part( 'snippets/ad', 'sidebar' ); ?>
 
-                    <figcaption>Advertisement</ficaption>
-                </figure>
             </div>
         </aside>
 
