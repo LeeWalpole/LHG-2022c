@@ -249,10 +249,6 @@ if ( is_single() ) :?>
 <script defer src="https://www.dwin2.com/pub.312913.min.js"></script>
 
 
-
-
-
-
 <?php 
 $load_scripts = get_field('load_scripts');
 if( $load_scripts && in_array('awin', $load_scripts) ) {
