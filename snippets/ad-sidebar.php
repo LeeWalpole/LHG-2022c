@@ -2,27 +2,27 @@
 
 <?php switch ($ad_type_sidebar) : case "google_adsense": ?>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<?php 
+    <?php 
     $adsense_data_ad_client = get_field('adsense_data_ad_client', 'options');
     $header_adsense_id = get_field('sidebar_adsense_id', 'options');
     ?>
-<?php if( $adsense_data_ad_client && $header_adsense_id) { ?>
-<!-- Sidebar -->
-<figure class="advert sidebar-ad">
-    <!-- Google Ad (Below) -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-<?php echo $adsense_data_ad_client; ?>"
-        data-ad-slot="<?php echo $header_adsense_id;?>" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <figcaption>Google Ad</figcaption>
-</figure>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!-- Google Ad (Above) -->
-<?php } else { ?>
-<figure class="advert sidebar-ad">
-    <!-- Attention: Google Adsense needs to be added in settings -->
-</figure>
-<?php } ?>
+    <?php if( $adsense_data_ad_client && $header_adsense_id) { ?>
+    <!-- Sidebar -->
+    <figure class="advert sidebar-ad">
+        <!-- Google Ad (Below) -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-<?php echo $adsense_data_ad_client; ?>"
+            data-ad-slot="<?php echo $header_adsense_id;?>" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <figcaption>Google Ad</figcaption>
+    </figure>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <!-- Google Ad (Above) -->
+    <?php } else { ?>
+    <figure class="advert sidebar-ad">
+        <!-- Attention: Google Adsense needs to be added in settings -->
+    </figure>
+    <?php } ?>
 <?php break; case "ezoic": ?>
 <figure class="advert sidebar-ad">
     <!-- Ezoic - LW Sidebar Top - sidebar -->
