@@ -247,7 +247,6 @@ if ( is_single() ) :?>
 <?php wp_footer(); ?>
 
 
-
 <?php $load_scripts = get_field('load_scripts'); switch ($load_scripts) : case "awin": ?>
 
     <p>Awin</p>
