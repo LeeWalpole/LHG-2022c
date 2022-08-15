@@ -63,7 +63,6 @@
 
             <?php get_template_part( 'snippets/ad', 'header' ); ?>
 
-
             <?php the_content(); ?>
 
             <?php get_template_part( 'snippets/snippet', 'article-sharers' ); // col-4 ?>
@@ -72,8 +71,7 @@
 
         <aside class="colspan-3 bg-white sidebar">
 
-            
-
+        
             <aside id="chapters" class="bg-black chapters" data-theme="light">
                 <!-- Chapters appear Below -->
             </aside>
@@ -84,7 +82,7 @@
 
             <div class="sticky-sidebar sticky-scroll">
 
-            <?php get_template_part( 'snippets/ad', 'sidebar' ); ?>
+                <?php get_template_part( 'snippets/ad', 'sidebar' ); ?>
             
             </div>
         </aside>

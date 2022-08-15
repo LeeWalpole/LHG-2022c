@@ -129,10 +129,23 @@
     <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
     <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?14" as="style" onload="this.rel='stylesheet'">
 
-    <style>
+<style>
+
+body { width:100vw!important;}
 /* For sticky nav for some reason */
-html, body { overflow: unset!important;}
+@media (min-width:820px) { 
+    html, body { overflow: unset!important;}
+} 
+
 </style>
+
+
+<style>
+    .banner-ad, .advert { width:100%; background-color:var(--white2); }
+    .sidebar-ad, .advert { width:100%; background-color:var(--white2);  padding:var(--px-small);  }
+    .sidebar-ad ins {  max-width: 100%!important; margin:auto!important; background-color:var(--white); }
+    </style>
+
 
 
 </head>

@@ -3,7 +3,7 @@
 <?php switch ($ad_type_sidebar) : case "google_adsense": ?>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Sidebar -->
-    <figure class="advert sidebar-ad">
+    <figure class="advert sidebar-ad  bg-white">
         <!-- Google Ad (Below) -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
      crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
     </script>
     <!-- Google Ad (Above) -->
 <?php break; case "ezoic": ?>
-<figure class="advert sidebar-ad">
+<figure class="advert sidebar-ad  bg-white">
     <!-- Ezoic - LW Sidebar Top - sidebar -->
     <div id="ezoic-pub-ad-placeholder-168"></div>
     <!-- End Ezoic - LW Sidebar Top - sidebar -->
@@ -42,7 +42,7 @@
 <?php endwhile; ?>
 <?php endif; ?>
 <?php if ( $ad_image && $ad_link ) { ?>
-<figure class="advert sidebar-ad">
+<figure class="advert sidebar-ad  bg-white">
     <a href="<?php echo esc_attr($ad_link); ?>" title="<?php echo esc_attr( get_the_title()); ?>" target="_blank">
         <picture>
             <!-- Anything bigger than smartphone -->
