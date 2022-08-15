@@ -14,7 +14,7 @@
     <a href="<?php $url = home_url( '/' ); echo $url; ?>" class="nav-top-brand">
       <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload" loading="lazy">
     </a> 
-    <a href="https://www.ladsholidayguide.com/about/contact/" class="nav-top-button nav-contact">
+    <a target="_blank" href="https://www.ladsholidayguide.com/about/contact/" class="nav-top-button nav-contact">
 
     <i class="fa-solid fa-envelope"></i>
     </a>
