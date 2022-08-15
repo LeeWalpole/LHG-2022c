@@ -1,26 +1,24 @@
  <?php
     $ad_type = get_field('ad_type');
     switch ($ad_type) : case "google_adsense": ?>
-
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
- <?php 
-    $adsense_data_ad_client = get_field('adsense_data_ad_client', 'options');
-    $header_adsense_id = get_field('sidebar_adsense_id', 'options');
-    ?>
- <?php if( $adsense_data_ad_client && $header_adsense_id) : ?>
  <!-- Sidebar -->
  <figure class="advert sidebar-ad">
      <!-- Google Ad (Below) -->
-     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-<?php echo $adsense_data_ad_client; ?>"
-         data-ad-slot="<?php echo $header_adsense_id;?>" data-ad-format="auto" data-full-width-responsive="true"></ins>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
+     crossorigin="anonymous"></script>
+<!-- Header Ad Banner -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1175315600216420"
+     data-ad-slot="3621619731"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
      <figcaption>Google Ad</figcaption>
  </figure>
- <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
- </script>
  <!-- Google Ad (Above) -->
- <?php endif; ?>
-
 
  <?php break; case "image": ?>
  <!-- Custom Ad Image Below -->
