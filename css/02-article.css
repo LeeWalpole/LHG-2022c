@@ -893,3 +893,7 @@ h5.accordion {
         padding: 0 !important;
     }
 }
+
+.banner-ad, .advert { width:100%; background-color:var(--white2); }
+.sidebar-ad, .advert { width:100%; background-color:var(--white2);  padding:var(--px-small);  }
+.sidebar-ad ins {  max-width: 100%!important; margin:auto!important; background-color:var(--white); }

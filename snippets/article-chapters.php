@@ -12,6 +12,7 @@ $chapter_tag = get_field('chapter_tag',$post_id); // for some reason this didn't
             font-size:0.8rem!important;
             letter-spacing:0.5pt!important;
             font-weight:bold;
+            margin
         }
     </style>
 
