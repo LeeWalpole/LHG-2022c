@@ -17,14 +17,11 @@
         $hero_cta_2_url = $hero_cta_2['url'];
         ?>
 
-
-
 <section class="hero-stack">
     <header class="header w-max m-auto">
         <?php if ($kicker) : ?><strong class="kicker"><?php echo $kicker ?></strong><?php endif; ?>
         <?php if ($headline) : ?><h2 class="headline"><?php echo $headline ?></h2><?php endif; ?>
-        <?php if ($subheadline) : ?><div class="hero_subheadline"><?php echo $subheadline ?></div>
-        <?php endif; ?>
+        <?php if ($subheadline) : ?><div class="hero_subheadline"><?php echo $subheadline ?></div><?php endif; ?>
         <?php if ($hero_cta_1) : ?>
         <?php // include( 'cta.php' ); // Call to Action Buttons if available  ?>
         <?php include( 'get_cta.php' ); ?>
@@ -32,36 +29,24 @@
     </header>
 </section>
 
-<?php endwhile; 
-    endif; ?>
-
-
+<?php endwhile; // hero_header
+    endif; // hero_header ?>
 
 <?php if ( have_posts() ) :  while ( have_posts() ) : the_post();  ?>
 
 <?php // get_template_part( 'snippets/snippet-hero' ); ?>
 <?php // get_template_part( 'snippets/snippet-feature' ); ?>
 
-<style>
-    @media (min-width: 821px) {
-        .article-block .feature {
-            padding: 0 !important;
-        }
-    }
-</style>
-
 
 <?php if ( !empty( get_the_content() ) ) : ?>
 
 <div class="article-block">
 
+    <?php if ( get_the_post_thumbnail_url() ) : ?>
     <figure class="feature colspan-12">
-        <?php if ( get_the_post_thumbnail_url() ) : ?>
         <img src="<?php echo get_the_post_thumbnail_url(); ?>" loading="eager">
-        <?php else : ?>
-        <img src="https://i.stack.imgur.com/y9DpT.jpg" loading="lazy" class="lazyload" loading="lazy" />
-        <?php endif; ?>
     </figure>
+    <?php endif; ?>
 
     <section class="grid bg-white w-max m-auto">
         <article class="article-body colspan-9 w-safe m-auto">
@@ -87,7 +72,6 @@
 
         <aside class="colspan-3 bg-white sidebar">
 
-
             <aside id="chapters" class="bg-offblack chapters" data-theme="dark">
                 <!-- Chapters appear Below -->
             </aside>
@@ -99,9 +83,9 @@
         </aside>
 
     </section>
-    <?php endif; ?>
+    <?php endif; // !empty( get_the_content() ?>
 
-    <?php endwhile; endif; ?>
+    <?php endwhile; endif; // loop ?>
 
     <?php get_template_part( 'snippets/related' ); // col-4 ?>
 

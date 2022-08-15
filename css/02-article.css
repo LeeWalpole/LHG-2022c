@@ -886,3 +886,10 @@ h5.accordion {
 
 .article-advert  { max-width: 100%; overflow: hidden;   }
 .article-advert * { max-width: 100%!important; }
+
+
+@media (min-width: 821px) {
+    .article-block .feature {
+        padding: 0 !important;
+    }
+}
