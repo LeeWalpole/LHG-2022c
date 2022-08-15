@@ -74,7 +74,7 @@
 
             
 
-            <aside id="chapters" class="bg-light chapters" data-theme="light">
+            <aside id="chapters" class="bg-black chapters" data-theme="light">
                 <!-- Chapters appear Below -->
             </aside>
 
