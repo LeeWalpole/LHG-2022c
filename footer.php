@@ -250,12 +250,14 @@ if ( is_single() ) :?>
 
 
 <?php 
-global $post; $post_id = $post->ID;
-$load_scripts = get_field('load_scripts', $post_id);
+global $post; 
+$load_scripts = get_field('load_scripts', $post->ID);
 if( $load_scripts && in_array('awin', $load_scripts) ) {
 echo "yes";
 }
 ?>
+
+
 
 </body>
 
