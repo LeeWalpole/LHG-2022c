@@ -4,10 +4,20 @@
     <button class="nav-top-burger">
       <span></span>
     </button>
+    
+    <style>
+.nav-contact { font-size: 1.6rem;}
+</style>
+    <style>
+.nav-top-brand img { object-fit: contain!important; }
+</style>
     <a href="<?php $url = home_url( '/' ); echo $url; ?>" class="nav-top-brand">
       <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" class="lazyload" loading="lazy">
     </a> 
-    <a href="<?php echo get_permalink(7301); ?>" class="nav-top-button button">Party Holidays</a>
+    <a href="https://www.ladsholidayguide.com/about/contact/" class="nav-top-button nav-contact">
+
+    <i class="fa-solid fa-envelope"></i>
+    </a>
   </nav>
 
 
