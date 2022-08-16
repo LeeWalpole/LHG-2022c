@@ -67,13 +67,21 @@
 
 <!-- Attention: No adverts set -->
 
-<figure class="advert sidebar-ad bg-white">
-    <!-- Ezoic - LW Sidebar Top - sidebar -->
-    <div id="ezoic-pub-ad-placeholder-168"> </div>
-    <!-- End Ezoic - LW Sidebar Top - sidebar -->
-    <figcaption>Advertisement</figcaption>
-</figure>
-
+<figure class="advert banner-ad">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
+     crossorigin="anonymous"></script>
+<!-- Display (Banner) 2022 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1175315600216420"
+     data-ad-slot="7590929144"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<figcaption>Advertisement (Google)</figcaption>
+ </figure>
 <!-- Attention: No adverts set -->
 
 <?php endswitch; ?>

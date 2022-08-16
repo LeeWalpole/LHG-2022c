@@ -62,11 +62,20 @@
  <!--  No Adverts -->
 
  <figure class="advert banner-ad">
-<!-- Ezoic - LW - Under Page Title - under_page_title -->
-<div id="ezoic-pub-ad-placeholder-169"> </div>
-<!-- End Ezoic - LW - Under Page Title - under_page_title -->
-    <figcaption>Advertisement (Ezoic)</figcaption>
-</figure>
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1175315600216420"
+     crossorigin="anonymous"></script>
+<!-- Display (Banner) 2022 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1175315600216420"
+     data-ad-slot="7590929144"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<figcaption>Advertisement (Google)</figcaption>
+ </figure>
 
 
  <?php endswitch; ?>
