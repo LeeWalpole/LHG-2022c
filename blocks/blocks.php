@@ -3,11 +3,7 @@
 
 <?php if( get_row_layout() == 'hero_block' ) { ?>
 
-<?php get_template_part( 'blocks/block-hero' ); ?>
-
-<script>
-console.log("block hero");
-</script>
+<?php // get_template_part( 'blocks/block-hero' ); ?>
 
 
 <?php } elseif( get_row_layout() == 'showcase_block' ) { ?>
