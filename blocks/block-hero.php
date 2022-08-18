@@ -1,7 +1,8 @@
 <?php // Headlines for Hero
-$hero_kicker = get_field('hero_kicker');
-$hero_headline = get_field('hero_headline');
-$hero_subheadline = get_field('hero_subheadline'); 
+$hero_kicker = get_sub_field('hero_kicker');
+$hero_headline = get_sub_field('hero_headline');
+$hero_subheadline = get_sub_field('hero_subheadline'); 
+$hero_cta = get_sub_field('hero_cta'); 
 ?>
 
 <div class="hero">
