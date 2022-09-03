@@ -124,6 +124,7 @@
 
 <body id="body" class="body-loading">
 
+<?php /*
     <div class="loader">
         <div class="load">
             <!-- <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" loading="eager"> -->
@@ -134,6 +135,7 @@
             </div>
         </div>
     </div>
+*/ ?>
 
     <?php // get_template_part( 'snippets/snippet', 'nav' ); ?>
 
