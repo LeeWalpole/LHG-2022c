@@ -20,6 +20,9 @@ $lead_success_message = get_field('lead_success_message');
                 <div class="buttons">
                     <button class="button" type="submit">I&#8217;m interested</button>
                 </div>
+
+                <input type="hidden" name="permalink" value="<?php echo get_permalink(); ?>">
+
             </form>
         </section>
 
