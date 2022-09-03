@@ -21,6 +21,7 @@ $image_smartphone = wp_get_attachment_image_url( $image_smartphone_id, 'medium' 
 .image-block {
     width:100%; display:block;
     
+    
 }
 
 .image-block img {
@@ -33,7 +34,7 @@ $image_smartphone = wp_get_attachment_image_url( $image_smartphone_id, 'medium' 
 
 <?php if( $image_desktop ) : ?>
     <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"
-    title="<?php echo $link_title; ?>" class="bg-white image-block">
+    title="<?php echo $link_title; ?>" class="bg-white image-block m-auto w-full">
     <figure>
         <picture>
             <source media="(min-width: 1600px)" srcset="<?php echo $image_desktop; ?>">
