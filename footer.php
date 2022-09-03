@@ -310,65 +310,12 @@ echo "yes";
             filter: brightness(90%);
 
         }
+
+
+
     </style>
 
-    <style>
-        .form_submit_loader {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100%;
-            width: 100%;
-            background: #000;
-            pointer-events: none;
-            transition: all 0.75s ease-in-out;
-        }
 
-
-        .spinners {
-            display: inline-flex;
-            background-color: #010101;
-            animation: loading 0.5s ease-in 4s forwards;
-        }
-
-        @keyframes square {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.25);
-            }
-
-            60% {
-                transform: scale(1);
-            }
-        }
-
-        .spinners .square1,
-        .spinners .square1,
-        .spinners .square3 {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-            border: 2px solid white;
-            border-radius: 100px;
-            background-color: transparent !important;
-        }
-
-        .square1 {
-            animation: square 1s ease-in 0s infinite;
-        }
-
-        .square2 {
-            animation: square 1s ease-in 0.2s infinite;
-        }
-
-        .square3 {
-            animation: square 1s ease-in 0.4s infinite;
-        }
-    </style>
 
 
     <style>
@@ -406,6 +353,19 @@ echo "yes";
             pointer-events: initial;
             z-index: 3;
         }
+
+        .form_submit_loader {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            pointer-events: none;
+            transition: all 0.75s ease-in-out;
+        }
+
     </style>
 
 <!--

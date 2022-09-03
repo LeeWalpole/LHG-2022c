@@ -70,8 +70,6 @@
             display: inline-flex;
             background-color: #010101;
             animation: loading 0.5s ease-in 4s forwards;
-            z-index: 55;
-            margin-top: 32px;
         }
 
         @keyframes square {
@@ -91,9 +89,9 @@
         .spinners .square1,
         .spinners .square1,
         .spinners .square3 {
-            width: 30px;
-            height: 30px;
-            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
             border: 2px solid white;
             border-radius: 100px;
             background-color: transparent !important;
