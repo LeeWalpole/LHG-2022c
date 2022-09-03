@@ -1,61 +1,316 @@
-<style>
-    .lw-leads-simple {
-        background: red;
-        padding: var(--px-medium) !important;
-        position: relative; 
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    
-    .lw-leads-simple-alert .alert {
-        background: var(--color-black);
-        position: absolute; top:0; left:0;
-        display: flex; justify-content: center; align-items: center;
-        color:white;
-        width: 100%;
-        height:100%;
-        z-index: 2;
-        pointer-events: none;
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .lw-input { display:block; width:100%; height:50px; line-height:50px; padding:0 var(--px-medium); margin-bottom:var(--px-medium);}
-</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>HTML Form to Google Sheets - Pure Coding</title>
+</head>
+
+<body>
+
+    <style>
+        .lw-leads-simple {
+            padding: var(--px-medium) !important;
+            position: relative;
+        }
 
 
-<aside class="lw-leads-simple">
-    <div id="form_alerts" class="lw-leads-simple-alert">
-    </div>
-    <h5 class="headline">Interested in an Ayahuasca Retreat in Thailand?</h5>
-    <form name="google-sheet">
-        <input type="hidden" id="interest" name="interest" class="form-control"
-            placeholder="interest" value="ayahuasca">
+        .lw-leads-simple-alert .alert {
+            background: var(--color-black);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .lw-input {
+            display: block;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 var(--px-medium);
+            margin-bottom: var(--px-medium);
+        }
+
+        .lw-input {
+            font-size: 16px;
+        }
+
+
+        .lw-leads-simple button,
+        .lw-leads-simple input[type="submit"],
+        .lw-leads-simple input[type="reset"] {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            background-color: var(--color) !important;
+            color: var(--color-white) !important;
+        }
+
+
+        .lw-leads-simple button:hover,
+        .lw-leads-simple input[type="submit"]:hover,
+        .lw-leads-simple input[type="reset"]:hover {
+            filter: brightness(90%);
+
+        }
+    </style>
+
+    <style>
+        .form_submit_loader {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            pointer-events: none;
+            transition: all 0.75s ease-in-out;
+        }
+
+
+        .spinners {
+            display: inline-flex;
+            background-color: #010101;
+            animation: loading 0.5s ease-in 4s forwards;
+        }
+
+        @keyframes square {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        .spinners .square1,
+        .spinners .square1,
+        .spinners .square3 {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 2px solid white;
+            border-radius: 100px;
+            background-color: transparent !important;
+        }
+
+        .square1 {
+            animation: square 1s ease-in 0s infinite;
+        }
+
+        .square2 {
+            animation: square 1s ease-in 0.2s infinite;
+        }
+
+        .square3 {
+            animation: square 1s ease-in 0.4s infinite;
+        }
+    </style>
+
+
+    <style>
+        .html_gsheet_response {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            background-color: black;
+            color: white;
+        }
+
+
+        .form-submitted .html_gsheet_submitted {
+            opacity: 1;
+            pointer-events: initial;
+            z-index: 2;
+        }
+
+
+        .form-submitted-success .html_gsheet_success {
+            opacity: 1;
+            pointer-events: initial;
+            z-index: 3;
+        }
+
+        .form-submitted-fail .html_gsheet_fail {
+            opacity: 1;
+            pointer-events: initial;
+            z-index: 3;
+        }
+    </style>
+
+
+
+<!-- Form 1 Below -->
+    <aside id="html_gsheet_box_1" class="lw-leads-simple">
+        <section>
+            <h5 class="headline">Interested in an Ayahuasca Retreat in Thailand?</h5>
+            <form id="html_gsheet_form_1" name="html_gsheet_form_1">
+                <input type="hidden" id="interest" name="interest" class="form-control" placeholder="interest"
+                    value="ayahuasca">
+                <input type="email" id="email" name="email" class="form-control lw-input"
+                    placeholder="Enter your email address" required>
+                <div class="buttons">
+                    <button class="button" type="submit">I&#8217;m interested</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="html_gsheet_response html_gsheet_submitted">
+            <div class="form_submit_loader">
+                <!-- <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" loading="eager"> -->
+                <div class="spinners">
+                    <div class="square1"></div>
+                    <div class="square2"></div>
+                    <div class="square3"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="html_gsheet_response html_gsheet_success">
+            <h5>Form Submitted Successfully</h5>
+        </section>
+
+        <section class="html_gsheet_response html_gsheet_fail">
+            <h5>Form Submitted Successfully</h5>
+        </section>
+
+    </aside>
+
+    <script>
+        const html_gsheet_box_1 = document.querySelector('#html_gsheet_box_1');
+        // const html_gsheet_form = document.querySelector('#html_gsheet_form_1');
+        // const html_gsheet_form = document.forms['html_gsheet_form_1']
+        const html_gsheet_url_1 =
+            'https://script.google.com/macros/s/AKfycbztr0Va7sMphJmahCd-PE9wo7sB1Y2kz2wh9qn1YshZNizgR1fon_xGgBuHrjtOMGDgVw/exec'
+        const html_gsheet_form_1 = document.forms['html_gsheet_form_1']
+
+        html_gsheet_form_1.addEventListener('submit', e => {
+            // Add a temporary loading overlay until form succeeds or fails
+            html_gsheet_box_1.classList.add('form-submitted')
+            e.preventDefault()
+            fetch(html_gsheet_url_1, {
+                    method: 'POST',
+                    body: new FormData(html_gsheet_form_1)
+                })
+                .then(response =>
+                html_gsheet_box_1.classList.add('form-submitted-success')
+                )
+                .catch(error => html_gsheet_box_1.classList.add('form-submitted-fail'))
+        })
+    </script>
+<!-- Form 1 Above -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Form 2 Below -->
+<aside id="html_gsheet_box_2" class="lw-leads-simple">
+    <section>
+        <h5 class="headline">Interested in an Ayahuasca Retreat in Thailand?</h5>
+        <form id="html_gsheet_form_2" name="html_gsheet_form_2">
+            <input type="hidden" id="interest" name="interest" class="form-control" placeholder="interest"
+                value="ayahuasca">
             <input type="email" id="email" name="email" class="form-control lw-input"
-            placeholder="Enter your email address" required>
-        <div class="buttons">
-            <button class="button" type="submit">I'm interested</button>
+                placeholder="Enter your email address" required>
+            <div class="buttons">
+                <button class="button" type="submit">I&#8217;m interested</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="html_gsheet_response html_gsheet_submitted">
+        <div class="form_submit_loader">
+            <!-- <img src="https://i0.wp.com/www.ladsholidayguide.com/wp-content/uploads/g-logo.png?h=80" loading="eager"> -->
+            <div class="spinners">
+                <div class="square1"></div>
+                <div class="square2"></div>
+                <div class="square3"></div>
+            </div>
         </div>
-    </form>
+    </section>
+
+    <section class="html_gsheet_response html_gsheet_success">
+        <h5>Form Submitted Successfully</h5>
+    </section>
+
+    <section class="html_gsheet_response html_gsheet_fail">
+        <h5>Form Submitted Successfully</h5>
+    </section>
+
 </aside>
 
-<script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> -->
 <script>
-    const scriptURL =
+    const html_gsheet_box_2 = document.querySelector('#html_gsheet_box_2');
+    // const html_gsheet_form = document.querySelector('#html_gsheet_form_2');
+    // const html_gsheet_form = document.forms['html_gsheet_form_2']
+    const html_gsheet_url_2 =
         'https://script.google.com/macros/s/AKfycbztr0Va7sMphJmahCd-PE9wo7sB1Y2kz2wh9qn1YshZNizgR1fon_xGgBuHrjtOMGDgVw/exec'
-    const form = document.forms['google-sheet']
+    const html_gsheet_form_2 = document.forms['html_gsheet_form_2']
 
-    form.addEventListener('submit', e => {
+    html_gsheet_form_2.addEventListener('submit', e => {
+        // Add a temporary loading overlay until form succeeds or fails
+        html_gsheet_box_2.classList.add('form-submitted')
         e.preventDefault()
-        fetch(scriptURL, {
+        fetch(html_gsheet_url_2, {
                 method: 'POST',
-                body: new FormData(form)
+                body: new FormData(html_gsheet_form_2)
             })
-            .then(response => $("#form_alerts").html(
-                `<aside class="alert alert-success">
-            <h5 class="">Your interest has been noted.</h5>
-        </aside>`
-                ))
-            .catch(error => $("#form_alerts").html(
-                "<h5 class='alert alert-danger'>Ooops. Refresh page and try again.</h5>"))
+            .then(response =>
+            html_gsheet_box_2.classList.add('form-submitted-success')
+            )
+            .catch(error => html_gsheet_box_2.classList.add('form-submitted-fail'))
     })
 </script>
+<!-- Form 1 Above -->
 
+
+
+
+
+
+
+
+</body>
+
+</html>

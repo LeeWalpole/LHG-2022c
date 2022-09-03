@@ -254,54 +254,163 @@ echo "yes";
 
 
 <style>
-
-.lw-leads-simple {
-        background: red;
-        padding: var(--px-medium) !important;
-        position: relative; 
-
-    }
-
-    
-    .lw-leads-simple-alert .alert {
-        background: var(--color-black);
-        position: absolute; top:0; left:0;
-        display: flex; justify-content: center; align-items: center;
-        color:white;
-        width: 100%;
-        height:100%;
-        z-index: 2;
-        pointer-events: none;
-    }
-
-    .lw-input { display:block; width:100%; height:50px; line-height:50px; padding:0 var(--px-medium); margin-bottom:var(--px-medium);
-    
-        font-size:16px;
-    }
-
-    .lw-leads-simple button, .lw-leads-simple input[type="submit"], .lw-leads-simple input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-    background-color:var(--color)!important;
-    color:var(--color-white)!important;
-}
+        .lw-leads-simple {
+            padding: var(--px-medium) !important;
+            position: relative;
+        }
 
 
-.lw-leads-simple button:hover, .lw-leads-simple input[type="submit"]:hover, .lw-leads-simple input[type="reset"]:hover {
-    filter: brightness(90%); 
-}
+        .lw-leads-simple-alert .alert {
+            background: var(--color-black);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .lw-input {
+            display: block;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 var(--px-medium);
+            margin-bottom: var(--px-medium);
+        }
+
+        .lw-input {
+            font-size: 16px;
+        }
 
 
-</style>
+        .lw-leads-simple button,
+        .lw-leads-simple input[type="submit"],
+        .lw-leads-simple input[type="reset"] {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            background-color: var(--color) !important;
+            color: var(--color-white) !important;
+        }
 
 
+        .lw-leads-simple button:hover,
+        .lw-leads-simple input[type="submit"]:hover,
+        .lw-leads-simple input[type="reset"]:hover {
+            filter: brightness(90%);
+
+        }
+    </style>
+
+    <style>
+        .form_submit_loader {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            pointer-events: none;
+            transition: all 0.75s ease-in-out;
+        }
+
+
+        .spinners {
+            display: inline-flex;
+            background-color: #010101;
+            animation: loading 0.5s ease-in 4s forwards;
+        }
+
+        @keyframes square {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        .spinners .square1,
+        .spinners .square1,
+        .spinners .square3 {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 2px solid white;
+            border-radius: 100px;
+            background-color: transparent !important;
+        }
+
+        .square1 {
+            animation: square 1s ease-in 0s infinite;
+        }
+
+        .square2 {
+            animation: square 1s ease-in 0.2s infinite;
+        }
+
+        .square3 {
+            animation: square 1s ease-in 0.4s infinite;
+        }
+    </style>
+
+
+    <style>
+        .html_gsheet_response {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            background-color: black;
+            color: white;
+        }
+
+
+        .form-submitted .html_gsheet_submitted {
+            opacity: 1;
+            pointer-events: initial;
+            z-index: 2;
+        }
+
+
+        .form-submitted-success .html_gsheet_success {
+            opacity: 1;
+            pointer-events: initial;
+            z-index: 3;
+        }
+
+        .form-submitted-fail .html_gsheet_fail {
+            opacity: 1;
+            pointer-events: initial;
+            z-index: 3;
+        }
+    </style>
+
+<!--
 <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const scriptURL =
         'https://script.google.com/macros/s/AKfycbztr0Va7sMphJmahCd-PE9wo7sB1Y2kz2wh9qn1YshZNizgR1fon_xGgBuHrjtOMGDgVw/exec'
@@ -322,7 +431,7 @@ echo "yes";
                 "<h5 class='alert alert-danger'>Ooops. Refresh page and try again.</h5>"))
     })
 </script>
-
+-->
 
 
 <!-- <script src="https://www.dwin2.com/pub.312913.min.js" defer></script> -->
