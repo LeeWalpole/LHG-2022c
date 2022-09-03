@@ -434,9 +434,11 @@ echo "yes";
 -->
 
 
-<!-- <script src="https://www.dwin2.com/pub.312913.min.js" defer></script> -->
+<script src="https://www.dwin2.com/pub.312913.min.js" defer></script>
 
-
+<style>
+.article-body figure { max-width:100%!important;}
+</style>
 
 </body>
 
