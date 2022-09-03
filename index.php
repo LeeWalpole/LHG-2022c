@@ -16,7 +16,7 @@ $headline = get_field('hero_headline') ?: get_the_title();
 $subdeck = get_field('hero_subdeck'); // for some reason this didn't work
 $teaser_image_url = get_the_post_thumbnail_url($post->ID, 'thumbnail');
 $feature_youtube = get_field('feature_youtube'); 
-?>
+?> 
 
             <?php if( $wp_query->current_post  <= 0 ) : ?>
             <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php echo esc_attr($headline); ?>"

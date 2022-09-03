@@ -24,7 +24,18 @@ function init_lw_blocks() {
 		 'render_template' => 'template-parts/blocks/lw_blocks_qa.php',
 		 'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/lw_blocks_qa.css'
 	 ));
-
+     
+     acf_register_block_type(array(
+        'name' => 'lw_blocks_lead_box',
+        'title' => __('LW Lead Block'),
+        'description' => __('LW Lead block.'),
+        'keywords' => array('lw_blocks_lead_box', 'lead', 'subscribe',  'gsheet',  'form'),
+        'category' => 'embed',
+        'icon' => 'book-alt',
+        'render_template' => 'template-parts/blocks/lw_blocks_lead_box.php',
+        'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/lw_blocks_lead_box.css'
+    ));
+    
      acf_register_block_type(array(
         'name' => 'lw_blocks_cta',
         'title' => __('LW CTA Block'),
