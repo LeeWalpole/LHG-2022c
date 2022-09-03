@@ -108,3 +108,5 @@ function smartwp_remove_wp_block_library_css(){
   }
   
   add_action('wp_print_styles', 'pm_remove_all_styles', 100);
+
+  require (get_stylesheet_directory() . '/inc/acf.php');
