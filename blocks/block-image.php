@@ -13,6 +13,7 @@ $image_smartphone = wp_get_attachment_image_url( $image_smartphone_id, 'medium' 
     $link_url = $image_link['url'];
     $link_title = $image_link['title'];
     $link_target = $image_link['target'] ? $link['target'] : '_self';
+    endif;
 ?>
 
 <?php if( $image ) : ?>
