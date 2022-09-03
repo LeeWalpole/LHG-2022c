@@ -2,6 +2,8 @@
 $block_id = 'block_' . $block['id'];
 $lead_deployment_id = get_field('lead_deployment_id');
 $lead_box_title = get_field('lead_box_title');
+$lead_success_message = get_field('lead_success_message');
+
 ?>
 
 
@@ -33,11 +35,13 @@ $lead_box_title = get_field('lead_box_title');
         </section>
 
         <section class="html_gsheet_response html_gsheet_success">
-            <h5>Form Submitted Successfully</h5>
+            <div>
+            <?php echo $lead_success_message; ?>
+            </div>
         </section>
 
         <section class="html_gsheet_response html_gsheet_fail">
-            <h5>Form Submitted Successfully</h5>
+            <h5>Ooops. Refresh page and start again.</h5>
         </section>
 
     </aside>
