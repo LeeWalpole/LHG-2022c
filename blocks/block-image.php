@@ -1,10 +1,10 @@
 <?php // Headlines for Hero
-$image_link = get_field('image_link'); 
+$image_link = get_sub_field('image_link'); 
 
-$image_desktop_id =  get_field('image_desktop'); 
+$image_desktop_id = get_sub_field('image_desktop'); 
 $image_desktop = wp_get_attachment_image_url( $image_desktop_id, 'large' );
 
-$image_smartphone_id =  get_field('image_smartphone');  
+$image_smartphone_id = get_sub_field('image_smartphone');  
 $image_smartphone = wp_get_attachment_image_url( $image_smartphone_id, 'medium' );
 ?>
 
