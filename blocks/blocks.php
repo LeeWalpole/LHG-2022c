@@ -14,12 +14,6 @@
 <?php get_template_part( 'blocks/block-image' ); ?>
 
 
-
-<script>
-console.log("block showcase");
-</script>
-
-
 <?php } else {  
     //  relax();
     }  // end get_row_layout and do nothing ?>
