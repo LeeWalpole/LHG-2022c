@@ -253,6 +253,56 @@ echo "yes";
 ?>
 
 
+<style>
+
+.lw-leads-simple {
+        background: red;
+        padding: var(--px-medium) !important;
+        position: relative; 
+    }
+
+    
+    .lw-leads-simple-alert .alert {
+        background: var(--color-black);
+        position: absolute; top:0; left:0;
+        display: flex; justify-content: center; align-items: center;
+        color:white;
+        width: 100%;
+        height:100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .lw-input { display:block; width:100%; height:50px; line-height:50px; padding:0 var(--px-medium); margin-bottom:var(--px-medium);}
+
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script> -->
+<script>
+    const scriptURL =
+        'https://script.google.com/macros/s/AKfycbztr0Va7sMphJmahCd-PE9wo7sB1Y2kz2wh9qn1YshZNizgR1fon_xGgBuHrjtOMGDgVw/exec'
+    const form = document.forms['google-sheet']
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => $("#form_alerts").html(
+                `<aside class="alert alert-success">
+            <h5 class="">Your interest has been noted.</h5>
+        </aside>`
+                ))
+            .catch(error => $("#form_alerts").html(
+                "<h5 class='alert alert-danger'>Ooops. Refresh page and try again.</h5>"))
+    })
+</script>
+
+
+
 <!-- <script src="https://www.dwin2.com/pub.312913.min.js" defer></script> -->
 
 
