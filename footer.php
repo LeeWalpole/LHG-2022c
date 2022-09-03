@@ -275,6 +275,24 @@ echo "yes";
 
     .lw-input { display:block; width:100%; height:50px; line-height:50px; padding:0 var(--px-medium); margin-bottom:var(--px-medium);}
 
+    .lw-leads-simple button, .lw-leads-simple input[type="submit"], .lw-leads-simple input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    background-color:var(--color)!important;
+    color:var(--color-white)!important;
+}
+
+
+.lw-leads-simple button:hover, .lw-leads-simple input[type="submit"]:hover, .lw-leads-simple input[type="reset"]:hover {
+    filter: brightness(90%); 
+}
+
+
 </style>
 
 
