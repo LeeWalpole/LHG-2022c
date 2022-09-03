@@ -259,6 +259,7 @@ echo "yes";
         background: red;
         padding: var(--px-medium) !important;
         position: relative; 
+        font-size:16px;
     }
 
     
