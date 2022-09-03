@@ -10,6 +10,8 @@
 <?php get_template_part( 'blocks/block-showcase' ); ?>
 
 
+<?php } elseif( get_row_layout() == 'image_block' ) { ?>
+<?php get_template_part( 'blocks/block-image' ); ?>
 
 
 

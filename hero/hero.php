@@ -5,10 +5,6 @@ $hero_subheadline = get_field('hero_subheadline');
 ?>
 
 
-
-
-
-
 <?php if (is_single() )  { ?>
 
 
