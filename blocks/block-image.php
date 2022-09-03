@@ -23,6 +23,12 @@ $image_smartphone = wp_get_attachment_image_url( $image_smartphone_id, 'medium' 
     
 }
 
+.image-block img {
+    width:100%; 
+    
+}
+
+
 </style>
 
 <?php if( $image_desktop ) : ?>
