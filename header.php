@@ -122,7 +122,8 @@
 </head>
 
 
-<body id="body" class="body-loading">
+<body id="body" >
+    <!-- class="body-loading" -->
 
 <?php /*
     <div class="loader">
