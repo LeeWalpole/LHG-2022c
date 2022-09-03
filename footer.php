@@ -259,7 +259,7 @@ echo "yes";
         background: red;
         padding: var(--px-medium) !important;
         position: relative; 
-        font-size:16px;
+
     }
 
     
@@ -274,7 +274,10 @@ echo "yes";
         pointer-events: none;
     }
 
-    .lw-input { display:block; width:100%; height:50px; line-height:50px; padding:0 var(--px-medium); margin-bottom:var(--px-medium);}
+    .lw-input { display:block; width:100%; height:50px; line-height:50px; padding:0 var(--px-medium); margin-bottom:var(--px-medium);
+    
+        font-size:16px;
+    }
 
     .lw-leads-simple button, .lw-leads-simple input[type="submit"], .lw-leads-simple input[type="reset"] {
 	background: none;
