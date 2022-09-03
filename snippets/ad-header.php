@@ -54,6 +54,7 @@
                     data-src="<?php echo esc_attr($ad_image_smartphone); ?>" class="lazyload" loading="lazy" />
             </picture>
         </a>
+        <figcaption>Advertisement</figcaption>
     </figure>
     <?php endif; ?>
  <!-- Custom Ad Image Above -->

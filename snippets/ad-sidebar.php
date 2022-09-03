@@ -57,6 +57,7 @@
                 alt="<?php echo esc_attr( get_the_title() ); ?>"
                 data-src="<?php echo esc_attr($ad_image_smartphone); ?>" class="lazyload" loading="lazy" />
         </picture>
+        <figcaption>Advertisement</figcaption>
     </a>
 </figure>
 <?php } else { ?>
