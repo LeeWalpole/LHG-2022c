@@ -31,13 +31,27 @@ if( have_rows('puff') ):
         // Do something...
         ?>
 
-<p>Image: <?php echo $puff_image_url[0]; ?></p>
+<style>
+.puff_block  { 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.puff_block a  { 
+max-width:150px;
+}
+                    </style>
+
+
 <aside id="puff_<?php echo $block_id; ?>">
+    <figure>
     <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>"
         target="<?php echo esc_attr( $puff_link_target ); ?>">
-        <img src="<?php echo $puff_image_url[0]; ?>" data-src="<?php echo $puff_image_url[0]; ?>"
+        <img src="#" data-src="<?php echo $puff_image_url[0]; ?>"
             alt="<?php echo $puff_headline; ?>" class="lazyload ratio" data-ratio="1x1" loading="lazy">
     </a>
+    </figure>
     <header>
         <?php if ($puff_headline) : ?><h5 class="headline"><?php echo $puff_headline; ?></h5><?php endif ?>
         <?php if ($puff_text) : ?><div class="puff_text"><?php echo $puff_text; ?></div><?php endif ?>
@@ -49,7 +63,6 @@ if( have_rows('puff') ):
         </a>
         <?php endif; ?>
     </header>
-
 </aside>
 
 <?php 
