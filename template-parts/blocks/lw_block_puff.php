@@ -13,20 +13,30 @@ if( have_rows('puff') ):
 
     // Loop through rows.
     while( have_rows('puff') ) : the_row();
-
-        // Load sub field value.
+        // first, get the image object returned by ACF
         $puff_image = get_sub_field('puff_image');
+        // and the image size you want to return
+        $puff_image_size = 'thumbnail';
+        // now, we'll exctract the image URL from $image_object
+        $puff_image_url = $image_object['sizes'][$puff_image_size];
+  
         $puff_headline = get_sub_field('puff_headline');
         $puff_text = get_sub_field('puff_text');
         $puff_link = get_sub_field('puff_link');
+        $puff_link = get_sub_field('puff_link');
+        $puff_link_target = $puff_link['target'] ? $puff_link['target'] : '_self'; 
+        $puff_link_title = $puff_link['title'] ?: "javascript:void(0)";
+        $puff_link_url = $puff_link['url'] ?: "#";
         // Do something...
         ?>
 
 <aside id="html_gsheet_box_<?php echo $block_id; ?>" class="lw-leads-simple">
-
-    <?php if ($puff_headline) : ?><h5 class="headline"><?php echo $puff_headline; ?></h5><?php endif ?>
-    <?php if ($puff_text) : ?><div class="puff_text"><?php echo $puff_text; ?></div><?php endif ?>
-
+    <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>"
+        target="<?php echo esc_attr( $puff_link_target ); ?>" class="button"><?php echo esc_html($puff_link_title); ?>
+        <img src="#" data-src="<?php echo $puff_image_url; ?>" alt="<?php echo $puff_headline; ?>">
+        <?php if ($puff_headline) : ?><h5 class="headline"><?php echo $puff_headline; ?></h5><?php endif ?>
+        <?php if ($puff_text) : ?><div class="puff_text"><?php echo $puff_text; ?></div><?php endif ?>
+    </a>
 </aside>
 
 <?php 

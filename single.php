@@ -17,6 +17,8 @@
         $hero_cta_2_url = $hero_cta_2['url'];
         ?>
 
+
+
 <section class="hero-stack">
     <header class="header w-max m-auto">
         <?php if ($kicker) : ?><strong class="kicker"><?php echo $kicker ?></strong><?php endif; ?>
