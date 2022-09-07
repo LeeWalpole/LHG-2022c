@@ -20,7 +20,7 @@ function init_lw_blocks() {
         'keywords' => array('lw_blocks_puff', 'puff', 'puffs'),
         'category' => 'embed',
         'icon' => 'book-alt',
-        'render_template' => 'template-parts/blocks/lw_blocks_puff.php',
+        'render_template' => 'template-parts/blocks/lw_block_puff.php',
        //  'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/lw_blocks_qa.css'
     ));
 
