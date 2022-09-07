@@ -18,8 +18,9 @@ if( have_rows('puff') ):
         // and the image size you want to return
         $puff_image_size = 'thumbnail';
         // now, we'll exctract the image URL from $image_object
-        $puff_image_url = $image_object['sizes'][$puff_image_size];
-  
+        $puff_image_url = get_sub_field('puff_image', $post->ID);
+        echo $puff_image_url = wp_get_attachment_url($puff_image_url, "thumbnail");
+        
         $puff_headline = get_sub_field('puff_headline');
         $puff_text = get_sub_field('puff_text');
         $puff_link = get_sub_field('puff_link');
@@ -28,10 +29,7 @@ if( have_rows('puff') ):
         $puff_link_url = $puff_link['url'] ?: "#";
         // Do something...
         ?>
-           <?php
-    $puff_image_url = get_sub_field('puff_image', $post->ID);
-echo $puff_image_url = wp_get_attachment_url($puff_image_url);
-    ?>
+
 
 <aside id="puff_<?php echo $block_id; ?>">
     <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>" target="<?php echo esc_attr( $puff_link_target ); ?>">
