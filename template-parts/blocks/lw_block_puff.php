@@ -114,7 +114,7 @@ if( have_rows('puff') ):
     <section>
         <figure>
             <picture class="ratio puff_block2_picture" data-ratio="1x1">
-                <img src="#" data-src="<?php echo $puff_image_url[0]; ?>" alt="<?php echo $puff_headline; ?>"
+                <img src="<?php echo $puff_image_url[0]; ?>" data-src="<?php echo $puff_image_url[0]; ?>" alt="<?php echo $puff_headline; ?>"
                     class="lazyload" loading="lazy">
             </picture>
         </figure>
