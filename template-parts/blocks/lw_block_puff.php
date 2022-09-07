@@ -31,6 +31,17 @@ if( have_rows('puff') ):
         // Do something...
         ?>
 <style>
+
+ :root {
+    --puff-image-size:100px;
+ }
+
+ @media (min-width:821px) {
+ :root {
+    --puff-image-size:125px;
+ }
+ }
+
     .puff_block2 {
         padding: 20px !important;
         margin: var(--px-big) 0;
@@ -83,8 +94,8 @@ if( have_rows('puff') ):
     }
 
     .puff_block2_picture {
-        height: 125px;
-        width: 125px;
+        height: var(--puff-image-size);
+        width: var(--puff-image-size);
         display: block;
         background: var(--color);
 
