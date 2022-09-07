@@ -3,7 +3,6 @@ $block_id = 'block_' . $block['id'];
 $lead_deployment_id = get_field('lead_deployment_id');
 $lead_box_title = get_field('lead_box_title');
 $lead_success_message = get_field('lead_success_message');
-
 ?>
 
 

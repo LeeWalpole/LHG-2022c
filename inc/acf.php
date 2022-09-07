@@ -13,7 +13,18 @@ function my_acf_json_save_point( $path ) {
 function init_lw_blocks() {
  if (function_exists('acf_register_block_type')){
 
+    acf_register_block_type(array(
+        'name' => 'lw_block_puff',
+        'title' => __('LW Puff Block'),
+        'description' => __('LW Puff block.'),
+        'keywords' => array('lw_blocks_puff', 'puff', 'puffs'),
+        'category' => 'embed',
+        'icon' => 'book-alt',
+        'render_template' => 'template-parts/blocks/lw_blocks_puff.php',
+       //  'enqueue_style' => get_template_directory_uri() . '/template-parts/blocks/lw_blocks_qa.css'
+    ));
 
+    
 	 acf_register_block_type(array(
 		 'name' => 'lw_blocks_qa',
 		 'title' => __('LW Q&A Block'),
