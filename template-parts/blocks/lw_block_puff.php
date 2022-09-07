@@ -23,14 +23,13 @@ if( have_rows('puff') ):
         $puff_headline = get_sub_field('puff_headline');
         $puff_text = get_sub_field('puff_text');
         $puff_link = get_sub_field('puff_link');
-        $puff_link = get_sub_field('puff_link');
         $puff_link_target = $puff_link['target'] ? $puff_link['target'] : '_self'; 
         $puff_link_title = $puff_link['title'] ?: "javascript:void(0)";
         $puff_link_url = $puff_link['url'] ?: "#";
         // Do something...
         ?>
 
-<aside id="html_gsheet_box_<?php echo $block_id; ?>" class="lw-leads-simple">
+<aside id="puff_<?php echo $block_id; ?>">
     <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>"
         target="<?php echo esc_attr( $puff_link_target ); ?>" class="button"><?php echo esc_html($puff_link_title); ?>
         <img src="#" data-src="<?php echo $puff_image_url; ?>" alt="<?php echo $puff_headline; ?>">
@@ -47,3 +46,5 @@ else :
     // Do something...
 endif;
 ?>
+
+<h5>Puff</h5>
