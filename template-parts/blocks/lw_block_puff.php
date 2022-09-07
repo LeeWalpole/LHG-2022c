@@ -32,35 +32,76 @@ if( have_rows('puff') ):
         ?>
 
 <style>
-.puff_block  { 
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
+                        .puff_block2 {
+                     
+                            padding:20px!important;
+                            margin:var(--px-big) 0;
+                            position:relative;
+                            background:var(--color-offwhite);
+                            display:flex;
+                            justify-content: center;
+                            justify-content: space-between;
+                        }
 
-.puff_block a  { 
-max-width:150px;
-}
+                        .puff_block2 header { 
+                            display: flex; 
+                            flex-grow: 1;
+                            flex-direction: column;
+                       margin:0 0 0 var(--px-medium);
+                   
+                            /* padding-left: calc(125px + var(--px-small)); */
+                        }
+
+                        .puff_block2 figure { 
+                       margin-bottom:0;
+                        }
+
+                        .puff_block2 .puff_text > * {  
+                            font-size: 0.9rem!important;
+                        }
+
+                        .puff_block2 header .button { 
+         background:var(--color);
+         color:white;
+         display:inline-block!important;
+         margin:var(--px-small) 0 0 0!important;
+         font-size: var(--xsmall)!important;
+         height:44px!important; line-height: 44px!important;
+         float:right;
+                        }
+                   
+                        .puff_block2_picture { height:125px; width:125px;
+          display:block;        background:var(--color);
+          
+                        }
+
+                        .puff_block2 img {
+  height:100%; width:100%; object-fit: cover!important;
+
+                        }
+
                     </style>
 
 
-<aside id="puff_<?php echo $block_id; ?>">
+
+<aside id="puff_<?php echo $block_id; ?>" class="puff_block2">
     <figure>
-    <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>"
-        target="<?php echo esc_attr( $puff_link_target ); ?>">
+    <picture class="ratio puff_block2_picture" data-ratio="1x1">
         <img src="#" data-src="<?php echo $puff_image_url[0]; ?>"
-            alt="<?php echo $puff_headline; ?>" class="lazyload ratio" data-ratio="1x1" loading="lazy">
-    </a>
+            alt="<?php echo $puff_headline; ?>" class="lazyload" loading="lazy">
+</picture>
     </figure>
     <header>
         <?php if ($puff_headline) : ?><h5 class="headline"><?php echo $puff_headline; ?></h5><?php endif ?>
         <?php if ($puff_text) : ?><div class="puff_text"><?php echo $puff_text; ?></div><?php endif ?>
         <?php if ($puff_link_title): ?>
+            <div class="buttons">
         <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>"
             title="<?php echo esc_attr($puff_link_title); ?>" class="button"
             target="<?php echo esc_attr( $puff_link_target ); ?>">
             <?php echo $puff_link_title; ?>
         </a>
+        </div>
         <?php endif; ?>
     </header>
 </aside>
