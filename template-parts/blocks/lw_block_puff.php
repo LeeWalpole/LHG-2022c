@@ -28,11 +28,14 @@ if( have_rows('puff') ):
         $puff_link_url = $puff_link['url'] ?: "#";
         // Do something...
         ?>
+           <?php
+    $puff_image_url = get_sub_field('puff_image', $post->ID);
+echo $puff_image_url = wp_get_attachment_url($puff_image_url);
+    ?>
 
 <aside id="puff_<?php echo $block_id; ?>">
-    <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>"
-        target="<?php echo esc_attr( $puff_link_target ); ?>" class="button"><?php echo esc_html($puff_link_title); ?>
-        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="<?php echo $puff_image_url; ?>" alt="<?php echo $puff_headline; ?>" class="lazyload" loading="lazy">
+    <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>" target="<?php echo esc_attr( $puff_link_target ); ?>">
+        <img src="<?php echo $puff_image_url; ?>" data-src="<?php echo $puff_image_url; ?>" alt="<?php echo $puff_headline; ?>" class="lazyload" loading="lazy">
         <?php if ($puff_headline) : ?><h5 class="headline"><?php echo $puff_headline; ?></h5><?php endif ?>
         <?php if ($puff_text) : ?><div class="puff_text"><?php echo $puff_text; ?></div><?php endif ?>
     </a>
