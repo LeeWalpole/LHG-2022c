@@ -483,81 +483,93 @@ h5 {
                     </p>
                     <style>
                         .puff_block2 {
-                     
-                            padding:20px!important;
-                            margin:var(--px-big) 0;
-                            position:relative;
-                            background:var(--color-offwhite);
-                            display:flex;
+                            padding: 20px !important;
+                            margin: var(--px-big) 0;
+                            position: relative;
+                            background: var(--color-offwhite);
+
+                        }
+
+                        .puff_block2 section {
+                            display: flex;
                             justify-content: center;
                             justify-content: space-between;
                         }
 
-                        .puff_block2 header { 
-                            display: flex; 
+                        .puff_block2 header {
+                            display: flex;
                             flex-grow: 1;
                             flex-direction: column;
-                       margin:0 0 0 var(--px-medium);
-                   
+                            margin: 0 0 0 var(--px-medium);
+
                             /* padding-left: calc(125px + var(--px-small)); */
                         }
 
-                        .puff_block2 figure { 
-                       margin-bottom:0;
+                        .puff_block2 figure {
+                            margin-bottom: 0;
                         }
 
-                        .puff_block2 .puff_text > * {  
-                            font-size: 0.9rem!important;
+                        .puff_block2 .puff_text>* {
+                            font-size: 0.9rem !important;
                         }
 
-                        .puff_block2 header .button { 
-         background:var(--color);
-         color:white;
-         display:inline-block!important;
-         margin:var(--px-small) 0 0 0!important;
-         font-size: var(--xsmall)!important;
-         height:44px!important; line-height: 44px!important;
-         float:right;
+                        .puff_block2 .buttons {
+                            background: var(--color);
+                            margin:0; padding:0;  
                         }
-                   
-                        .puff_block2_picture { height:125px; width:125px;
-          display:block;        background:var(--color);
-          
+
+                        .puff_block2 .button {
+                            background: var(--color);
+                            color: white;
+                            display: block !important;
+                            /* font-size: var(--xsmall) !important;
+                            height: 44px !important;
+                            line-height: 44px !important; */
+                            margin:var(--px-medium) 0 var(--px-small) 0!important;
+                        }
+
+                        .puff_block2 .button:hover { 
+                            filter: brightness(120%);
+                        }
+
+                        .puff_block2_picture {
+                            height: 125px;
+                            width: 125px;
+                            display: block;
+                            background: var(--color);
+
                         }
 
                         .puff_block2 img {
-  height:100%; width:100%; object-fit: cover!important;
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover !important;
 
                         }
-
                     </style>
                     <aside id="puff_block_block_63186717d04bf" class="puff_block2">
-                        <figure>
-            
-                                <picture class="ratio puff_block2_picture" data-ratio="1x1">
-                                <img
-                                    src="#"
-                                    data-src="https://www.ladsholidayguide.com/wp-content/uploads/lads-holiday-zante-360x240.jpg"
-                                    alt="Cheap Deals to Zante" class="lazyload"
-                                    loading="lazy">
-                                </picture>
-                                    <noscript><img src="#"
+                        <section>
+                            <figure>
+                                <picture class="ratio puff_block2_picture" data-ratio="1x1"> <img src="#"
                                         data-src="https://www.ladsholidayguide.com/wp-content/uploads/lads-holiday-zante-360x240.jpg"
-                                        alt="Cheap Deals to Zante" class="lazyload"
-                                        loading="lazy"></noscript>
+                                        alt="Cheap Deals to Zante" class="lazyload" loading="lazy"> </picture><noscript>
+                                    <picture class="ratio puff_block2_picture" data-ratio="1x1"> <img src="#"
+                                            data-src="https://www.ladsholidayguide.com/wp-content/uploads/lads-holiday-zante-360x240.jpg"
+                                            alt="Cheap Deals to Zante" class="lazyload" loading="lazy"> </picture>
+                                </noscript>
+                            </figure>
+                            <header>
+                                <h5 class="headline">Cheap Deals to Zante</h5>
+                                <div class="puff_text">
+                                    <p>Starting £300.</p>
+                                </div>
 
-                        </figure>
-                        <header>
-                            <h5 class="headline">Cheap Deals to Zante</h5>
-                            <div class="puff_text">
-                                <p class>Starting £300.</p>
-                            </div> 
-                            <div class="buttons">
-                                <a href="https://www.travelsupermarket.com/en-gb/holidays/greece/zante/"
+                            </header>
+
+                        </section>
+                        <div class="buttons"> <a href="https://www.travelsupermarket.com/en-gb/holidays/greece/zante/"
                                 title="Travel Supermarket Zante Holiday Deals" class="button" target="_blank"
-                                rel="noopener"> Zante Holiday Deals </a>
-                            </div>
-                        </header>
+                                rel="noopener"> Travel Supermarket Zante Holiday Deals </a></div>
                     </aside>
                     <p><strong>INTRODUCTION TO MAGALUF</strong></p>
                     <p>Known for its drunken Brits and some of the craziest bar crawls on Earth!</p>
