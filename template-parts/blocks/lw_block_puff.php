@@ -33,7 +33,7 @@ if( have_rows('puff') ):
 <style>
 
  :root {
-    --puff-image-size:100px;
+    --puff-image-size:90px;
  }
 
  @media (min-width:821px) {
