@@ -30,8 +30,8 @@ if( have_rows('puff') ):
         $puff_link_url = $puff_link['url'] ?: "#";
         // Do something...
         ?>
-
-
+        
+<?php echo $puff_image_url; ?>
 <aside id="puff_<?php echo $block_id; ?>">
     <a href="<?php echo $puff_link_url ?: "javascript:void(0)"; ?>" title="<?php echo esc_attr($puff_link_title); ?>" target="<?php echo esc_attr( $puff_link_target ); ?>">
         <img src="<?php echo $puff_image_url; ?>" data-src="<?php echo $puff_image_url; ?>" alt="<?php echo $puff_headline; ?>" class="lazyload" loading="lazy">
