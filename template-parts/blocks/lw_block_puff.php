@@ -18,9 +18,10 @@ if( have_rows('puff') ):
         // and the image size you want to return
         $puff_image_size = 'thumbnail';
         // now, we'll exctract the image URL from $image_object
-        $puff_image_url = get_sub_field('puff_image', $post->ID);
-        echo $puff_image_url = wp_get_attachment_url($puff_image_url, "thumbnail");
-        
+        $puff_image_url = wp_get_attachment_image_src( $puff_image, $puff_image_size );
+        // url = $image[0];
+        // width = $image[1];
+        // height = $image[2];
         $puff_headline = get_sub_field('puff_headline');
         $puff_text = get_sub_field('puff_text');
         $puff_link = get_sub_field('puff_link');
