@@ -118,17 +118,7 @@
 
     <?php // echo "<style>"; include_once( 'dist/min.css' ); echo "</style>"; ?>
     <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/dist/min.css?15" as="style" onload="this.rel='stylesheet'">
-    <script type="text/javascript">
-    var vglnk = {key: '37a490612fec8ee3b202802efd3b6ccd'};
-    (function(d, t) {
-        var s = d.createElement(t);
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = '//cdn.viglink.com/api/vglnk.js';
-        var r = d.getElementsByTagName(t)[0];
-            r.parentNode.insertBefore(s, r);
-    }(document, 'script'));
-</script>
+
 </head>
 
 
